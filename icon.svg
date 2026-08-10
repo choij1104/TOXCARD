@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#0A0E12"/>
+  <!-- the card -->
+  <rect x="106" y="118" width="300" height="276" rx="26" fill="#E8EEF2"/>
+  <!-- teal band: the agent -->
+  <rect x="106" y="300" width="300" height="94" fill="#2FB3A8"/>
+  <path d="M106 300 h300 v68 a26 26 0 0 1 -26 26 h-248 a26 26 0 0 1 -26 -26 z" fill="#2FB3A8"/>
+  <!-- red cross: the pitfall, always on the card -->
+  <rect x="238" y="156" width="36" height="112" rx="4" fill="#E5473C"/>
+  <rect x="200" y="194" width="112" height="36" rx="4" fill="#E5473C"/>
+</svg>
