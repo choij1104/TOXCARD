@@ -1,14 +1,25 @@
 /* TOXCARD — offline shell.
-   Strategy: cache-first for the shell so the app opens instantly with no network;
-   network-first with cache fallback for the data, so an online user silently gets
-   the newest reviewed dataset and an offline user is never blocked. */
 
-const CACHE = 'toxcard-v2026.08.23';
+   Shell: stale-while-revalidate. The cached copy answers immediately, so the app still
+   opens with no network, and a background fetch refreshes it for the next launch. This is
+   the part that was wrong before: a pure cache-first shell keeps serving the old build to
+   every returning client until CACHE happens to change, so a release could go out and
+   never reach the people already using the app.
+
+   Data: network-first with cache fallback, so an online user silently gets the newest
+   reviewed dataset and an offline user is never blocked. */
+
+const CACHE = 'toxcard-2026.09.15';
 const SHELL = ['./', './index.html', './manifest.json', './icon.svg'];
-const DATA = ['./data/toxins.json','./data/antidote-agents.json','./data/protocols.json','./data/toxidromes.json','./data/version.json'];
+const DATA  = ['./data/toxins.json','./data/antidote-agents.json','./data/protocols.json',
+               './data/toxidromes.json','./data/version.json'];
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL).then(()=>c.addAll(DATA).catch(()=>{}))).then(() => self.skipWaiting()));
+  e.waitUntil(
+    caches.open(CACHE)
+      .then(c => c.addAll(SHELL).then(() => c.addAll(DATA).catch(() => {})))
+      .then(() => self.skipWaiting())
+  );
 });
 
 self.addEventListener('activate', e => {
@@ -22,25 +33,30 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   const req = e.request;
   if (req.method !== 'GET') return;
-  const isData = req.url.includes('/data/');
+  if (new URL(req.url).origin !== self.location.origin) return;
 
-  if (isData) {
+  if (req.url.includes('/data/')) {
     e.respondWith(
       fetch(req)
         .then(res => {
-          const copy = res.clone();
-          caches.open(CACHE).then(c => c.put(req, copy));
+          if (res && res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(req, copy)); }
           return res;
         })
         .catch(() => caches.match(req))
     );
-  } else {
-    e.respondWith(
-      caches.match(req).then(hit => hit || fetch(req).then(res => {
-        const copy = res.clone();
-        caches.open(CACHE).then(c => c.put(req, copy));
-        return res;
-      }))
-    );
+    return;
   }
+
+  e.respondWith(
+    caches.match(req).then(hit => {
+      const net = fetch(req)
+        .then(res => {
+          if (res && res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(req, copy)); }
+          return res;
+        })
+        .catch(() => null);
+      e.waitUntil(net);                       // let the refresh finish after the response
+      return hit || net.then(r => r || caches.match('./index.html'));
+    })
+  );
 });
