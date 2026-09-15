@@ -114,6 +114,40 @@ main{flex:1 1 auto;overflow-y:auto;overscroll-behavior:contain;
 .tile b{display:block;font-size:14.5px;font-weight:600;letter-spacing:-.005em;line-height:1.25}
 .tile span{display:block;font-size:12px;color:var(--mut);line-height:1.35;margin-top:2px}
 .tile:hover{border-color:var(--brand)}
+.tile{position:relative}
+.tile .car{position:absolute;right:11px;bottom:11px;color:var(--dim);line-height:0}
+.tile .car svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.tile .gl{width:34px;height:34px;border-radius:10px;font-size:17px}
+.scope{display:flex;gap:7px;overflow-x:auto;margin:0 -16px 14px;padding:0 16px 2px;scrollbar-width:none}
+.scope::-webkit-scrollbar{display:none}
+.hsub{text-align:center;margin:-11px 0 15px;font-size:12.5px;color:var(--mut);letter-spacing:.02em}
+.subtitle{font-size:13px;color:var(--mut);margin:-3px 0 8px}
+.menu{position:relative}
+.menu .sheet{position:absolute;right:0;top:40px;z-index:40;background:var(--surface);
+  border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 24px rgba(12,31,46,.14);
+  min-width:194px;padding:5px;display:flex;flex-direction:column}
+.menu .sheet button{padding:11px 12px;border-radius:8px;font-size:14px;min-height:42px;
+  display:flex;align-items:center;gap:10px}
+.menu .sheet button:hover{background:var(--surface2)}
+.dtab{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:13px}
+.dtab tr+tr td{border-top:1px solid var(--hair)}
+.dtab td{padding:8px 0;vertical-align:top;line-height:1.55}
+.dtab td.k{width:34%;padding-right:12px;color:var(--mut);font-family:var(--sans);
+  font-size:12.5px;font-weight:600;letter-spacing:.01em}
+.dtab td.v span{display:block}
+.dtab td.v span+span{margin-top:3px;padding-left:13px;text-indent:-13px}
+.rescard{border:1px solid color-mix(in srgb,var(--brand) 25%,transparent);border-radius:12px;
+  overflow:hidden;margin-top:4px}
+.rescard .rh{background:var(--brandSoft);padding:12px 13px}
+.rescard .rh b{display:block;font-size:16px;font-weight:600;color:var(--brand)}
+.rescard .rh span{font-size:12.5px;color:var(--mut)}
+.rescard table{width:100%;border-collapse:collapse;font-size:13px}
+.rescard td{padding:9px 13px;border-top:1px solid var(--hair);vertical-align:top}
+.rescard td.k{color:var(--mut);font-size:12.5px;width:30%}
+.rescard td.n{font-family:var(--mono);font-weight:600;color:var(--ink);
+  font-variant-numeric:tabular-nums;width:32%}
+.rescard td.s{color:var(--dim);font-size:12px;font-family:var(--mono)}
+.seeall{font-size:11.5px;color:var(--brand);letter-spacing:.02em;text-transform:none;font-weight:500}
 
 .lbl{font-size:11px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;
   color:var(--dim);margin:22px 0 9px;display:flex;align-items:baseline;justify-content:space-between}
@@ -230,6 +264,32 @@ main{flex:1 1 auto;overflow-y:auto;overscroll-behavior:contain;
 .txd dd{margin:0}
 .tell{background:var(--amberSoft);border-radius:9px;padding:10px 11px;margin:11px 0 0;
   font-size:13.5px;line-height:1.5;border-left:3px solid var(--amber)}
+/* first-run welcome */
+#welcome{position:fixed;inset:0;z-index:90;background:var(--surface);overflow-y:auto;
+  display:flex;flex-direction:column;padding:calc(48px + env(safe-area-inset-top,0px)) 28px
+  calc(28px + env(safe-area-inset-bottom,0px));max-width:520px;margin:0 auto}
+#welcome .wm{font-size:34px;font-weight:700;letter-spacing:.1em;color:var(--brand);line-height:1}
+#welcome .wm em{font-style:normal;color:var(--ink)}
+#welcome .sub{margin-top:9px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--mut);font-weight:500;line-height:1.7}
+#welcome .lede{margin:30px 0 0;font-size:25px;font-weight:600;letter-spacing:-.02em;
+  line-height:1.3;text-wrap:balance}
+#welcome hr{border:0;border-top:1px solid var(--line);margin:22px 0}
+#welcome ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:17px}
+#welcome li{display:flex;align-items:center;gap:14px;font-size:15.5px;font-weight:500}
+#welcome li svg{width:21px;height:21px;flex:0 0 auto;fill:none;stroke:var(--brand);
+  stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#welcome .ecg{margin:30px 0 8px;display:flex;align-items:center;gap:14px}
+#welcome .ecg svg{flex:1;height:26px;fill:none;stroke:var(--brand);stroke-width:1.6;
+  stroke-linecap:round;stroke-linejoin:round;opacity:.5}
+#welcome .ecg span{font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--dim);text-align:right;line-height:1.6;flex:0 0 auto;max-width:112px}
+#welcome .go{margin-top:auto;padding-top:26px}
+#welcome .go button{width:100%;min-height:54px;border-radius:13px;background:var(--brand);
+  color:#fff;font-size:16.5px;font-weight:600;display:flex;align-items:center;
+  justify-content:center;gap:9px}
+#welcome .go svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round}
 #splash{position:fixed;inset:0;z-index:100;background:var(--ground);display:flex;
   flex-direction:column;align-items:center;justify-content:center;gap:12px;
   transition:opacity .45s ease}
@@ -264,6 +324,25 @@ main{flex:1 1 auto;overflow-y:auto;overscroll-behavior:contain;
 
 </head>
 <body>
+<div id="welcome" hidden>
+  <div class="wm">TOX<em>CARD</em></div>
+  <div class="sub">Clinical toxicology<br>at your side</div>
+  <p class="lede">Fast answers.<br>Better decisions.<br>Real patients.</p>
+  <hr>
+  <ul>
+    <li><svg viewBox="0 0 24 24"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z"/></svg>Evidence-based guidance</li>
+    <li><svg viewBox="0 0 24 24"><path d="M3 5.5s2.5-1.5 4.5-1.5S12 5.5 12 5.5v13s-2.5-1.5-4.5-1.5S3 18.5 3 18.5z"/><path d="M12 5.5s2.5-1.5 4.5-1.5S21 5.5 21 5.5v13s-2.5-1.5-4.5-1.5S12 18.5 12 18.5z"/></svg>Antidotes and dosing</li>
+    <li><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M8 8h8M8 12h3M13 12h3M8 16h3M13 16h3"/></svg>Clinical tools</li>
+    <li><svg viewBox="0 0 24 24"><path d="M12 3.5 21 19.5H3z"/><path d="M12 9.5v4.5M12 16.8v.2"/></svg>Toxidrome triage</li>
+    <li><svg viewBox="0 0 24 24"><path d="M2.5 9a15 15 0 0 1 19 0"/><path d="M5.5 12.6a10.5 10.5 0 0 1 13 0"/><path d="M8.6 16.2a6 6 0 0 1 6.8 0"/><path d="M12 19.7v.2"/></svg>Offline ready</li>
+  </ul>
+  <div class="ecg">
+    <svg viewBox="0 0 220 26" preserveAspectRatio="none"><path d="M0 13h52l7-9 7 18 8-22 8 26 7-13h34l6-6 6 12 6-6h73"/></svg>
+    <span>Toxicology support<br>for every call</span>
+  </div>
+  <div class="go"><button id="start">Get started
+    <svg viewBox="0 0 24 24"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></button></div>
+</div>
 <div id="splash">
   <h1>TOX<em>CARD</em></h1><div class="rule"></div>
   <p>Toxin · Agent · Pitfall</p>
@@ -363,16 +442,21 @@ const I={
   search:'<circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/>',
   car:'<path d="m9 5 7 7-7 7"/>',
   back:'<path d="m14 5-7 7 7 7"/>',
+  more:'<circle cx="5.5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="18.5" cy="12" r="1.3"/>',
   gear:'<circle cx="12" cy="12" r="3"/><path d="M12 2.8v2.6M12 18.6v2.6M21.2 12h-2.6M5.4 12H2.8M18.5 5.5l-1.8 1.8M7.3 16.7l-1.8 1.8M18.5 18.5l-1.8-1.8M7.3 7.3 5.5 5.5"/>'
 };
 const svg=(k,c="")=>`<svg viewBox="0 0 24 24" class="${c}" aria-hidden="true">${I[k]}</svg>`;
 
 /* ---------- state ---------- */
 let tab="home", stack=[], q="", cat="All", agentQ="", openTox=null, calcAgent=null, calcTox=null;
+let scope="All";
+const SCOPES=["All","Toxins","Antidotes","Brands","Tools"];
 const TABS=[["home","Home","home"],["toxins","Toxins","toxin"],["agents","Antidotes","agent"],
             ["tools","Tools","tools"],["saved","Saved","star"]];
 
-function go(t){tab=t;stack=[];q="";paint()}
+function go(t){if(t==="recent"){tab="saved";stack=[];q="";showRecent=true;paint();return}
+  tab=t;stack=[];q="";showRecent=false;paint()}
+let showRecent=false;
 function push(kind,id){stack.push({kind,id});if(kind==="toxin")remember(id);paint()}
 function pop(){stack.pop();paint()}
 function remember(id){recent=[id,...recent.filter(x=>x!==id)].slice(0,8);store.set("recent",recent)}
@@ -383,6 +467,20 @@ const hay=t=>{const p=P[t.id]||{};return [t.name,(t.aka||[]).join(" "),t.categor
   p.pitfall,p.window,(p.antidoteIds||[]).map(i=>A[i]?A[i].name+" "+A[i].brands.join(" "):"").join(" ")]
   .join(" ").toLowerCase()};
 const search=s=>{const k=s.trim().toLowerCase();return k?TOXINS.filter(t=>hay(t).includes(k)):[]};
+/* scoped search — the chips narrow which field the query is read against */
+function scopedSearch(s){
+  const k=s.trim().toLowerCase(); if(!k) return {toxins:[],agents:[]};
+  const inAgents=a=>(a.name+" "+a.class).toLowerCase().includes(k);
+  const inBrands=a=>a.brands.join(" ").toLowerCase().includes(k);
+  switch(scope){
+    case "Toxins":    return {toxins:TOXINS.filter(t=>(t.name+" "+(t.aka||[]).join(" ")+" "+t.category).toLowerCase().includes(k)),agents:[]};
+    case "Antidotes": return {toxins:[],agents:AGENTS.filter(inAgents)};
+    case "Brands":    return {toxins:[],agents:AGENTS.filter(inBrands)};
+    case "Tools":     return {toxins:[],agents:[],txd:TOXIDROMES.filter(t=>
+                        (t.name+" "+t.tell+" "+t.agents.join(" ")).toLowerCase().includes(k))};
+    default:          return {toxins:search(s),agents:AGENTS.filter(a=>inAgents(a)||inBrands(a))};
+  }
+}
 
 /* ---------- pieces ---------- */
 function badgeFor(p){
@@ -409,20 +507,28 @@ function agentRow(a){
 function tile(act,gl,tint,title,sub){
   return `<button class="tile" data-go="${act}">
     <span class="gl" style="background:${tint};color:${gl.c}">${gl.t}</span>
-    <span><b>${title}</b><span>${sub}</span></span></button>`;
+    <span><b>${title}</b><span>${sub}</span></span>
+    <span class="car">${svg("car")}</span></button>`;
 }
 
 /* ---------- views ---------- */
 function viewHome(){
+  const chips=`<div class="scope">${SCOPES.map(x=>
+    `<button class="chip" data-scope="${x}" aria-pressed="${x===scope}">${x}</button>`).join("")}</div>`;
   if(q.trim()){
-    const r=search(q);
-    return `<div class="lbl">${r.length} result${r.length===1?"":"s"}</div>`
-      +(r.length?r.map(toxRow).join(""):`<div class="empty">Nothing matches “${esc(q)}”.<br>Try a brand name, a toxidrome, or an agent.</div>`);
+    const r=scopedSearch(q);
+    const n=(r.toxins||[]).length+(r.agents||[]).length+(r.txd||[]).length;
+    if(!n) return chips+`<div class="empty">Nothing matches “${esc(q)}” in ${esc(scope)}.<br>Try another scope, a brand name, or an agent.</div>`;
+    return chips
+      +((r.toxins||[]).length?`<div class="lbl">Toxins<span>${r.toxins.length}</span></div>`+r.toxins.map(toxRow).join(""):"")
+      +((r.agents||[]).length?`<div class="lbl">Agents<span>${r.agents.length}</span></div>`+r.agents.map(agentRow).join(""):"")
+      +((r.txd||[]).length?`<div class="lbl">Toxidromes<span>${r.txd.length}</span></div>`
+        +r.txd.map(t=>`<button class="row" data-gotxd="${t.id}"><span class="tier" style="background:var(--amber)">◎</span><span class="txt"><b>${esc(t.name)}</b><span>${esc(t.tell)}</span></span><span class="car">${svg("car")}</span></button>`).join(""):"");
   }
   const rec=recent.filter(id=>T[id]).slice(0,4);
   const alerts=(VERSION.changelog||[]).slice(0,2).map(c=>
     `<div class="alert"><span class="tag">Update · ${esc(VERSION.version)}</span>${esc(c)}</div>`).join("");
-  return `<button class="jumprow" data-tox="039-cyanide-smoke-inhalation-hcn-nitroprusside-acetonitrile-apri">
+  return chips+`<button class="jumprow" data-tox="039-cyanide-smoke-inhalation-hcn-nitroprusside-acetonitrile-apri">
       <span class="gl">⚠</span>
       <span class="txt"><b>Cyanide</b><span>Hydroxocobalamin first line · smoke inhalation</span></span>
       <span class="car">${svg("car")}</span></button>
@@ -434,7 +540,7 @@ function viewHome(){
     ${tile("tools",{t:"◱",c:"var(--brand)"},"var(--brandSoft)","Clinical Tools","Weight, height, display")}
     ${tile("saved",{t:"★",c:"var(--amber)"},"var(--amberSoft)","Saved",`${favs.length} quick-access entr${favs.length===1?"y":"ies"}`)}
   </div>
-  ${rec.length?`<div class="lbl">Recently viewed</div>${rec.map(id=>toxRow(T[id])).join("")}`:""}
+  ${rec.length?`<div class="lbl">Recently viewed${recent.filter(id=>T[id]).length>4?`<button class="seeall" data-go="recent">See all</button>`:""}</div>${rec.map(id=>toxRow(T[id])).join("")}`:""}
   ${alerts?`<div class="lbl">Updates</div>${alerts}`:""}
   <div class="foot">
     Data ${esc(VERSION.version)} · reviewed ${esc(VERSION.lastReviewed)} · supply watch due ${esc(VERSION.supplyWatchDue||"—")}<br>
@@ -460,6 +566,9 @@ function viewAgents(){
    +(list.length?list.map(agentRow).join(""):`<div class="empty">No agent matches that.</div>`);
 }
 function viewSaved(){
+  if(showRecent){const r=recent.filter(id=>T[id]);
+    return `<div class="lbl">Recently viewed<button class="seeall" data-go="saved">Show saved</button></div>`
+      +(r.length?r.map(id=>toxRow(T[id])).join(""):`<div class="empty">Nothing viewed yet.</div>`);}
   const l=favs.filter(id=>T[id]);
   return l.length?`<div class="lbl">${l.length} saved</div>`+l.map(id=>toxRow(T[id])).join("")
     :`<div class="empty">Nothing saved yet.<br>Tap the star on any entry to keep it here.</div>`;
@@ -500,18 +609,48 @@ function txdHTML(t){
 }
 
 /* ---------- dose calculator ---------- */
+let calcMode="Antidotes", customExpr="";
+function calcResultCard(p){
+  const rows=computeDoses(p.dose);
+  if(!rows) return `<div class="note"><span>Enter a weight above to resolve these.</span></div>`;
+  return `<div class="rescard"><div class="rh"><b>${esc(p.agentLine)}</b>
+    <span>${esc(T[p.toxinId].name)}</span></div><table>`
+   +rows.map((r,i)=>r.out===null
+      ?`<tr><td class="k">Step ${i+1}</td><td class="n">—</td><td class="s">${esc(r.note)}</td></tr>`
+      :`<tr><td class="k">Step ${i+1}</td><td class="n">${esc(r.out)}</td><td class="s">(${esc(r.expr)}${r.capped?", capped at "+esc(r.capTxt):""})</td></tr>`).join("")
+   +`</table></div>
+   <div class="note"><span>Arithmetic only. It does not know the indication, does not choose
+   between conditional regimens written for different weight bands, and cannot apply a ceiling
+   that is not stated in the same clause. <b>Read the dose block and verify before administration.</b></span></div>`;
+}
 function viewCalc(){
   const agents=AGENTS.filter(a=>a.treats.length).sort((x,y)=>x.name.localeCompare(y.name));
   const a=calcAgent?A[calcAgent]:null;
   const p=calcTox?P[calcTox]:null;
-  return `<div class="card">
+  return `<div class="seg" style="width:100%;margin-bottom:12px">
+    ${["Antidotes","By toxin","Custom"].map(m=>`<button data-mode="${m}" aria-pressed="${m===calcMode}" style="flex:1;justify-content:center">${m}</button>`).join("")}
+  </div>
+  <div class="card">
     <h4>1 · Patient weight</h4>
     <div class="inrow"><input class="inp" id="wt" type="number" inputmode="decimal" min="0.5" max="300" step="0.5" aria-label="Patient weight" placeholder="—" value="${WT??""}">
       <div class="seg"><button data-unit="kg" aria-pressed="${UNIT==="kg"}">kg</button>
       <button data-unit="lb" aria-pressed="${UNIT==="lb"}">lb</button></div></div>
     <div class="inrow" style="margin-top:8px"><input class="inp" id="ht" type="number" inputmode="decimal" min="30" max="230" step="1" aria-label="Patient height in centimetres" placeholder="Height in cm — only for mg/m²" value="${HT??""}"></div>
   </div>
-  <div class="card"><h4>2 · Select agent</h4>
+  ${calcMode==="Custom"?`<div class="card"><h4>2 · Your own expression</h4>
+    <input class="inp" id="cx" style="width:100%" placeholder="e.g. 1.5 mL/kg, max 500 mL" value="${esc(customExpr)}">
+    <div style="margin-top:12px">${customExpr&&WT?(computeDoses(customExpr)?`<div class="rescard"><div class="rh"><b>At ${WT} kg</b><span>${esc(customExpr)}</span></div><table>`
+      +computeDoses(customExpr).map((r,i)=>`<tr><td class="k">Result</td><td class="n">${esc(r.out??"—")}</td><td class="s">(${esc(r.expr)}${r.capped?", capped at "+esc(r.capTxt):""})</td></tr>`).join("")
+      +`</table></div>`:`<div class="note"><span>No weight-based expression found. Write it as <b>mg/kg</b>, <b>µg/kg</b>, <b>mL/kg</b>, <b>units/kg</b> or <b>mg/m²</b>, and state any ceiling in the same clause.</span></div>`)
+      :`<div class="note"><span>Type an expression and set a weight. Ceilings written as <b>max</b>, <b>up to</b> or <b>not to exceed</b> in the same clause are applied.</span></div>`}</div></div>`
+  :calcMode==="By toxin"?`<div class="card"><h4>2 · Select entry</h4>
+    <div class="search" style="margin:0 0 10px"><span>${svg("search")}</span>
+      <input id="aq" type="search" aria-label="Search entries" placeholder="Search toxins" value="${esc(agentQ)}" autocomplete="off"></div>
+    ${(agentQ?search(agentQ):TOXINS.slice(0,8)).slice(0,40).map(t=>`<button class="row" data-calctoxdirect="${t.id}" style="margin-bottom:6px;box-shadow:none;${calcTox===t.id?"border-color:var(--brand)":""}">
+      <span class="tier" style="background:${tierCol[(P[t.id]||{}).tier]||"var(--tN)"}">${(P[t.id]||{}).tier==="N"?"–":(P[t.id]||{}).tier}</span>
+      <span class="txt"><b>${esc(t.name)}</b><span>${esc((P[t.id]||{}).agentLine||"")}</span></span>
+      <span class="car">${svg("car")}</span></button>`).join("")||`<div class="empty">No entry matches that.</div>`}</div>`
+  :`<div class="card"><h4>2 · Select agent</h4>
     <div class="search" style="margin:0 0 10px"><span>${svg("search")}</span>
       <input id="aq" type="search" aria-label="Search antidotes" placeholder="Search antidotes" value="${esc(agentQ)}" autocomplete="off"></div>
     ${agents.filter(x=>!agentQ||(x.name+" "+x.brands.join(" ")).toLowerCase().includes(agentQ.toLowerCase()))
@@ -519,21 +658,33 @@ function viewCalc(){
         <span class="tier" style="background:var(--teal)">⚕</span>
         <span class="txt"><b>${esc(x.name)}</b><span>${esc(x.brands.length?x.brands.join(" · "):x.class)}</span></span>
         <span class="car">${svg("car")}</span></button>`).join("")||`<div class="empty">No agent matches that.</div>`}
-  </div>
-  ${a?`<div class="card"><h4>3 · Indication</h4>
+  </div>`}
+  ${calcMode==="Antidotes"&&a?`<div class="card"><h4>3 · Indication</h4>
     ${a.treats.map(id=>T[id]?`<button class="row" data-calctox="${id}" style="margin-bottom:6px;box-shadow:none;${calcTox===id?"border-color:var(--brand)":""}">
       <span class="tier" style="background:${tierCol[(P[id]||{}).tier]||"var(--tN)"}">${(P[id]||{}).tier==="N"?"–":(P[id]||{}).tier}</span>
       <span class="txt"><b>${esc(T[id].name)}</b><span>${esc((P[id]||{}).agentLine||"")}</span></span>
       <span class="car">${svg("car")}</span></button>`:"").join("")}</div>`:""}
-  ${p?`<div class="card"><h4>4 · Dosing</h4>
-      <p class="agentline">${esc(p.agentLine)}</p>
-      <p class="dose" style="margin-top:9px">${esc(p.dose)}</p>
-      ${WT?calcHTML(p.dose):`<div class="note"><span>Enter a weight above to resolve these.</span></div>`}
+  ${p&&calcMode!=="Custom"?`<div class="card"><h4>${calcMode==="By toxin"?"3":"4"} · Dosing result</h4>
+      ${doseTable(p.dose)}
+      <div style="margin-top:12px">${calcResultCard(p)}</div>
       <div class="linkrow" style="margin-top:12px"><button data-tox="${calcTox}">Open the full entry, including the pitfall ›</button></div>
-    </div>`:!a?`<div class="note"><span><b>Pick an agent.</b> The calculator reads the dose text of the entry you choose and resolves only the weight-based expressions in it. It never rewrites the regimen.</span></div>`:""}`;
+    </div>`:(calcMode==="Antidotes"&&!a)?`<div class="note"><span><b>Pick an agent.</b> The calculator reads the dose text of the entry you choose and resolves only the weight-based expressions in it. It never rewrites the regimen.</span></div>`:""}`;
 }
 
 /* ---------- detail ---------- */
+/* The dose text is never rewritten. Each line of the source becomes a row, and a line
+   written as a sequence with arrows keeps its arrows, one step per line inside the cell. */
+function doseTable(dose){
+  const lines=String(dose||"").split("\n").filter(x=>x.trim());
+  if(!lines.length) return "";
+  return `<table class="dtab">`+lines.map(ln=>{
+    const m=ln.match(/^([^:]{2,30}):\s*(.+)$/);
+    const k=m?m[1]:"", v=m?m[2]:ln;
+    const steps=v.split(/\s*→\s*/);
+    return `<tr>${k?`<td class="k">${esc(k)}</td>`:`<td class="k"></td>`}<td class="v">`
+      +steps.map((x,i)=>`<span>${i?"→ ":""}${esc(x)}</span>`).join("")+`</td></tr>`;
+  }).join("")+`</table>`;
+}
 const SECS=[["ov","Overview"],["ag","Agent"],["ds","Dose"],["pf","Pitfall"],["src","Sources"]];
 function viewToxin(id){
   const t=T[id], p=P[id]||{};
@@ -542,14 +693,15 @@ function viewToxin(id){
   return `<div class="jump">${SECS.map(([k,l])=>`<button data-jump="${k}">${l}</button>`).join("")}</div>
   <div class="hero" id="sec-ov">
     <span class="gl" style="background:${tierCol[p.tier]||"var(--tN)"}">${p.tier==="N"?"–":p.tier}</span>
-    <div><h3>${esc(t.name)}</h3><div class="badges">
-      <span class="badge">${esc(t.category)}</span>
+    <div><h3>${esc(t.name)}</h3>
+      <div class="subtitle">${esc(t.category)}${p.agentLine?" · "+esc(p.agentLine.split(/[,(]/)[0].trim()):""}</div>
+      <div class="badges">
       <span class="badge" style="color:${tierCol[p.tier]};border-color:${tierCol[p.tier]}">Tier ${p.tier==="N"?"—":p.tier}</span>
       ${badgeFor(p)}</div></div>
   </div>
   ${p.window?`<div class="card accent-amber"><h4>Time-critical window</h4><p>${esc(p.window)}</p></div>`:""}
   <div class="card accent-teal" id="sec-ag"><h4>Agent</h4><p class="agentline">${esc(p.agentLine)}</p></div>
-  <div class="card" id="sec-ds"><h4>Dose and management</h4><p class="dose">${esc(p.dose)}</p>${calcHTML(p.dose)}</div>
+  <div class="card" id="sec-ds"><h4>Dose and management</h4>${doseTable(p.dose)}${calcHTML(p.dose)}</div>
   <div class="card pit" id="sec-pf"><h4>Pitfall</h4><p>${esc(p.pitfall)}</p></div>
   ${links?`<div class="card"><h4>${p.tier==="N"?"Adjunct agents — no specific antidote":p.tier==="D"?"Agents — investigational or not obtainable":"Antidote agents"}</h4><div class="linkrow">${links}</div></div>`:""}
   <div class="card" id="sec-src"><h4>Sources</h4><div class="srcline">${src}</div></div>
@@ -575,9 +727,30 @@ function paint(){
     const isTox=top.kind==="toxin";
     $("tb").innerHTML=`<button class="back" id="bk">${svg("back")}Back</button>
       <span class="tb-title">${esc(isTox?T[top.id].name:A[top.id].name)}</span>
-      ${isTox?`<button class="iconbtn" id="fav" aria-label="Save">${svg("star",favs.includes(top.id)?"on":"")}</button>`:""}`;
+      ${isTox?`<button class="iconbtn" id="fav" aria-label="Save">${svg("star",favs.includes(top.id)?"on":"")}</button>
+        <span class="menu"><button class="iconbtn" id="more" aria-label="More">${svg("more")}</button>
+        <span class="sheet" id="sheet" hidden>
+          <button data-act="print">Print this entry</button>
+          <button data-act="copy">Copy dose and pitfall</button>
+          <button data-act="agents">Jump to agents</button>
+        </span></span>`:""}`;
     v.innerHTML=isTox?viewToxin(top.id):viewAgent(top.id);
-    if(isTox){$("fav").onclick=()=>toggleFav(top.id); wireJump();}
+    if(isTox){
+      $("fav").onclick=()=>toggleFav(top.id); wireJump();
+      const mb=$("more"),sh=$("sheet");
+      mb.onclick=e=>{e.stopPropagation();sh.hidden=!sh.hidden};
+      document.addEventListener("click",()=>{if(sh)sh.hidden=true},{once:true});
+      sh.querySelectorAll("[data-act]").forEach(b=>b.onclick=()=>{
+        const pr=P[top.id]||{}, tx=T[top.id];
+        if(b.dataset.act==="print") window.print();
+        if(b.dataset.act==="copy"){
+          const txt=tx.name+"\n\n"+pr.agentLine+"\n\n"+pr.dose+"\n\nPitfall: "+pr.pitfall;
+          try{navigator.clipboard.writeText(txt)}catch(e){}
+        }
+        if(b.dataset.act==="agents"){const el=$("sec-pf");
+          if(el)$("view").scrollTo({top:el.offsetTop-64,behavior:"smooth"})}
+        sh.hidden=true;});
+    }
     $("bk").onclick=pop;
   } else if(tab==="calc"){
     $("tb").innerHTML=`<button class="back" id="bk">${svg("back")}Home</button><span class="tb-title">Dose Calculator</span>`;
@@ -594,6 +767,7 @@ function paint(){
          <button class="iconbtn" data-go="tools" aria-label="Tools">${svg("gear")}</button>`
       : `<span class="tb-title">${head}</span>`;
     v.innerHTML=(tab==="home"?`<div class="mark"><h1>TOX<em>CARD</em></h1><p>Toxin · Agent · Pitfall</p></div>
+        <div class="hsub">Search. Identify. Treat.</div>
         <div class="search"><span>${svg("search")}</span>
         <input id="hq" type="search" aria-label="Search toxins, antidotes and brand names" placeholder="Search toxins, antidotes, brands" value="${esc(q)}" autocomplete="off">
         ${q?'<button class="clr" id="cq" aria-label="Clear">×</button>':""}</div>`:"")
@@ -612,12 +786,17 @@ function wire(root){
   root.querySelectorAll("[data-find]").forEach(b=>b.onclick=()=>{q=b.dataset.find;tab="home";stack=[];paint()});
   root.querySelectorAll("[data-calcagent]").forEach(b=>b.onclick=()=>{calcAgent=b.dataset.calcagent;calcTox=null;paint()});
   root.querySelectorAll("[data-calctox]").forEach(b=>b.onclick=()=>{calcTox=b.dataset.calctox;paint()});
+  root.querySelectorAll("[data-calctoxdirect]").forEach(b=>b.onclick=()=>{calcTox=b.dataset.calctoxdirect;calcAgent=null;paint()});
+  root.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>{calcMode=b.dataset.mode;calcAgent=null;calcTox=null;agentQ="";paint()});
+  root.querySelectorAll("[data-scope]").forEach(b=>b.onclick=()=>{scope=b.dataset.scope;paint()});
+  root.querySelectorAll("[data-gotxd]").forEach(b=>b.onclick=()=>{openTox=b.dataset.gotxd;q="";go("toxidromes")});
   root.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
 }
 function wireInputs(){
   const hq=$("hq");
   if(hq){hq.oninput=e=>{q=e.target.value;const v=$("view");
     const sc=v.scrollTop;v.innerHTML=`<div class="mark"><h1>TOX<em>CARD</em></h1><p>Toxin · Agent · Pitfall</p></div>
+      <div class="hsub">Search. Identify. Treat.</div>
       <div class="search"><span>${svg("search")}</span><input id="hq" type="search" aria-label="Search toxins, antidotes and brand names" placeholder="Search toxins, antidotes, brands" value="${esc(q)}" autocomplete="off">${q?'<button class="clr" id="cq" aria-label="Clear">×</button>':""}</div>`+viewHome();
     v.scrollTop=sc;const n=$("hq");n.focus();n.setSelectionRange(n.value.length,n.value.length);wire(v);wireInputs()};}
   const cq=$("cq"); if(cq)cq.onclick=()=>{q="";paint()};
@@ -638,6 +817,7 @@ function wireInputs(){
     const nxt=cur==="dark"?"light":"dark";
     document.documentElement.setAttribute("data-theme",nxt);store.set("theme",nxt)};
   const prt=$("prt"); if(prt)prt.onclick=()=>window.print();
+  const cx=$("cx"); if(cx)cx.onchange=e=>{customExpr=e.target.value;paint()};
 }
 function wireJump(){
   const btns=[...document.querySelectorAll("[data-jump]")];
@@ -657,7 +837,13 @@ if(savedTheme)document.documentElement.setAttribute("data-theme",savedTheme);
 paint();
 
 const sp=document.getElementById("splash");
-if(sp){setTimeout(()=>sp.classList.add("gone"),900);setTimeout(()=>sp.remove(),1400);}
+const wel=document.getElementById("welcome");
+const seen=store.get("seen",false);
+if(sp){setTimeout(()=>{sp.classList.add("gone");if(!seen&&wel)wel.hidden=false;},900);
+       setTimeout(()=>sp.remove(),1400);}
+if(wel){document.getElementById("start").onclick=()=>{store.set("seen",true);
+  wel.style.transition="opacity .3s ease";wel.style.opacity="0";
+  setTimeout(()=>wel.remove(),320);};}
 
 /* data refresh — only over http(s), only forward, never a reload: the fetched set is
    validated, kept in storage for the next cold start, and painted in place. A failed or
