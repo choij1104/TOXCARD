@@ -1,0 +1,1304 @@
+[
+ {
+  "id": "001-acetaminophen-paracetamol",
+  "name": "Acetaminophen (paracetamol)",
+  "category": "Analgesics",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "002-massive-acetaminophen-ingestion-500-mg-kg-or-4-h-level-far-a",
+  "name": "Massive acetaminophen ingestion (>500 mg/kg, or 4-h level far above the 300 line)",
+  "category": "Analgesics",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "003-salicylates-aspirin-oil-of-wintergreen",
+  "name": "Salicylates (aspirin, oil of wintergreen)",
+  "category": "Analgesics",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "004-nsaids",
+  "name": "NSAIDs",
+  "category": "Analgesics",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "005-opioids-respiratory-depression",
+  "name": "Opioids — respiratory depression",
+  "category": "Opioids",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "006-opioid-overdose-community-and-ems-setting",
+  "name": "Opioid overdose — community and EMS setting",
+  "category": "Opioids",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "007-clonidine-tizanidine-imidazoline-decongestants",
+  "name": "Clonidine, tizanidine, imidazoline decongestants",
+  "category": "Opioids",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "008-benzodiazepines",
+  "name": "Benzodiazepines",
+  "category": "Sedative-hypnotics",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "009-remimazolam-procedural-sedation",
+  "name": "Remimazolam (procedural sedation)",
+  "category": "Sedative-hypnotics",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "010-ghb-gbl-1-4-butanediol",
+  "name": "GHB, GBL, 1,4-butanediol",
+  "category": "Sedative-hypnotics",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "011-baclofen-overdose",
+  "name": "Baclofen overdose",
+  "category": "Sedative-hypnotics",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "012-unfractionated-heparin",
+  "name": "Unfractionated heparin",
+  "category": "Anticoagulants & antiplatelets",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "013-low-molecular-weight-heparin-enoxaparin-dalteparin",
+  "name": "Low molecular weight heparin (enoxaparin, dalteparin)",
+  "category": "Anticoagulants & antiplatelets",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "014-fondaparinux",
+  "name": "Fondaparinux",
+  "category": "Anticoagulants & antiplatelets",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "015-warfarin-and-other-vitamin-k-antagonists",
+  "name": "Warfarin and other vitamin K antagonists",
+  "category": "Anticoagulants & antiplatelets",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "016-superwarfarins-brodifacoum-bromadiolone-rodenticide-adultera",
+  "name": "Superwarfarins (brodifacoum, bromadiolone — rodenticide, adulterated synthetic cannabinoids)",
+  "category": "Anticoagulants & antiplatelets",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "017-dabigatran-pradaxa",
+  "name": "Dabigatran (Pradaxa)",
+  "category": "Anticoagulants & antiplatelets",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "018-apixaban-rivaroxaban-life-threatening-bleeding",
+  "name": "Apixaban, rivaroxaban — life-threatening bleeding",
+  "category": "Anticoagulants & antiplatelets",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "019-edoxaban-betrixaban",
+  "name": "Edoxaban, betrixaban",
+  "category": "Anticoagulants & antiplatelets",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "020-ticagrelor-brilinta",
+  "name": "Ticagrelor (Brilinta)",
+  "category": "Anticoagulants & antiplatelets",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "021-clopidogrel-prasugrel",
+  "name": "Clopidogrel, prasugrel",
+  "category": "Anticoagulants & antiplatelets",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "022-thrombolytics-alteplase-tenecteplase-symptomatic-ich",
+  "name": "Thrombolytics (alteplase, tenecteplase) — symptomatic ICH",
+  "category": "Anticoagulants & antiplatelets",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "023-digoxin-and-cardiac-glycosides-oleander-foxglove-lily-of-the",
+  "name": "Digoxin and cardiac glycosides (oleander, foxglove, lily of the valley, Bufo toad)",
+  "category": "Cardiovascular",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "024-beta-blocker-overdose",
+  "name": "Beta-blocker overdose",
+  "category": "Cardiovascular",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "025-beta-blocker-or-calcium-channel-blocker-cardiogenic-shock",
+  "name": "Beta-blocker or calcium channel blocker cardiogenic shock",
+  "category": "Cardiovascular",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "026-calcium-channel-blocker-overdose",
+  "name": "Calcium channel blocker overdose",
+  "category": "Cardiovascular",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "027-refractory-poison-induced-cardiogenic-shock",
+  "name": "Refractory poison-induced cardiogenic shock",
+  "category": "Cardiovascular",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "028-tricyclic-antidepressants-and-sodium-channel-blockade-qrs-10",
+  "name": "Tricyclic antidepressants and sodium channel blockade (QRS > 100 ms)",
+  "category": "Cardiovascular",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "029-bupropion-diphenhydramine-cocaine-flecainide-wide-complex-to",
+  "name": "Bupropion, diphenhydramine, cocaine, flecainide — wide complex toxicity",
+  "category": "Cardiovascular",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "030-qt-prolongation-and-torsades-de-pointes-sotalol-methadone-ar",
+  "name": "QT prolongation and torsades de pointes (sotalol, methadone, arsenic, antipsychotics)",
+  "category": "Cardiovascular",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "031-methemoglobinemia-benzocaine-dapsone-nitrites-aniline-dyes-n",
+  "name": "Methemoglobinemia (benzocaine, dapsone, nitrites, aniline dyes, nitric oxide, phenazopyridine)",
+  "category": "Cardiovascular",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "032-dapsone-induced-methemoglobinemia-specifically",
+  "name": "Dapsone-induced methemoglobinemia specifically",
+  "category": "Cardiovascular",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "033-refractory-vasoplegic-shock-post-bypass-ace-inhibitor-sepsis",
+  "name": "Refractory vasoplegic shock (post-bypass, ACE inhibitor, sepsis)",
+  "category": "Cardiovascular",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "034-methanol-windshield-fluid-moonshine-adulterated-spirits",
+  "name": "Methanol (windshield fluid, moonshine, adulterated spirits)",
+  "category": "Toxic alcohols",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "035-ethylene-glycol-antifreeze",
+  "name": "Ethylene glycol (antifreeze)",
+  "category": "Toxic alcohols",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "036-diethylene-glycol-contaminated-syrups-glycerin-substitution",
+  "name": "Diethylene glycol (contaminated syrups, glycerin substitution)",
+  "category": "Toxic alcohols",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "037-toxic-alcohols-when-fomepizole-is-unavailable",
+  "name": "Toxic alcohols when fomepizole is unavailable",
+  "category": "Toxic alcohols",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "038-isopropanol-rubbing-alcohol",
+  "name": "Isopropanol (rubbing alcohol)",
+  "category": "Toxic alcohols",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "039-cyanide-smoke-inhalation-hcn-nitroprusside-acetonitrile-apri",
+  "name": "Cyanide (smoke inhalation, HCN, nitroprusside, acetonitrile, apricot kernels)",
+  "category": "Gases & asphyxiants",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "040-cyanide-alternative-when-hydroxocobalamin-is-unavailable",
+  "name": "Cyanide — alternative when hydroxocobalamin is unavailable",
+  "category": "Gases & asphyxiants",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "041-carbon-monoxide",
+  "name": "Carbon monoxide",
+  "category": "Gases & asphyxiants",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "042-hydrogen-sulfide-manure-pits-oil-and-gas-chemical-suicide",
+  "name": "Hydrogen sulfide (manure pits, oil and gas, chemical suicide)",
+  "category": "Gases & asphyxiants",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "043-nitroprusside-associated-cyanide-accumulation",
+  "name": "Nitroprusside-associated cyanide accumulation",
+  "category": "Gases & asphyxiants",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "044-chlorine-phosgene-ammonia-riot-control-agents",
+  "name": "Chlorine, phosgene, ammonia, riot control agents",
+  "category": "Gases & asphyxiants",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "045-organophosphate-insecticides-malathion-parathion-chlorpyrifo",
+  "name": "Organophosphate insecticides (malathion, parathion, chlorpyrifos)",
+  "category": "Cholinergic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "046-organophosphate-nicotinic-effects-and-aging-prevention",
+  "name": "Organophosphate — nicotinic effects and aging prevention",
+  "category": "Cholinergic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "047-nerve-agents-sarin-soman-tabun-vx-novichok-class",
+  "name": "Nerve agents (sarin, soman, tabun, VX, Novichok class)",
+  "category": "Cholinergic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "048-carbamate-insecticides-carbaryl-aldicarb-and-medicinal-carba",
+  "name": "Carbamate insecticides (carbaryl, aldicarb) and medicinal carbamates",
+  "category": "Cholinergic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "049-antimuscarinic-delirium-diphenhydramine-jimson-weed-atropine",
+  "name": "Antimuscarinic delirium (diphenhydramine, jimson weed, atropine, TCAs, antipsychotics)",
+  "category": "Anticholinergic",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "050-antimuscarinic-delirium-when-physostigmine-is-unavailable",
+  "name": "Antimuscarinic delirium — when physostigmine cannot be obtained",
+  "category": "Anticholinergic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "051-methotrexate",
+  "name": "Methotrexate",
+  "category": "Antineoplastic & immunologic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "052-methotrexate-with-delayed-clearance-level-1-mol-l-with-renal",
+  "name": "Methotrexate with delayed clearance (level >1 µmol/L with renal impairment)",
+  "category": "Antineoplastic & immunologic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "053-fluorouracil-or-capecitabine-overdose-or-early-severe-toxici",
+  "name": "Fluorouracil or capecitabine overdose, or early severe toxicity",
+  "category": "Antineoplastic & immunologic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "054-ifosfamide-encephalopathy",
+  "name": "Ifosfamide encephalopathy",
+  "category": "Antineoplastic & immunologic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "055-anthracycline-extravasation",
+  "name": "Anthracycline extravasation",
+  "category": "Antineoplastic & immunologic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "056-vinca-alkaloid-or-hyperosmolar-extravasation",
+  "name": "Vinca alkaloid or hyperosmolar extravasation",
+  "category": "Antineoplastic & immunologic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "057-vasopressor-extravasation-norepinephrine-dopamine-vasopressi",
+  "name": "Vasopressor extravasation (norepinephrine, dopamine, vasopressin)",
+  "category": "Antineoplastic & immunologic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "058-cisplatin-ototoxicity-in-pediatric-localized-solid-tumors",
+  "name": "Cisplatin ototoxicity in pediatric localized solid tumors",
+  "category": "Antineoplastic & immunologic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "059-cyclophosphamide-or-ifosfamide-hemorrhagic-cystitis",
+  "name": "Cyclophosphamide or ifosfamide hemorrhagic cystitis",
+  "category": "Antineoplastic & immunologic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "060-immune-checkpoint-inhibitor-toxicity",
+  "name": "Immune checkpoint inhibitor toxicity",
+  "category": "Antineoplastic & immunologic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "061-sulfonylurea-induced-hypoglycemia-glipizide-glyburide-glimep",
+  "name": "Sulfonylurea-induced hypoglycemia (glipizide, glyburide, glimepiride)",
+  "category": "Endocrine & metabolic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "062-insulin-overdose",
+  "name": "Insulin overdose",
+  "category": "Endocrine & metabolic",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "063-valproate-hyperammonemic-encephalopathy-or-hepatotoxicity",
+  "name": "Valproate — hyperammonemic encephalopathy or hepatotoxicity",
+  "category": "Endocrine & metabolic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "064-isoniazid-induced-seizures",
+  "name": "Isoniazid-induced seizures",
+  "category": "Endocrine & metabolic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "065-gyromitra-false-morel-and-hydrazine-related-agents",
+  "name": "Gyromitra (false morel) and hydrazine-related agents",
+  "category": "Endocrine & metabolic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "066-massive-thyroid-hormone-ingestion",
+  "name": "Massive thyroid hormone ingestion",
+  "category": "Endocrine & metabolic",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "067-iron",
+  "name": "Iron",
+  "category": "Metals & radionuclides",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "068-lead-encephalopathy-or-blood-lead-70-g-dl",
+  "name": "Lead — encephalopathy or blood lead >70 µg/dL",
+  "category": "Metals & radionuclides",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "069-lead-children-with-blood-lead-45-g-dl-no-encephalopathy",
+  "name": "Lead — children with blood lead >45 µg/dL, no encephalopathy",
+  "category": "Metals & radionuclides",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "070-arsenic-acute-inorganic-ingestion",
+  "name": "Arsenic — acute inorganic ingestion",
+  "category": "Metals & radionuclides",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "071-mercury-inorganic-salts-and-organic-methylmercury",
+  "name": "Mercury — inorganic salts and organic (methylmercury)",
+  "category": "Metals & radionuclides",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "072-copper-overload-and-wilson-disease",
+  "name": "Copper overload and Wilson disease",
+  "category": "Metals & radionuclides",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "073-thallium",
+  "name": "Thallium",
+  "category": "Metals & radionuclides",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "074-radioactive-cesium-137-and-thallium-201-internal-contaminati",
+  "name": "Radioactive cesium-137 and thallium-201 internal contamination",
+  "category": "Metals & radionuclides",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "075-transuranic-contamination-plutonium-239-americium-241-curium",
+  "name": "Transuranic contamination (plutonium-239, americium-241, curium-244)",
+  "category": "Metals & radionuclides",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "076-radioiodine-i-131-exposure",
+  "name": "Radioiodine (I-131) exposure",
+  "category": "Metals & radionuclides",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "077-hematopoietic-acute-radiation-syndrome",
+  "name": "Hematopoietic acute radiation syndrome",
+  "category": "Metals & radionuclides",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "078-aluminum-and-zinc-phosphide-rodenticide-fumigant",
+  "name": "Aluminum and zinc phosphide (rodenticide, fumigant)",
+  "category": "Metals & radionuclides",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "079-north-american-pit-vipers-rattlesnake-copperhead-cottonmouth",
+  "name": "North American pit vipers (rattlesnake, copperhead, cottonmouth)",
+  "category": "Envenomation",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "080-coral-snake-micrurus-fulvius",
+  "name": "Coral snake (Micrurus fulvius)",
+  "category": "Envenomation",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "081-centruroides-scorpion-sting",
+  "name": "Centruroides scorpion sting",
+  "category": "Envenomation",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "082-latrodectus-black-widow-envenomation",
+  "name": "Latrodectus (black widow) envenomation",
+  "category": "Envenomation",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "083-loxosceles-brown-recluse",
+  "name": "Loxosceles (brown recluse)",
+  "category": "Envenomation",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "084-stingray-scorpionfish-stonefish-lionfish",
+  "name": "Stingray, scorpionfish, stonefish, lionfish",
+  "category": "Envenomation",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "085-botulism-adult-foodborne-wound-iatrogenic-age-1-y",
+  "name": "Botulism — adult, foodborne, wound, iatrogenic (age >1 y)",
+  "category": "Biological toxins & infection",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "086-infant-botulism-1-y-toxin-types-a-and-b",
+  "name": "Infant botulism (<1 y, toxin types A and B)",
+  "category": "Biological toxins & infection",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "087-tetanus",
+  "name": "Tetanus",
+  "category": "Biological toxins & infection",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "088-diphtheria",
+  "name": "Diphtheria",
+  "category": "Biological toxins & infection",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "089-inhalational-anthrax",
+  "name": "Inhalational anthrax",
+  "category": "Biological toxins & infection",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "090-amatoxin-mushrooms-amanita-phalloides-a-ocreata-galerina-lep",
+  "name": "Amatoxin mushrooms (Amanita phalloides, A. ocreata, Galerina, Lepiota)",
+  "category": "Biological toxins & infection",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "091-ricin-and-abrin",
+  "name": "Ricin and abrin",
+  "category": "Biological toxins & infection",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "092-serotonin-syndrome",
+  "name": "Serotonin syndrome",
+  "category": "Neurologic & psychiatric",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "093-neuroleptic-malignant-syndrome",
+  "name": "Neuroleptic malignant syndrome",
+  "category": "Neurologic & psychiatric",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "094-malignant-hyperthermia",
+  "name": "Malignant hyperthermia",
+  "category": "Neurologic & psychiatric",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "095-acute-dystonic-reaction-metoclopramide-prochlorperazine-anti",
+  "name": "Acute dystonic reaction (metoclopramide, prochlorperazine, antipsychotics)",
+  "category": "Neurologic & psychiatric",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "096-lithium-toxicity",
+  "name": "Lithium toxicity",
+  "category": "Neurologic & psychiatric",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "097-strychnine",
+  "name": "Strychnine",
+  "category": "Neurologic & psychiatric",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "098-local-anesthetic-systemic-toxicity-last",
+  "name": "Local anesthetic systemic toxicity (LAST)",
+  "category": "Anesthesia & procedural",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "099-rocuronium-or-vecuronium-blockade",
+  "name": "Rocuronium or vecuronium blockade",
+  "category": "Anesthesia & procedural",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "100-non-depolarizing-blockade-routine-reversal",
+  "name": "Non-depolarizing blockade — routine reversal",
+  "category": "Anesthesia & procedural",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "101-succinylcholine-apnea-pseudocholinesterase-deficiency",
+  "name": "Succinylcholine apnea (pseudocholinesterase deficiency)",
+  "category": "Anesthesia & procedural",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "102-hydrofluoric-acid-dermal-exposure",
+  "name": "Hydrofluoric acid — dermal exposure",
+  "category": "Industrial & occupational",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "103-hydrofluoric-acid-inhalation",
+  "name": "Hydrofluoric acid — inhalation",
+  "category": "Industrial & occupational",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "104-paraquat",
+  "name": "Paraquat",
+  "category": "Industrial & occupational",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "105-caustics-strong-acids-and-alkalis",
+  "name": "Caustics (strong acids and alkalis)",
+  "category": "Industrial & occupational",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "106-hydrocarbons-kerosene-lamp-oil-lighter-fluid",
+  "name": "Hydrocarbons (kerosene, lamp oil, lighter fluid)",
+  "category": "Industrial & occupational",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "107-theophylline-and-caffeine",
+  "name": "Theophylline and caffeine",
+  "category": "Industrial & occupational",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "108-colchicine",
+  "name": "Colchicine",
+  "category": "Industrial & occupational",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "109-metformin-associated-lactic-acidosis",
+  "name": "Metformin-associated lactic acidosis",
+  "category": "Industrial & occupational",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "110-single-dose-activated-charcoal",
+  "name": "Single-dose activated charcoal",
+  "category": "Decontamination & extracorporeal",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "111-multi-dose-activated-charcoal",
+  "name": "Multi-dose activated charcoal",
+  "category": "Decontamination & extracorporeal",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "112-whole-bowel-irrigation",
+  "name": "Whole bowel irrigation",
+  "category": "Decontamination & extracorporeal",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "113-urinary-alkalinization",
+  "name": "Urinary alkalinization",
+  "category": "Decontamination & extracorporeal",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "114-extracorporeal-removal-extrip-guided",
+  "name": "Extracorporeal removal (EXTRIP-guided)",
+  "category": "Decontamination & extracorporeal",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "115-poison-induced-cardiac-arrest-or-refractory-shock",
+  "name": "Poison-induced cardiac arrest or refractory shock",
+  "category": "Decontamination & extracorporeal",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "oleander-and-yellow-oleander-nerium-oleander-thevetia-peruvi",
+  "name": "Oleander and yellow oleander (Nerium oleander, Thevetia peruviana)",
+  "category": "Plants & mushrooms",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "water-hemlock-cicuta-maculata",
+  "name": "Water hemlock (Cicuta maculata)",
+  "category": "Plants & mushrooms",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "poison-hemlock-conium-maculatum",
+  "name": "Poison hemlock (Conium maculatum)",
+  "category": "Plants & mushrooms",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "yew-taxus-species",
+  "name": "Yew (Taxus species)",
+  "category": "Plants & mushrooms",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "aconite-monkshood-wolfsbane-aconitum",
+  "name": "Aconite (monkshood, wolfsbane; Aconitum)",
+  "category": "Plants & mushrooms",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "jimson-weed-and-other-datura-species",
+  "name": "Jimson weed and other Datura species",
+  "category": "Plants & mushrooms",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "grayanotoxin-rhododendron-azalea-mountain-laurel-mad-honey",
+  "name": "Grayanotoxin (rhododendron, azalea, mountain laurel, 'mad honey')",
+  "category": "Plants & mushrooms",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "amanita-muscaria-and-a-pantherina-isoxazole-mushrooms",
+  "name": "Amanita muscaria and A. pantherina (isoxazole mushrooms)",
+  "category": "Plants & mushrooms",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "cortinarius-species-orellanine",
+  "name": "Cortinarius species (orellanine)",
+  "category": "Plants & mushrooms",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "gastrointestinal-irritant-mushrooms-chlorophyllum-omphalotus",
+  "name": "Gastrointestinal-irritant mushrooms (Chlorophyllum, Omphalotus, Entoloma)",
+  "category": "Plants & mushrooms",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "laundry-detergent-pods",
+  "name": "Laundry detergent pods",
+  "category": "Household & consumer products",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "camphor-camphorated-oil-chest-rubs-mothballs",
+  "name": "Camphor (camphorated oil, chest rubs, mothballs)",
+  "category": "Household & consumer products",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "methyl-salicylate-oil-of-wintergreen-topical-analgesics",
+  "name": "Methyl salicylate (oil of wintergreen, topical analgesics)",
+  "category": "Household & consumer products",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "essential-oils-eucalyptus-tea-tree-clove-pennyroyal-wintergr",
+  "name": "Essential oils (eucalyptus, tea tree, clove, pennyroyal, wintergreen)",
+  "category": "Household & consumer products",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "boric-acid-roach-powder-eyewash-denture-products",
+  "name": "Boric acid (roach powder, eyewash, denture products)",
+  "category": "Household & consumer products",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "naphthalene-mothballs",
+  "name": "Naphthalene mothballs",
+  "category": "Household & consumer products",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "button-battery-ingestion",
+  "name": "Button battery ingestion",
+  "category": "Household & consumer products",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "rare-earth-magnet-ingestion-multiple",
+  "name": "Rare-earth magnet ingestion (multiple)",
+  "category": "Household & consumer products",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "nicotine-and-e-liquid",
+  "name": "Nicotine and e-liquid",
+  "category": "Household & consumer products",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "chloramine-gas-bleach-mixed-with-ammonia",
+  "name": "Chloramine gas (bleach mixed with ammonia)",
+  "category": "Household & consumer products",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "ethanol-based-hand-sanitizer-ingestion",
+  "name": "Ethanol-based hand sanitizer ingestion",
+  "category": "Household & consumer products",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "chloroquine-and-hydroxychloroquine",
+  "name": "Chloroquine and hydroxychloroquine",
+  "category": "Paediatric high-lethality",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "diphenoxylate-atropine-lomotil",
+  "name": "Diphenoxylate-atropine (Lomotil)",
+  "category": "Paediatric high-lethality",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "lindane-topical-scabicide",
+  "name": "Lindane (topical scabicide)",
+  "category": "Paediatric high-lethality",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "podophyllin-and-podophyllotoxin",
+  "name": "Podophyllin and podophyllotoxin",
+  "category": "Paediatric high-lethality",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "ssri-or-snri-overdose-in-isolation",
+  "name": "SSRI or SNRI overdose in isolation",
+  "category": "Neurologic & psychiatric",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "lamotrigine",
+  "name": "Lamotrigine",
+  "category": "Neurologic & psychiatric",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "carbamazepine",
+  "name": "Carbamazepine",
+  "category": "Neurologic & psychiatric",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "phenytoin-and-fosphenytoin",
+  "name": "Phenytoin and fosphenytoin",
+  "category": "Neurologic & psychiatric",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "atypical-antipsychotics-quetiapine-olanzapine-risperidone",
+  "name": "Atypical antipsychotics (quetiapine, olanzapine, risperidone)",
+  "category": "Neurologic & psychiatric",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "cyclobenzaprine-tizanidine-and-other-muscle-relaxants",
+  "name": "Cyclobenzaprine, tizanidine, and other muscle relaxants",
+  "category": "Neurologic & psychiatric",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "quinine-and-quinidine",
+  "name": "Quinine and quinidine",
+  "category": "Cardiovascular",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "amiodarone",
+  "name": "Amiodarone",
+  "category": "Cardiovascular",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "gabapentin-and-pregabalin",
+  "name": "Gabapentin and pregabalin",
+  "category": "Neurologic & psychiatric",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "loperamide-in-massive-dose",
+  "name": "Loperamide in massive dose",
+  "category": "Opioids",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "dextromethorphan",
+  "name": "Dextromethorphan",
+  "category": "Substances of abuse",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "ketamine",
+  "name": "Ketamine",
+  "category": "Substances of abuse",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "cocaine",
+  "name": "Cocaine",
+  "category": "Substances of abuse",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "amphetamine-and-methamphetamine",
+  "name": "Amphetamine and methamphetamine",
+  "category": "Substances of abuse",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "mdma",
+  "name": "MDMA",
+  "category": "Substances of abuse",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "synthetic-cathinones-bath-salts",
+  "name": "Synthetic cathinones ('bath salts')",
+  "category": "Substances of abuse",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "synthetic-cannabinoids",
+  "name": "Synthetic cannabinoids",
+  "category": "Substances of abuse",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "inhalants-toluene-difluoroethane-butane-propellants",
+  "name": "Inhalants (toluene, difluoroethane, butane, propellants)",
+  "category": "Substances of abuse",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "kratom-mitragyna-speciosa",
+  "name": "Kratom (Mitragyna speciosa)",
+  "category": "Substances of abuse",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "nitrous-oxide-whippets",
+  "name": "Nitrous oxide (whippets)",
+  "category": "Substances of abuse",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "pyrethrins-and-pyrethroids",
+  "name": "Pyrethrins and pyrethroids",
+  "category": "Pesticides",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "glyphosate-surfactant-herbicide",
+  "name": "Glyphosate-surfactant herbicide",
+  "category": "Pesticides",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "deet",
+  "name": "DEET",
+  "category": "Pesticides",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "simple-asphyxiants-nitrogen-argon-helium-carbon-dioxide-meth",
+  "name": "Simple asphyxiants (nitrogen, argon, helium, carbon dioxide, methane)",
+  "category": "Gases & asphyxiants",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "arsine-gas",
+  "name": "Arsine gas",
+  "category": "Gases & asphyxiants",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "methyl-bromide-and-other-fumigants",
+  "name": "Methyl bromide and other fumigants",
+  "category": "Pesticides",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "massive-hymenoptera-envenomation-africanized-honeybee-attack",
+  "name": "Massive hymenoptera envenomation (Africanized honeybee attack)",
+  "category": "Envenomation",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "imported-fire-ant-solenopsis-invicta",
+  "name": "Imported fire ant (Solenopsis invicta)",
+  "category": "Envenomation",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "gila-monster-heloderma-suspectum",
+  "name": "Gila monster (Heloderma suspectum)",
+  "category": "Envenomation",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "ciguatera",
+  "name": "Ciguatera",
+  "category": "Marine & food toxins",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "scombroid-histamine-fish-poisoning",
+  "name": "Scombroid (histamine fish poisoning)",
+  "category": "Marine & food toxins",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "tetrodotoxin-pufferfish-blue-ringed-octopus",
+  "name": "Tetrodotoxin (pufferfish, blue-ringed octopus)",
+  "category": "Marine & food toxins",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "paralytic-shellfish-poisoning-saxitoxin",
+  "name": "Paralytic shellfish poisoning (saxitoxin)",
+  "category": "Marine & food toxins",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "sulfur-mustard-hd-yperite",
+  "name": "Sulfur mustard (mustard gas, HD, yperite)",
+  "category": "Industrial & occupational",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "lewisite-l-mustard-lewisite-hl",
+  "name": "Lewisite (L, 2-chlorovinyldichloroarsine; mustard–lewisite mixture HL)",
+  "category": "Industrial & occupational",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "phosgene-cg-carbonyl-chloride",
+  "name": "Phosgene (CG, carbonyl chloride)",
+  "category": "Gases & asphyxiants",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "phosgene-oxime-cx-nettle-agent",
+  "name": "Phosgene oxime (CX, dichloroformoxime — nettle agent)",
+  "category": "Industrial & occupational",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "smoke-inhalation-closed-space-fire",
+  "name": "Smoke inhalation — the closed-space fire victim",
+  "category": "Gases & asphyxiants",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "hymenoptera-sting-anaphylaxis",
+  "name": "Hymenoptera sting anaphylaxis (honeybee, yellow jacket, wasp, hornet, imported fire ant)",
+  "category": "Envenomation",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "tick-paralysis",
+  "name": "Tick paralysis",
+  "category": "Envenomation",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "aluminum-and-zinc-phosphide-rodenticide-fumigant",
+  "name": "Aluminum and zinc phosphide (Celphos, Quickphos, Phostoxin — grain fumigant, rodenticide, and the leading pesticide suicide in South Asia)",
+  "category": "Pesticides",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "methylene-chloride-dichloromethane-paint-stripper",
+  "name": "Methylene chloride (dichloromethane, DCM — paint stripper, degreaser)",
+  "category": "Industrial & occupational",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "toluene-glue-sniffing-spray-paint-huffing",
+  "name": "Toluene (methylbenzene — glue sniffing, spray paint huffing, industrial solvent)",
+  "category": "Substances of abuse",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "nickel-carbonyl-refining-catalysis",
+  "name": "Nickel carbonyl (Ni(CO)₄ — Mond process, nickel refining, catalysis)",
+  "category": "Industrial & occupational",
+  "aka": [],
+  "hasAntidote": false
+ },
+ {
+  "id": "sodium-potassium-cyanide-industrial-oral",
+  "name": "Sodium and potassium cyanide (NaCN, KCN — electroplating, gold mining, jewelry cleaner, intentional ingestion)",
+  "category": "Industrial & occupational",
+  "aka": [],
+  "hasAntidote": true
+ },
+ {
+  "id": "carbon-disulfide-cs2-rayon-cellophane",
+  "name": "Carbon disulfide (CS₂ — viscose rayon and cellophane manufacture, laboratory solvent, historical grain fumigant)",
+  "category": "Industrial & occupational",
+  "aka": [],
+  "hasAntidote": false
+ }
+]

@@ -1,0 +1,155 @@
+[
+ {
+  "id": "cholinergic",
+  "name": "Cholinergic",
+  "onset": "Minutes to hours",
+  "pupils": "Miosis (unreliable — may be normal)",
+  "skin": "Wet: diaphoresis, salivation, lacrimation",
+  "vitals": "Bradycardia, bronchorrhea, bronchospasm; may be tachycardic from nicotinic effect",
+  "mental": "Anxious then depressed; seizures; fasciculations and weakness",
+  "tell": "The patient is wet and cannot ventilate. Secretions, not pupils, are the finding that matters.",
+  "agents": [
+   "Organophosphate insecticides",
+   "Nerve agents",
+   "Carbamate insecticides",
+   "Physostigmine excess",
+   "Nicotine",
+   "Certain mushrooms (Clitocybe, Inocybe)"
+  ],
+  "search": "organophosphate"
+ },
+ {
+  "id": "anticholinergic",
+  "name": "Anticholinergic",
+  "onset": "30 min to hours; may persist days",
+  "pupils": "Mydriasis, poorly reactive",
+  "skin": "Dry, flushed, hot — no sweat",
+  "vitals": "Tachycardia, hyperthermia, urinary retention, absent bowel sounds",
+  "mental": "Agitated delirium, mumbling speech, picking at air, no orientation",
+  "tell": "Dry skin and dry axillae. This is the single finding that separates it from a sympathomimetic.",
+  "agents": [
+   "Diphenhydramine and other antihistamines",
+   "Jimson weed (Datura)",
+   "Tricyclic antidepressants",
+   "Atropine and scopolamine",
+   "Antipsychotics",
+   "Cyclobenzaprine",
+   "Benztropine"
+  ],
+  "search": "antimuscarinic"
+ },
+ {
+  "id": "sympathomimetic",
+  "name": "Sympathomimetic",
+  "onset": "Minutes to hours",
+  "pupils": "Mydriasis, reactive",
+  "skin": "Diaphoretic — wet",
+  "vitals": "Tachycardia, hypertension, hyperthermia",
+  "mental": "Agitation, paranoia, hyperalertness; seizures",
+  "tell": "Looks like anticholinergic but the patient is soaking wet and has bowel sounds. Sweat is the discriminator.",
+  "agents": [
+   "Cocaine",
+   "Amphetamine and methamphetamine",
+   "Synthetic cathinones",
+   "MDMA",
+   "Pseudoephedrine",
+   "Caffeine and theophylline"
+  ],
+  "search": "cocaine"
+ },
+ {
+  "id": "opioid",
+  "name": "Opioid",
+  "onset": "Minutes",
+  "pupils": "Miosis (may be normal with meperidine, tramadol, or mixed ingestion)",
+  "skin": "Normal to cool",
+  "vitals": "Hypoventilation — the defining sign — then bradycardia and hypotension",
+  "mental": "Sedation to coma",
+  "tell": "Respiratory rate and tidal volume, not pupils. A normal pupil does not exclude it.",
+  "agents": [
+   "Heroin and fentanyl analogs",
+   "Nitazenes",
+   "Oxycodone, hydrocodone, morphine",
+   "Methadone",
+   "Tramadol",
+   "Loperamide in massive dose"
+  ],
+  "search": "opioid"
+ },
+ {
+  "id": "sedative",
+  "name": "Sedative-hypnotic",
+  "onset": "Minutes to hours",
+  "pupils": "Normal or small, reactive",
+  "skin": "Normal",
+  "vitals": "Near-normal early; hypoventilation and hypotension when deep",
+  "mental": "Sedation to coma with preserved respiratory drive until late",
+  "tell": "Sedation without any autonomic signature. If the vitals are unremarkable, think here.",
+  "agents": [
+   "Benzodiazepines",
+   "Alcohol",
+   "GHB and 1,4-butanediol",
+   "Barbiturates",
+   "Zolpidem and Z-drugs",
+   "Baclofen"
+  ],
+  "search": "benzodiazepines"
+ },
+ {
+  "id": "serotonergic",
+  "name": "Serotonin syndrome",
+  "onset": "Hours — often within 24 h of a dose change",
+  "pupils": "Mydriasis",
+  "skin": "Diaphoretic",
+  "vitals": "Hyperthermia, tachycardia, hypertension",
+  "mental": "Agitation; clonus and hyperreflexia, greater in the legs than the arms; ocular clonus",
+  "tell": "Clonus. Rapid onset plus lower-limb-dominant hyperreflexia separates it from neuroleptic malignant syndrome, which builds over days with lead-pipe rigidity and hyporeflexia.",
+  "agents": [
+   "SSRIs and SNRIs",
+   "MAO inhibitors",
+   "Linezolid",
+   "Methylene blue",
+   "Tramadol and meperidine",
+   "Triptans",
+   "Dextromethorphan"
+  ],
+  "search": "serotonin syndrome"
+ },
+ {
+  "id": "nms",
+  "name": "Neuroleptic malignant syndrome",
+  "onset": "Days to weeks after starting or increasing an antipsychotic",
+  "pupils": "Normal",
+  "skin": "Diaphoretic, pallor",
+  "vitals": "Hyperthermia, autonomic instability, raised creatine kinase",
+  "mental": "Stupor and mutism; generalised lead-pipe rigidity with hyporeflexia",
+  "tell": "Slow onset and lead-pipe rigidity without clonus. Also consider abrupt withdrawal of levodopa or a dopamine agonist, which produces an identical picture.",
+  "agents": [
+   "Haloperidol and typical antipsychotics",
+   "Atypical antipsychotics",
+   "Metoclopramide and prochlorperazine",
+   "Withdrawal of levodopa or a dopamine agonist"
+  ],
+  "search": "neuroleptic malignant"
+ },
+ {
+  "id": "uncoupler",
+  "name": "Metabolic acidosis with hyperventilation",
+  "onset": "Variable",
+  "pupils": "Normal",
+  "skin": "Diaphoretic; hyperthermia if an uncoupler",
+  "vitals": "Tachypnoea with a wide anion gap; hyperthermia in uncoupler poisoning",
+  "mental": "Tinnitus and agitation early, then confusion and coma",
+  "tell": "A patient breathing hard with a wide anion gap and no obvious cause. This is the pattern that gets attributed to sepsis or anxiety until the gas comes back.",
+  "agents": [
+   "Salicylates",
+   "Methanol and ethylene glycol",
+   "Metformin",
+   "Iron",
+   "Cyanide",
+   "Dinitrophenol and other uncouplers",
+   "Isoniazid"
+  ],
+  "search": "salicylates"
+ }
+]

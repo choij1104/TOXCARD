@@ -1,0 +1,988 @@
+[
+ {
+  "id": "acetylcysteine",
+  "name": "Acetylcysteine",
+  "brands": [
+   "Acetadote",
+   "Mucomyst",
+   "NAC"
+  ],
+  "class": "Antidote",
+  "treats": [
+   "001-acetaminophen-paracetamol",
+   "essential-oils-eucalyptus-tea-tree-clove-pennyroyal-wintergr"
+  ]
+ },
+ {
+  "id": "fomepizole",
+  "name": "Fomepizole",
+  "brands": [
+   "Antizol",
+   "4-MP"
+  ],
+  "class": "Enzyme inhibitor",
+  "treats": [
+   "002-massive-acetaminophen-ingestion-500-mg-kg-or-4-h-level-far-a",
+   "034-methanol-windshield-fluid-moonshine-adulterated-spirits",
+   "035-ethylene-glycol-antifreeze",
+   "036-diethylene-glycol-contaminated-syrups-glycerin-substitution"
+  ]
+ },
+ {
+  "id": "naloxone",
+  "name": "Naloxone",
+  "brands": [
+   "Narcan",
+   "Zimhi",
+   "Kloxxado"
+  ],
+  "class": "Receptor antagonist",
+  "treats": [
+   "005-opioids-respiratory-depression",
+   "007-clonidine-tizanidine-imidazoline-decongestants",
+   "diphenoxylate-atropine-lomotil",
+   "kratom-mitragyna-speciosa"
+  ]
+ },
+ {
+  "id": "nalmefene",
+  "name": "Nalmefene",
+  "brands": [
+   "Opvee",
+   "Revex"
+  ],
+  "class": "Receptor antagonist",
+  "treats": [
+   "006-opioid-overdose-community-and-ems-setting"
+  ]
+ },
+ {
+  "id": "flumazenil",
+  "name": "Flumazenil",
+  "brands": [
+   "Romazicon"
+  ],
+  "class": "Receptor antagonist",
+  "treats": [
+   "008-benzodiazepines",
+   "009-remimazolam-procedural-sedation"
+  ]
+ },
+ {
+  "id": "protamine",
+  "name": "Protamine sulfate",
+  "brands": [],
+  "class": "Reversal agent",
+  "treats": [
+   "012-unfractionated-heparin",
+   "013-low-molecular-weight-heparin-enoxaparin-dalteparin"
+  ]
+ },
+ {
+  "id": "vitamin-k",
+  "name": "Vitamin K₁ (phytonadione)",
+  "brands": [
+   "Mephyton",
+   "AquaMEPHYTON"
+  ],
+  "class": "Reversal agent",
+  "treats": [
+   "015-warfarin-and-other-vitamin-k-antagonists",
+   "016-superwarfarins-brodifacoum-bromadiolone-rodenticide-adultera"
+  ]
+ },
+ {
+  "id": "pcc",
+  "name": "4-factor prothrombin complex concentrate",
+  "brands": [
+   "Kcentra"
+  ],
+  "class": "Reversal agent",
+  "treats": [
+   "015-warfarin-and-other-vitamin-k-antagonists",
+   "018-apixaban-rivaroxaban-life-threatening-bleeding",
+   "019-edoxaban-betrixaban"
+  ]
+ },
+ {
+  "id": "idarucizumab",
+  "name": "Idarucizumab",
+  "brands": [
+   "Praxbind"
+  ],
+  "class": "Monoclonal fragment",
+  "treats": [
+   "017-dabigatran-pradaxa"
+  ]
+ },
+ {
+  "id": "andexanet",
+  "name": "Andexanet alfa — withdrawn (US, Dec 2025)",
+  "brands": [
+   "Andexxa"
+  ],
+  "class": "Decoy protein",
+  "treats": [
+   "018-apixaban-rivaroxaban-life-threatening-bleeding"
+  ]
+ },
+ {
+  "id": "bentracimab",
+  "name": "Bentracimab",
+  "brands": [
+   "PB2452"
+  ],
+  "class": "Monoclonal fragment",
+  "treats": [
+   "020-ticagrelor-brilinta"
+  ]
+ },
+ {
+  "id": "digifab",
+  "name": "Digoxin immune Fab",
+  "brands": [
+   "DigiFab"
+  ],
+  "class": "Antibody fragment",
+  "treats": [
+   "023-digoxin-and-cardiac-glycosides-oleander-foxglove-lily-of-the",
+   "oleander-and-yellow-oleander-nerium-oleander-thevetia-peruvi"
+  ]
+ },
+ {
+  "id": "glucagon",
+  "name": "Glucagon",
+  "brands": [
+   "GlucaGen",
+   "Gvoke"
+  ],
+  "class": "Hormone",
+  "treats": [
+   "024-beta-blocker-overdose",
+   "hymenoptera-sting-anaphylaxis"
+  ]
+ },
+ {
+  "id": "insulin-hiet",
+  "name": "High-dose insulin euglycemia therapy",
+  "brands": [
+   "HIET"
+  ],
+  "class": "Metabolic support",
+  "treats": [
+   "025-beta-blocker-or-calcium-channel-blocker-cardiogenic-shock"
+  ]
+ },
+ {
+  "id": "calcium",
+  "name": "Calcium salts",
+  "brands": [
+   "calcium chloride",
+   "calcium gluconate"
+  ],
+  "class": "Electrolyte",
+  "treats": [
+   "026-calcium-channel-blocker-overdose",
+   "102-hydrofluoric-acid-dermal-exposure",
+   "103-hydrofluoric-acid-inhalation"
+  ]
+ },
+ {
+  "id": "lipid",
+  "name": "Intravenous lipid emulsion",
+  "brands": [
+   "Intralipid",
+   "ILE"
+  ],
+  "class": "Lipid sink",
+  "treats": [
+   "027-refractory-poison-induced-cardiogenic-shock",
+   "029-bupropion-diphenhydramine-cocaine-flecainide-wide-complex-to",
+   "098-local-anesthetic-systemic-toxicity-last"
+  ]
+ },
+ {
+  "id": "bicarbonate",
+  "name": "Sodium bicarbonate",
+  "brands": [],
+  "class": "Alkalinizing agent",
+  "treats": [
+   "003-salicylates-aspirin-oil-of-wintergreen",
+   "028-tricyclic-antidepressants-and-sodium-channel-blockade-qrs-10",
+   "029-bupropion-diphenhydramine-cocaine-flecainide-wide-complex-to",
+   "113-urinary-alkalinization",
+   "yew-taxus-species",
+   "methyl-salicylate-oil-of-wintergreen-topical-analgesics",
+   "chloroquine-and-hydroxychloroquine",
+   "lamotrigine",
+   "quinine-and-quinidine",
+   "loperamide-in-massive-dose",
+   "cocaine"
+  ]
+ },
+ {
+  "id": "magnesium",
+  "name": "Magnesium sulfate",
+  "brands": [],
+  "class": "Electrolyte",
+  "treats": [
+   "030-qt-prolongation-and-torsades-de-pointes-sotalol-methadone-ar",
+   "quinine-and-quinidine",
+   "loperamide-in-massive-dose"
+  ]
+ },
+ {
+  "id": "methylene-blue",
+  "name": "Methylene blue",
+  "brands": [
+   "ProvayBlue"
+  ],
+  "class": "Redox agent",
+  "treats": [
+   "031-methemoglobinemia-benzocaine-dapsone-nitrites-aniline-dyes-n",
+   "032-dapsone-induced-methemoglobinemia-specifically",
+   "033-refractory-vasoplegic-shock-post-bypass-ace-inhibitor-sepsis",
+   "054-ifosfamide-encephalopathy",
+   "naphthalene-mothballs"
+  ]
+ },
+ {
+  "id": "hydroxocobalamin",
+  "name": "Hydroxocobalamin",
+  "brands": [
+   "Cyanokit",
+   "vitamin B12a"
+  ],
+  "class": "Chelating antidote",
+  "treats": [
+   "033-refractory-vasoplegic-shock-post-bypass-ace-inhibitor-sepsis",
+   "039-cyanide-smoke-inhalation-hcn-nitroprusside-acetonitrile-apri",
+   "043-nitroprusside-associated-cyanide-accumulation",
+   "nitrous-oxide-whippets",
+   "smoke-inhalation-closed-space-fire",
+   "sodium-potassium-cyanide-industrial-oral"
+  ]
+ },
+ {
+  "id": "nitrite-thiosulfate",
+  "name": "Sodium nitrite + sodium thiosulfate",
+  "brands": [
+   "Nithiodote"
+  ],
+  "class": "Antidote kit",
+  "treats": [
+   "040-cyanide-alternative-when-hydroxocobalamin-is-unavailable"
+  ]
+ },
+ {
+  "id": "thiosulfate",
+  "name": "Sodium thiosulfate",
+  "brands": [
+   "Pedmark"
+  ],
+  "class": "Sulfur donor",
+  "treats": [
+   "039-cyanide-smoke-inhalation-hcn-nitroprusside-acetonitrile-apri",
+   "043-nitroprusside-associated-cyanide-accumulation",
+   "058-cisplatin-ototoxicity-in-pediatric-localized-solid-tumors",
+   "smoke-inhalation-closed-space-fire",
+   "sodium-potassium-cyanide-industrial-oral"
+  ]
+ },
+ {
+  "id": "oxygen",
+  "name": "Oxygen, including hyperbaric",
+  "brands": [
+   "HBO"
+  ],
+  "class": "Supportive antidote",
+  "treats": [
+   "041-carbon-monoxide",
+   "042-hydrogen-sulfide-manure-pits-oil-and-gas-chemical-suicide",
+   "chloramine-gas-bleach-mixed-with-ammonia",
+   "simple-asphyxiants-nitrogen-argon-helium-carbon-dioxide-meth",
+   "phosgene-cg-carbonyl-chloride",
+   "smoke-inhalation-closed-space-fire",
+   "methylene-chloride-dichloromethane-paint-stripper",
+   "nickel-carbonyl-refining-catalysis",
+   "carbon-disulfide-cs2-rayon-cellophane"
+  ]
+ },
+ {
+  "id": "atropine",
+  "name": "Atropine",
+  "brands": [
+   "AtroPen",
+   "DuoDote",
+   "ATNAA"
+  ],
+  "class": "Antimuscarinic",
+  "treats": [
+   "045-organophosphate-insecticides-malathion-parathion-chlorpyrifo",
+   "047-nerve-agents-sarin-soman-tabun-vx-novichok-class",
+   "048-carbamate-insecticides-carbaryl-aldicarb-and-medicinal-carba",
+   "grayanotoxin-rhododendron-azalea-mountain-laurel-mad-honey",
+   "nicotine-and-e-liquid"
+  ]
+ },
+ {
+  "id": "pralidoxime",
+  "name": "Pralidoxime",
+  "brands": [
+   "2-PAM",
+   "Protopam",
+   "DuoDote"
+  ],
+  "class": "Oxime reactivator",
+  "treats": [
+   "046-organophosphate-nicotinic-effects-and-aging-prevention",
+   "047-nerve-agents-sarin-soman-tabun-vx-novichok-class"
+  ]
+ },
+ {
+  "id": "benzodiazepine",
+  "name": "Benzodiazepine (midazolam, diazepam, lorazepam)",
+  "brands": [
+   "CANA",
+   "Seizalam"
+  ],
+  "class": "Anticonvulsant",
+  "treats": [
+   "047-nerve-agents-sarin-soman-tabun-vx-novichok-class",
+   "092-serotonin-syndrome",
+   "097-strychnine",
+   "amanita-muscaria-and-a-pantherina-isoxazole-mushrooms",
+   "camphor-camphorated-oil-chest-rubs-mothballs",
+   "lindane-topical-scabicide",
+   "ketamine",
+   "cocaine",
+   "amphetamine-and-methamphetamine",
+   "mdma",
+   "synthetic-cathinones-bath-salts",
+   "synthetic-cannabinoids",
+   "toluene-glue-sniffing-spray-paint-huffing",
+   "carbon-disulfide-cs2-rayon-cellophane"
+  ]
+ },
+ {
+  "id": "physostigmine",
+  "name": "Physostigmine",
+  "brands": [
+   "Antilirium",
+   "Anticholium"
+  ],
+  "class": "Cholinesterase inhibitor",
+  "treats": [
+   "049-antimuscarinic-delirium-diphenhydramine-jimson-weed-atropine",
+   "jimson-weed-and-other-datura-species"
+  ]
+ },
+ {
+  "id": "rivastigmine",
+  "name": "Rivastigmine",
+  "brands": [
+   "Exelon"
+  ],
+  "class": "Cholinesterase inhibitor",
+  "treats": [
+   "050-antimuscarinic-delirium-when-physostigmine-is-unavailable"
+  ]
+ },
+ {
+  "id": "leucovorin",
+  "name": "Leucovorin / levoleucovorin",
+  "brands": [
+   "folinic acid",
+   "Fusilev",
+   "Khapzory"
+  ],
+  "class": "Rescue agent",
+  "treats": [
+   "051-methotrexate",
+   "052-methotrexate-with-delayed-clearance-level-1-mol-l-with-renal"
+  ]
+ },
+ {
+  "id": "glucarpidase",
+  "name": "Glucarpidase",
+  "brands": [
+   "Voraxaze"
+  ],
+  "class": "Enzyme",
+  "treats": [
+   "052-methotrexate-with-delayed-clearance-level-1-mol-l-with-renal"
+  ]
+ },
+ {
+  "id": "uridine",
+  "name": "Uridine triacetate",
+  "brands": [
+   "Vistogard"
+  ],
+  "class": "Rescue agent",
+  "treats": [
+   "053-fluorouracil-or-capecitabine-overdose-or-early-severe-toxici"
+  ]
+ },
+ {
+  "id": "dexrazoxane",
+  "name": "Dexrazoxane",
+  "brands": [
+   "Totect",
+   "Zinecard"
+  ],
+  "class": "Cytoprotectant",
+  "treats": [
+   "055-anthracycline-extravasation"
+  ]
+ },
+ {
+  "id": "hyaluronidase",
+  "name": "Hyaluronidase",
+  "brands": [
+   "Hylenex"
+  ],
+  "class": "Dispersion agent",
+  "treats": [
+   "056-vinca-alkaloid-or-hyperosmolar-extravasation"
+  ]
+ },
+ {
+  "id": "phentolamine",
+  "name": "Phentolamine",
+  "brands": [
+   "Regitine",
+   "OraVerse"
+  ],
+  "class": "Alpha blocker",
+  "treats": [
+   "057-vasopressor-extravasation-norepinephrine-dopamine-vasopressi"
+  ]
+ },
+ {
+  "id": "mesna",
+  "name": "Mesna",
+  "brands": [
+   "Mesnex"
+  ],
+  "class": "Uroprotectant",
+  "treats": [
+   "059-cyclophosphamide-or-ifosfamide-hemorrhagic-cystitis"
+  ]
+ },
+ {
+  "id": "corticosteroid",
+  "name": "Corticosteroids ± infliximab or mycophenolate",
+  "brands": [],
+  "class": "Immunosuppressant",
+  "treats": [
+   "060-immune-checkpoint-inhibitor-toxicity"
+  ]
+ },
+ {
+  "id": "octreotide",
+  "name": "Octreotide",
+  "brands": [
+   "Sandostatin"
+  ],
+  "class": "Somatostatin analogue",
+  "treats": [
+   "061-sulfonylurea-induced-hypoglycemia-glipizide-glyburide-glimep"
+  ]
+ },
+ {
+  "id": "dextrose",
+  "name": "Dextrose",
+  "brands": [],
+  "class": "Metabolic support",
+  "treats": [
+   "061-sulfonylurea-induced-hypoglycemia-glipizide-glyburide-glimep",
+   "062-insulin-overdose",
+   "ethanol-based-hand-sanitizer-ingestion"
+  ]
+ },
+ {
+  "id": "levocarnitine",
+  "name": "Levocarnitine",
+  "brands": [
+   "Carnitor",
+   "L-carnitine"
+  ],
+  "class": "Cofactor",
+  "treats": [
+   "063-valproate-hyperammonemic-encephalopathy-or-hepatotoxicity"
+  ]
+ },
+ {
+  "id": "pyridoxine",
+  "name": "Pyridoxine",
+  "brands": [
+   "vitamin B6"
+  ],
+  "class": "Cofactor",
+  "treats": [
+   "035-ethylene-glycol-antifreeze",
+   "064-isoniazid-induced-seizures",
+   "065-gyromitra-false-morel-and-hydrazine-related-agents"
+  ]
+ },
+ {
+  "id": "deferoxamine",
+  "name": "Deferoxamine",
+  "brands": [
+   "Desferal",
+   "DFO"
+  ],
+  "class": "Chelator",
+  "treats": [
+   "067-iron"
+  ]
+ },
+ {
+  "id": "bal",
+  "name": "Dimercaprol",
+  "brands": [
+   "BAL in Oil",
+   "British Anti-Lewisite"
+  ],
+  "class": "Chelator",
+  "treats": [
+   "068-lead-encephalopathy-or-blood-lead-70-g-dl",
+   "070-arsenic-acute-inorganic-ingestion",
+   "lewisite-l-mustard-lewisite-hl"
+  ]
+ },
+ {
+  "id": "edta",
+  "name": "Calcium disodium EDTA",
+  "brands": [
+   "calcium disodium versenate"
+  ],
+  "class": "Chelator",
+  "treats": [
+   "068-lead-encephalopathy-or-blood-lead-70-g-dl"
+  ]
+ },
+ {
+  "id": "succimer",
+  "name": "Succimer",
+  "brands": [
+   "Chemet",
+   "DMSA"
+  ],
+  "class": "Chelator",
+  "treats": [
+   "069-lead-children-with-blood-lead-45-g-dl-no-encephalopathy",
+   "070-arsenic-acute-inorganic-ingestion",
+   "071-mercury-inorganic-salts-and-organic-methylmercury"
+  ]
+ },
+ {
+  "id": "dmps",
+  "name": "DMPS",
+  "brands": [
+   "unithiol"
+  ],
+  "class": "Chelator",
+  "treats": [
+   "070-arsenic-acute-inorganic-ingestion",
+   "071-mercury-inorganic-salts-and-organic-methylmercury"
+  ]
+ },
+ {
+  "id": "penicillamine",
+  "name": "Penicillamine, trientine, or zinc acetate",
+  "brands": [
+   "Cuprimine",
+   "Syprine"
+  ],
+  "class": "Chelator",
+  "treats": [
+   "072-copper-overload-and-wilson-disease"
+  ]
+ },
+ {
+  "id": "prussian-blue",
+  "name": "Prussian blue",
+  "brands": [
+   "Radiogardase"
+  ],
+  "class": "Ion exchanger",
+  "treats": [
+   "073-thallium",
+   "074-radioactive-cesium-137-and-thallium-201-internal-contaminati"
+  ]
+ },
+ {
+  "id": "dtpa",
+  "name": "Ca-DTPA then Zn-DTPA",
+  "brands": [
+   "pentetate"
+  ],
+  "class": "Chelator",
+  "treats": [
+   "075-transuranic-contamination-plutonium-239-americium-241-curium"
+  ]
+ },
+ {
+  "id": "ki",
+  "name": "Potassium iodide",
+  "brands": [
+   "KI",
+   "IOSAT",
+   "ThyroSafe"
+  ],
+  "class": "Blocking agent",
+  "treats": [
+   "076-radioiodine-i-131-exposure"
+  ]
+ },
+ {
+  "id": "csf",
+  "name": "Filgrastim, pegfilgrastim, sargramostim, romiplostim",
+  "brands": [
+   "Neupogen",
+   "Neulasta",
+   "Leukine",
+   "Nplate"
+  ],
+  "class": "Growth factor",
+  "treats": [
+   "077-hematopoietic-acute-radiation-syndrome"
+  ]
+ },
+ {
+  "id": "crofab",
+  "name": "Crotalidae antivenom",
+  "brands": [
+   "CroFab",
+   "Anavip"
+  ],
+  "class": "Antivenom",
+  "treats": [
+   "079-north-american-pit-vipers-rattlesnake-copperhead-cottonmouth"
+  ]
+ },
+ {
+  "id": "coral-av",
+  "name": "North American Coral Snake Antivenin",
+  "brands": [],
+  "class": "Antivenom",
+  "treats": [
+   "080-coral-snake-micrurus-fulvius"
+  ]
+ },
+ {
+  "id": "anascorp",
+  "name": "Centruroides antivenom",
+  "brands": [
+   "Anascorp"
+  ],
+  "class": "Antivenom",
+  "treats": [
+   "081-centruroides-scorpion-sting"
+  ]
+ },
+ {
+  "id": "latrodectus-av",
+  "name": "Antivenin Latrodectus mactans",
+  "brands": [],
+  "class": "Antivenom",
+  "treats": [
+   "082-latrodectus-black-widow-envenomation"
+  ]
+ },
+ {
+  "id": "hot-water",
+  "name": "Hot water immersion 42–45 °C",
+  "brands": [],
+  "class": "Physical measure",
+  "treats": [
+   "084-stingray-scorpionfish-stonefish-lionfish"
+  ]
+ },
+ {
+  "id": "bat",
+  "name": "Heptavalent botulism antitoxin",
+  "brands": [
+   "BAT",
+   "HBAT"
+  ],
+  "class": "Antitoxin",
+  "treats": [
+   "085-botulism-adult-foodborne-wound-iatrogenic-age-1-y"
+  ]
+ },
+ {
+  "id": "babybig",
+  "name": "Botulism immune globulin IV",
+  "brands": [
+   "BabyBIG",
+   "BIG-IV"
+  ],
+  "class": "Immune globulin",
+  "treats": [
+   "086-infant-botulism-1-y-toxin-types-a-and-b"
+  ]
+ },
+ {
+  "id": "tig",
+  "name": "Human tetanus immune globulin",
+  "brands": [
+   "HTIG"
+  ],
+  "class": "Immune globulin",
+  "treats": [
+   "087-tetanus"
+  ]
+ },
+ {
+  "id": "dat",
+  "name": "Diphtheria antitoxin",
+  "brands": [],
+  "class": "Antitoxin",
+  "treats": [
+   "088-diphtheria"
+  ]
+ },
+ {
+  "id": "anthrax-mab",
+  "name": "Raxibacumab, obiltoxaximab, anthrax immune globulin",
+  "brands": [
+   "Anthim",
+   "Anthrasil"
+  ],
+  "class": "Monoclonal / immune globulin",
+  "treats": [
+   "089-inhalational-anthrax"
+  ]
+ },
+ {
+  "id": "silibinin",
+  "name": "Silibinin, NAC, penicillin G",
+  "brands": [
+   "Legalon SIL"
+  ],
+  "class": "Investigational",
+  "treats": [
+   "090-amatoxin-mushrooms-amanita-phalloides-a-ocreata-galerina-lep"
+  ]
+ },
+ {
+  "id": "cyproheptadine",
+  "name": "Cyproheptadine",
+  "brands": [
+   "Periactin"
+  ],
+  "class": "Serotonin antagonist",
+  "treats": [
+   "092-serotonin-syndrome"
+  ]
+ },
+ {
+  "id": "dantrolene",
+  "name": "Dantrolene",
+  "brands": [
+   "Ryanodex",
+   "Dantrium",
+   "Revonto"
+  ],
+  "class": "Muscle relaxant",
+  "treats": [
+   "093-neuroleptic-malignant-syndrome",
+   "094-malignant-hyperthermia"
+  ]
+ },
+ {
+  "id": "bromocriptine",
+  "name": "Bromocriptine or amantadine",
+  "brands": [
+   "Parlodel"
+  ],
+  "class": "Dopamine agonist",
+  "treats": [
+   "093-neuroleptic-malignant-syndrome"
+  ]
+ },
+ {
+  "id": "anticholinergic-dystonia",
+  "name": "Diphenhydramine or benztropine",
+  "brands": [
+   "Benadryl",
+   "Cogentin"
+  ],
+  "class": "Anticholinergic",
+  "treats": [
+   "095-acute-dystonic-reaction-metoclopramide-prochlorperazine-anti"
+  ]
+ },
+ {
+  "id": "sugammadex",
+  "name": "Sugammadex",
+  "brands": [
+   "Bridion"
+  ],
+  "class": "Encapsulating agent",
+  "treats": [
+   "099-rocuronium-or-vecuronium-blockade"
+  ]
+ },
+ {
+  "id": "neostigmine",
+  "name": "Neostigmine + glycopyrrolate",
+  "brands": [
+   "Bloxiverz"
+  ],
+  "class": "Cholinesterase inhibitor",
+  "treats": [
+   "100-non-depolarizing-blockade-routine-reversal"
+  ]
+ },
+ {
+  "id": "charcoal",
+  "name": "Activated charcoal",
+  "brands": [
+   "EZ-Char",
+   "Actidose"
+  ],
+  "class": "Decontamination",
+  "treats": [
+   "032-dapsone-induced-methemoglobinemia-specifically",
+   "110-single-dose-activated-charcoal",
+   "111-multi-dose-activated-charcoal",
+   "carbamazepine",
+   "aluminum-and-zinc-phosphide-rodenticide-fumigant",
+   "sodium-potassium-cyanide-industrial-oral"
+  ]
+ },
+ {
+  "id": "wbi",
+  "name": "Polyethylene glycol whole bowel irrigation",
+  "brands": [
+   "GoLYTELY",
+   "CoLyte"
+  ],
+  "class": "Decontamination",
+  "treats": [
+   "112-whole-bowel-irrigation"
+  ]
+ },
+ {
+  "id": "hemodialysis",
+  "name": "Hemodialysis",
+  "brands": [
+   "ECTR",
+   "HD"
+  ],
+  "class": "Extracorporeal",
+  "treats": [
+   "002-massive-acetaminophen-ingestion-500-mg-kg-or-4-h-level-far-a",
+   "003-salicylates-aspirin-oil-of-wintergreen",
+   "017-dabigatran-pradaxa",
+   "034-methanol-windshield-fluid-moonshine-adulterated-spirits",
+   "035-ethylene-glycol-antifreeze",
+   "036-diethylene-glycol-contaminated-syrups-glycerin-substitution",
+   "063-valproate-hyperammonemic-encephalopathy-or-hepatotoxicity",
+   "096-lithium-toxicity",
+   "107-theophylline-and-caffeine",
+   "109-metformin-associated-lactic-acidosis",
+   "114-extracorporeal-removal-extrip-guided",
+   "methyl-salicylate-oil-of-wintergreen-topical-analgesics",
+   "carbamazepine",
+   "gabapentin-and-pregabalin",
+   "glyphosate-surfactant-herbicide",
+   "arsine-gas"
+  ]
+ },
+ {
+  "id": "ecmo",
+  "name": "VA-ECMO",
+  "brands": [],
+  "class": "Extracorporeal",
+  "treats": [
+   "027-refractory-poison-induced-cardiogenic-shock",
+   "029-bupropion-diphenhydramine-cocaine-flecainide-wide-complex-to",
+   "115-poison-induced-cardiac-arrest-or-refractory-shock",
+   "aconite-monkshood-wolfsbane-aconitum",
+   "aluminum-and-zinc-phosphide-rodenticide-fumigant"
+  ]
+ },
+ {
+  "id": "cryo",
+  "name": "Cryoprecipitate + antifibrinolytic",
+  "brands": [
+   "TXA"
+  ],
+  "class": "Haemostatic",
+  "treats": [
+   "022-thrombolytics-alteplase-tenecteplase-symptomatic-ich"
+  ]
+ },
+ {
+  "id": "platelets",
+  "name": "Platelet transfusion ± desmopressin",
+  "brands": [
+   "DDAVP"
+  ],
+  "class": "Haemostatic",
+  "treats": [
+   "021-clopidogrel-prasugrel"
+  ]
+ },
+ {
+  "id": "cholestyramine",
+  "name": "Beta-blockade + cholestyramine",
+  "brands": [
+   "Questran"
+  ],
+  "class": "Binding resin",
+  "treats": [
+   "066-massive-thyroid-hormone-ingestion"
+  ]
+ },
+ {
+  "id": "ethanol",
+  "name": "Ethanol infusion",
+  "brands": [],
+  "class": "Enzyme competitor",
+  "treats": [
+   "037-toxic-alcohols-when-fomepizole-is-unavailable"
+  ]
+ },
+ {
+  "id": "cimetidine",
+  "name": "Cimetidine",
+  "brands": [
+   "Tagamet"
+  ],
+  "class": "Enzyme inhibitor",
+  "treats": [
+   "032-dapsone-induced-methemoglobinemia-specifically"
+  ]
+ },
+ {
+  "id": "esmolol",
+  "name": "Esmolol",
+  "brands": [
+   "Brevibloc"
+  ],
+  "class": "Beta blocker",
+  "treats": [
+   "107-theophylline-and-caffeine"
+  ]
+ },
+ {
+  "id": "epinephrine",
+  "name": "Epinephrine",
+  "brands": [
+   "Adrenalin",
+   "EpiPen",
+   "Auvi-Q",
+   "neffy"
+  ],
+  "class": "Antidote",
+  "treats": [
+   "hymenoptera-sting-anaphylaxis"
+  ]
+ }
+]

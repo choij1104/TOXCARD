@@ -1,0 +1,26 @@
+{
+ "version": "2026.09.16.c",
+ "model": "normalized",
+ "toxins": 186,
+ "antidoteAgents": 78,
+ "protocols": 186,
+ "toxidromes": 8,
+ "categories": 24,
+ "lastReviewed": "2026-09-16",
+ "reviewer": "Jae Hyek Choi, MSc, PhD, DVSc",
+ "nextReviewDue": "2027-09-16",
+ "supplyWatchDue": "2026-11-23",
+ "changelog": [
+  "UI: settings/tools icon in the header redrawn as a cog (was mistaken for a sun); no clinical content changed",
+  "Industrial toxicology expansion: aluminum/zinc phosphide (leading pesticide suicide worldwide) rewritten with the ECMO decision and the staff-exposure risk; methylene chloride, toluene with the beta-blocker-first rule, nickel carbonyl, industrial cyanide salts distinct from smoke-inhalation cyanide, and carbon disulfide added",
+  "6 new entries, 180 → 186. Each was checked against a primary source before it was written — ATSDR, FDA labels via DailyMed, OSHA/NIOSH pages, and peer-reviewed literature with real PMIDs",
+  "Chemical warfare coverage closed: sulfur mustard, lewisite and phosgene oxime added. Lewisite carries dimercaprol — the drug named British Anti-Lewisite — which the dataset previously held only for lead and arsenic",
+  "Phosgene split out of the chlorine card. Its latent period runs to 72 hours, exertion during it worsens the injury, and the discharge rule is 48 hours of observation — none of which applies to chlorine",
+  "Smoke inhalation added as one card. Carbon monoxide, cyanide and airway injury arrive together and change each other: nitrite is withheld because carboxyhaemoglobin has already taken the oxygen-carrying capacity, and hydroxocobalamin blinds the co-oximetry you need, so the bloods are drawn before it runs"
+ ],
+ "expansionPlan": {
+  "target": 250,
+  "current": 186,
+  "remaining": "Tranche 2 — occupational solvents and metals, antimicrobials, remaining anticonvulsants, ophthalmic and dermatologic exposures, additional plants, veterinary and agricultural products"
+ }
+}
