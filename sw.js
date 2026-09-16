@@ -9,7 +9,7 @@
    Data: network-first with cache fallback, so an online user silently gets the newest
    reviewed dataset and an offline user is never blocked. */
 
-const CACHE = 'toxcard-2026.09.16.b';
+const CACHE = 'toxcard-2026.09.16.c';
 const SHELL = ['./', './index.html', './manifest.json', './icon.svg'];
 const DATA  = ['./data/toxins.json','./data/antidote-agents.json','./data/protocols.json',
                './data/toxidromes.json','./data/version.json'];
@@ -33,7 +33,20 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   const req = e.request;
   if (req.method !== 'GET') return;
-  if (new URL(req.url).origin !== self.location.origin) return;
+  const origin = new URL(req.url).origin;
+  if (origin !== self.location.origin) {
+    // Web fonts: cache on first sight so the typeface survives offline. Anything else
+    // cross-origin is left alone. If the font never loads, the system stack takes over.
+    if (/fonts\.(googleapis|gstatic)\.com$/.test(origin)) {
+      e.respondWith(
+        caches.match(req).then(hit => hit || fetch(req).then(res => {
+          if (res && (res.ok || res.type === 'opaque')) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(req, copy)); }
+          return res;
+        }))
+      );
+    }
+    return;
+  }
 
   if (req.url.includes('/data/')) {
     e.respondWith(
