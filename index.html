@@ -71,7 +71,19 @@ input{font:inherit;color:inherit}
 .iconbtn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;
   border-radius:9px;color:var(--mut);flex:0 0 auto}
 .iconbtn:hover{background:var(--surface2);color:var(--ink)}
-.iconbtn svg,.back svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;
+.hw{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.hw b{font-size:23px;font-weight:700;letter-spacing:.09em;color:var(--brand);line-height:1.05}
+.hw b em{font-style:normal;color:var(--ink)}
+.hw>span{font-size:12px;color:var(--mut);font-weight:500;letter-spacing:.005em}
+.hw.two b{font-size:17px;letter-spacing:-.012em;color:var(--ink)}
+.tile .gl svg,.row .tier.ic svg,.hero .gl.ic svg,.jumprow .gl svg{width:60%;height:60%;
+  fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.tile .gl{width:44px;height:44px;border-radius:12px}
+.row .tier.ic{background:var(--tealSoft)}
+.row .tier.ic svg{width:19px;height:19px}
+.hero .gl.ic svg{width:26px;height:26px}
+.jumprow .gl svg{width:17px;height:17px}
+.iconbtn svg,.back svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;
   stroke-linecap:round;stroke-linejoin:round}
 .iconbtn svg.on{fill:var(--amber);stroke:var(--amber)}
 .back{display:flex;align-items:center;gap:4px;color:var(--brand);font-weight:500;
@@ -117,6 +129,7 @@ main{flex:1 1 auto;overflow-y:auto;overscroll-behavior:contain;
 .tile{position:relative}
 .tile>span:nth-of-type(2){padding-right:16px}
 .tile .car{position:absolute;right:12px;bottom:12px;color:var(--dim);line-height:0}
+.tile{min-height:132px}
 .tile .car svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 .tile .gl{width:34px;height:34px;border-radius:10px;font-size:17px}
 .scope{display:flex;gap:7px;overflow-x:auto;margin:0 -16px 14px;padding:0 16px 2px;scrollbar-width:none}
@@ -439,16 +452,20 @@ function calcHTML(dose){
 
 /* ---------- icons ---------- */
 const I={
-  home:'<path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/>',
-  toxin:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.4"/><path d="M12 9.6 9.9 6M12 9.6 14.1 6M10.1 13.2 6.6 15.3M13.9 13.2l3.5 2.1"/>',
-  agent:'<path d="M16.5 3.5 20.5 7.5"/><path d="M14.5 5.5 18.5 9.5"/><path d="M17 8 9.5 15.5 6 16.5 5 20l3.5-1 1-3.5L17 8z"/>',
-  tools:'<rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M8 7.5h8M8 11.5h3M13 11.5h3M8 15.5h3M13 15.5h3"/>',
-  star:'<path d="m12 3.6 2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.5 9.8l5.9-.9z"/>',
-  search:'<circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/>',
+  home:'<path d="M3.2 10.6 12 3.4l8.8 7.2"/><path d="M5.6 9.6V20a.8.8 0 0 0 .8.8h11.2a.8.8 0 0 0 .8-.8V9.6"/>',
+  biohazard:'<circle cx="12" cy="12.6" r="2.3"/><circle cx="12" cy="6.2" r="3.7"/><circle cx="6.5" cy="15.8" r="3.7"/><circle cx="17.5" cy="15.8" r="3.7"/>',
+  syringe:'<path d="M17.4 2.6 21.4 6.6"/><path d="M19.6 4.8 14 10.4"/><path d="M15.4 6.2 17.8 8.6"/><path d="M14 10.4 8.2 16.2"/><path d="M10.6 8.6 15.4 13.4"/><path d="m8.2 16.2-2.7.8-.8 2.7 2.7-.8z"/><path d="M4.7 19.7 2.6 21.8"/>',
+  calc:'<rect x="4.8" y="2.6" width="14.4" height="18.8" rx="2.6"/><rect x="7.6" y="5.6" width="8.8" height="3.3" rx="1.1"/><circle cx="8.5" cy="12.6" r=".95" fill="currentColor" stroke="none"/><circle cx="12" cy="12.6" r=".95" fill="currentColor" stroke="none"/><circle cx="15.5" cy="12.6" r=".95" fill="currentColor" stroke="none"/><circle cx="8.5" cy="16.4" r=".95" fill="currentColor" stroke="none"/><circle cx="12" cy="16.4" r=".95" fill="currentColor" stroke="none"/><circle cx="15.5" cy="16.4" r=".95" fill="currentColor" stroke="none"/>',
+  stetho:'<path d="M5.4 2.8v5.1a4.6 4.6 0 0 0 9.2 0V2.8"/><path d="M3.8 2.8h3.2M13 2.8h3.2"/><path d="M10 12.5v4.6a4 4 0 0 0 8 0v-2.4"/><circle cx="18" cy="12.4" r="2.3"/>',
+  doc:'<path d="M8.2 3.4h7.6a2.2 2.2 0 0 1 2.2 2.2v12.8a2.2 2.2 0 0 1-2.2 2.2H8.2A2.2 2.2 0 0 1 6 18.4V5.6a2.2 2.2 0 0 1 2.2-2.2z"/><path d="M9.6 8.2h4.8M9.6 11.8h4.8M9.6 15.4h3"/>',
+  star:'<path d="m12 3.4 2.65 5.37 5.93.86-4.29 4.18 1.01 5.9L12 16.91l-5.3 2.79 1.01-5.9-4.29-4.18 5.93-.86z"/>',
+  search:'<circle cx="11" cy="11" r="6.6"/><path d="m16 16 4.6 4.6"/>',
   car:'<path d="m9 5 7 7-7 7"/>',
   back:'<path d="m14 5-7 7 7 7"/>',
-  more:'<circle cx="5.5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="18.5" cy="12" r="1.3"/>',
-  gear:'<circle cx="12" cy="12" r="3"/><path d="M12 2.8v2.6M12 18.6v2.6M21.2 12h-2.6M5.4 12H2.8M18.5 5.5l-1.8 1.8M7.3 16.7l-1.8 1.8M18.5 18.5l-1.8-1.8M7.3 7.3 5.5 5.5"/>'
+  more:'<circle cx="5.4" cy="12" r="1.35" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.35" fill="currentColor" stroke="none"/><circle cx="18.6" cy="12" r="1.35" fill="currentColor" stroke="none"/>',
+  info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5.4"/><circle cx="12" cy="7.8" r=".95" fill="currentColor" stroke="none"/>',
+  gear:'<circle cx="12" cy="12" r="3.1"/><path d="M12 2.6v2.7M12 18.7v2.7M21.4 12h-2.7M5.3 12H2.6M18.6 5.4l-1.9 1.9M7.3 16.7l-1.9 1.9M18.6 18.6l-1.9-1.9M7.3 7.3 5.4 5.4"/>',
+  warn:'<path d="M12 3.6 21.2 19.6H2.8z"/><path d="M12 9.8v4.7M12 17.2v.2"/>'
 };
 const svg=(k,c="")=>`<svg viewBox="0 0 24 24" class="${c}" aria-hidden="true">${I[k]}</svg>`;
 
@@ -456,8 +473,8 @@ const svg=(k,c="")=>`<svg viewBox="0 0 24 24" class="${c}" aria-hidden="true">${
 let tab="home", stack=[], q="", cat="All", agentQ="", openTox=null, calcAgent=null, calcTox=null;
 let scope="All";
 const SCOPES=["All","Toxins","Antidotes","Brands","Tools"];
-const TABS=[["home","Home","home"],["toxins","Toxins","toxin"],["agents","Antidotes","agent"],
-            ["tools","Tools","tools"],["saved","Saved","star"]];
+const TABS=[["home","Home","home"],["toxins","Toxins","biohazard"],["agents","Antidotes","syringe"],
+            ["tools","Tools","calc"],["saved","Saved","star"]];
 
 function go(t){if(t==="recent"){tab="saved";stack=[];q="";showRecent=true;paint();return}
   tab=t;stack=[];q="";showRecent=false;paint()}
@@ -505,13 +522,13 @@ function toxRow(t){
 }
 function agentRow(a){
   return `<button class="row" data-agent="${a.id}">
-    <span class="tier" style="background:var(--teal)">⚕</span>
+    <span class="tier ic" style="background:var(--tealSoft);color:var(--teal)">${svg("syringe")}</span>
     <span class="txt"><b>${esc(a.name)}</b><span>${a.treats.length} indication${a.treats.length>1?"s":""} · ${esc(a.class)}</span></span>
     <span class="car">${svg("car")}</span></button>`;
 }
-function tile(act,gl,tint,title,sub){
+function tile(act,icon,tint,color,title,sub){
   return `<button class="tile" data-go="${act}">
-    <span class="gl" style="background:${tint};color:${gl.c}">${gl.t}</span>
+    <span class="gl" style="background:${tint};color:${color}">${svg(icon)}</span>
     <span><b>${title}</b><span>${sub}</span></span>
     <span class="car">${svg("car")}</span></button>`;
 }
@@ -528,22 +545,22 @@ function viewHome(){
       +((r.toxins||[]).length?`<div class="lbl">Toxins<span>${r.toxins.length}</span></div>`+r.toxins.map(toxRow).join(""):"")
       +((r.agents||[]).length?`<div class="lbl">Agents<span>${r.agents.length}</span></div>`+r.agents.map(agentRow).join(""):"")
       +((r.txd||[]).length?`<div class="lbl">Toxidromes<span>${r.txd.length}</span></div>`
-        +r.txd.map(t=>`<button class="row" data-gotxd="${t.id}"><span class="tier" style="background:var(--amber)">◎</span><span class="txt"><b>${esc(t.name)}</b><span>${esc(t.tell)}</span></span><span class="car">${svg("car")}</span></button>`).join(""):"");
+        +r.txd.map(t=>`<button class="row" data-gotxd="${t.id}"><span class="tier ic" style="background:var(--amberSoft);color:var(--amber)">${svg("stetho")}</span><span class="txt"><b>${esc(t.name)}</b><span>${esc(t.tell)}</span></span><span class="car">${svg("car")}</span></button>`).join(""):"");
   }
   const rec=recent.filter(id=>T[id]).slice(0,4);
   const alerts=(VERSION.changelog||[]).slice(0,2).map(c=>
     `<div class="alert"><span class="tag">Update · ${esc(VERSION.version)}</span>${esc(c)}</div>`).join("");
   return chips+`<button class="jumprow" data-tox="039-cyanide-smoke-inhalation-hcn-nitroprusside-acetonitrile-apri">
-      <span class="gl">⚠</span>
+      <span class="gl">${svg("warn")}</span>
       <span class="txt"><b>Cyanide</b><span>Hydroxocobalamin first line · smoke inhalation</span></span>
       <span class="car">${svg("car")}</span></button>
   <div class="grid">
-    ${tile("toxins",{t:"☣",c:"var(--sig)"},"var(--sigSoft)","Toxin Browser",`${TOXINS.length} entries · ${new Set(TOXINS.map(t=>t.category)).size} categories`)}
-    ${tile("agents",{t:"⚕",c:"var(--teal)"},"var(--tealSoft)","Antidote Browser",`${AGENTS.length} agents and what each treats`)}
-    ${tile("calc",{t:"⊞",c:"var(--brand)"},"var(--brandSoft)","Dose Calculator","Weight-based resolution")}
-    ${tile("toxidromes",{t:"◎",c:"var(--amber)"},"var(--amberSoft)","Toxidrome Triage","No history? Start here.")}
-    ${tile("tools",{t:"◱",c:"var(--brand)"},"var(--brandSoft)","Clinical Tools","Weight, height, display")}
-    ${tile("saved",{t:"★",c:"var(--amber)"},"var(--amberSoft)","Saved",`${favs.length} quick-access entr${favs.length===1?"y":"ies"}`)}
+    ${tile("toxins","biohazard","var(--sigSoft)","var(--sig)","Toxin Browser",`${TOXINS.length} entries<br>${new Set(TOXINS.map(t=>t.category)).size} categories`)}
+    ${tile("agents","syringe","var(--tealSoft)","var(--teal)","Antidote Browser",`${AGENTS.length} agents<br>and what each treats`)}
+    ${tile("calc","calc","var(--brandSoft)","var(--brand)","Dose Calculator","Weight-based<br>resolution")}
+    ${tile("toxidromes","stetho","var(--amberSoft)","var(--amber)","Toxidrome Triage","No history?<br>Start here.")}
+    ${tile("tools","doc","var(--brandSoft)","var(--brand)","Clinical Tools","Weight, height,<br>display")}
+    ${tile("saved","star","var(--amberSoft)","var(--amber)","Saved",`${favs.length} quick-access<br>entr${favs.length===1?"y":"ies"}`)}
   </div>
   ${rec.length?`<div class="lbl">Recently viewed${recent.filter(id=>T[id]).length>4?`<button class="seeall" data-go="recent">See all</button>`:""}</div>${rec.map(id=>toxRow(T[id])).join("")}`:""}
   ${alerts?`<div class="lbl">Updates</div>${alerts}`:""}
@@ -632,44 +649,44 @@ function viewCalc(){
   const agents=AGENTS.filter(a=>a.treats.length).sort((x,y)=>x.name.localeCompare(y.name));
   const a=calcAgent?A[calcAgent]:null;
   const p=calcTox?P[calcTox]:null;
-  return `<div class="seg" style="width:100%;margin-bottom:12px">
+  return `<div class="seg" style="width:100%;margin-bottom:13px">
     ${["Antidotes","By toxin","Custom"].map(m=>`<button data-mode="${m}" aria-pressed="${m===calcMode}" style="flex:1;justify-content:center">${m}</button>`).join("")}
   </div>
   <div class="card">
-    <h4>1 · Patient weight</h4>
+    <h4>2 · Patient weight</h4>
     <div class="inrow"><input class="inp" id="wt" type="number" inputmode="decimal" min="0.5" max="300" step="0.5" aria-label="Patient weight" placeholder="—" value="${WT??""}">
       <div class="seg"><button data-unit="kg" aria-pressed="${UNIT==="kg"}">kg</button>
       <button data-unit="lb" aria-pressed="${UNIT==="lb"}">lb</button></div></div>
     <div class="inrow" style="margin-top:8px"><input class="inp" id="ht" type="number" inputmode="decimal" min="30" max="230" step="1" aria-label="Patient height in centimetres" placeholder="Height in cm — only for mg/m²" value="${HT??""}"></div>
   </div>
-  ${calcMode==="Custom"?`<div class="card"><h4>2 · Your own expression</h4>
+  ${calcMode==="Custom"?`<div class="card"><h4>1 · Your own expression</h4>
     <input class="inp" id="cx" style="width:100%" placeholder="e.g. 1.5 mL/kg, max 500 mL" value="${esc(customExpr)}">
     <div style="margin-top:12px">${customExpr&&WT?(computeDoses(customExpr)?`<div class="rescard"><div class="rh"><b>At ${WT} kg</b><span>${esc(customExpr)}</span></div><table>`
       +computeDoses(customExpr).map((r,i)=>`<tr><td class="k">Result</td><td class="n">${esc(r.out??"—")}</td><td class="s">(${esc(r.expr)}${r.capped?", capped at "+esc(r.capTxt):""})</td></tr>`).join("")
       +`</table></div>`:`<div class="note"><span>No weight-based expression found. Write it as <b>mg/kg</b>, <b>µg/kg</b>, <b>mL/kg</b>, <b>units/kg</b> or <b>mg/m²</b>, and state any ceiling in the same clause.</span></div>`)
       :`<div class="note"><span>Type an expression and set a weight. Ceilings written as <b>max</b>, <b>up to</b> or <b>not to exceed</b> in the same clause are applied.</span></div>`}</div></div>`
-  :calcMode==="By toxin"?`<div class="card"><h4>2 · Select entry</h4>
+  :calcMode==="By toxin"?`<div class="card"><h4>1 · Select entry</h4>
     <div class="search" style="margin:0 0 10px"><span>${svg("search")}</span>
       <input id="aq" type="search" aria-label="Search entries" placeholder="Search toxins" value="${esc(agentQ)}" autocomplete="off"></div>
     ${(agentQ?search(agentQ):TOXINS.slice(0,8)).slice(0,40).map(t=>`<button class="row" data-calctoxdirect="${t.id}" style="margin-bottom:6px;box-shadow:none;${calcTox===t.id?"border-color:var(--brand)":""}">
       <span class="tier" style="background:${tierCol[(P[t.id]||{}).tier]||"var(--tN)"}">${(P[t.id]||{}).tier==="N"?"–":(P[t.id]||{}).tier}</span>
       <span class="txt"><b>${esc(t.name)}</b><span>${esc((P[t.id]||{}).agentLine||"")}</span></span>
       <span class="car">${svg("car")}</span></button>`).join("")||`<div class="empty">No entry matches that.</div>`}</div>`
-  :`<div class="card"><h4>2 · Select agent</h4>
+  :`<div class="card"><h4>1 · Select agent</h4>
     <div class="search" style="margin:0 0 10px"><span>${svg("search")}</span>
       <input id="aq" type="search" aria-label="Search antidotes" placeholder="Search antidotes" value="${esc(agentQ)}" autocomplete="off"></div>
     ${agents.filter(x=>!agentQ||(x.name+" "+x.brands.join(" ")).toLowerCase().includes(agentQ.toLowerCase()))
       .slice(0,agentQ?40:8).map(x=>`<button class="row" data-calcagent="${x.id}" style="margin-bottom:6px;box-shadow:none">
-        <span class="tier" style="background:var(--teal)">⚕</span>
+        <span class="tier ic" style="background:var(--tealSoft);color:var(--teal)">${svg("syringe")}</span>
         <span class="txt"><b>${esc(x.name)}</b><span>${esc(x.brands.length?x.brands.join(" · "):x.class)}</span></span>
         <span class="car">${svg("car")}</span></button>`).join("")||`<div class="empty">No agent matches that.</div>`}
   </div>`}
-  ${calcMode==="Antidotes"&&a?`<div class="card"><h4>3 · Indication</h4>
+  ${calcMode==="Antidotes"&&a?`<div class="card"><h4>1b · Indication</h4>
     ${a.treats.map(id=>T[id]?`<button class="row" data-calctox="${id}" style="margin-bottom:6px;box-shadow:none;${calcTox===id?"border-color:var(--brand)":""}">
       <span class="tier" style="background:${tierCol[(P[id]||{}).tier]||"var(--tN)"}">${(P[id]||{}).tier==="N"?"–":(P[id]||{}).tier}</span>
       <span class="txt"><b>${esc(T[id].name)}</b><span>${esc((P[id]||{}).agentLine||"")}</span></span>
       <span class="car">${svg("car")}</span></button>`:"").join("")}</div>`:""}
-  ${p&&calcMode!=="Custom"?`<div class="card"><h4>${calcMode==="By toxin"?"3":"4"} · Dosing result</h4>
+  ${p&&calcMode!=="Custom"?`<div class="card"><h4>3 · Dosing result</h4>
       ${doseTable(p.dose)}
       <div style="margin-top:12px">${calcResultCard(p)}</div>
       <div class="linkrow" style="margin-top:12px"><button data-tox="${calcTox}">Open the full entry, including the pitfall ›</button></div>
@@ -716,7 +733,7 @@ function viewAgent(id){
   const a=A[id];
   const rows=a.treats.map(x=>T[x]).filter(Boolean).map(toxRow).join("");
   return `<div class="hero">
-    <span class="gl" style="background:var(--teal)">⚕</span>
+    <span class="gl ic" style="background:var(--tealSoft);color:var(--teal)">${svg("syringe")}</span>
     <div><h3>${esc(a.name)}</h3><div class="badges">
       <span class="badge teal">${esc(a.class)}</span>
       <span class="badge">${a.treats.length} indication${a.treats.length>1?"s":""}</span></div></div></div>
@@ -758,7 +775,9 @@ function paint(){
     }
     $("bk").onclick=pop;
   } else if(tab==="calc"){
-    $("tb").innerHTML=`<button class="back" id="bk">${svg("back")}Home</button><span class="tb-title">Dose Calculator</span>`;
+    $("tb").innerHTML=`<button class="back" id="bk">${svg("back")}Home</button>
+      <span class="hw two"><b>Dose Calculator</b><span>Weight-based dosing for toxicology</span></span>
+      <button class="iconbtn" aria-label="About">${svg("info")}</button>`;
     v.innerHTML=viewCalc(); $("bk").onclick=()=>go("home"); wireInputs();
   } else if(tab==="toxidromes"){
     $("tb").innerHTML=`<button class="back" id="bk">${svg("back")}Home</button><span class="tb-title">Toxidrome Triage</span>`;
@@ -768,12 +787,14 @@ function paint(){
   } else {
     const head={home:"TOXCARD",toxins:"Toxins",agents:"Antidotes",tools:"Clinical Tools",saved:"Saved"}[tab];
     $("tb").innerHTML=tab==="home"
-      ? `<span class="tb-title" style="letter-spacing:.1em;font-weight:700;color:var(--brand)">TOX<span style="color:var(--ink)">CARD</span></span>
+      ? `<span class="hw"><b>TOX<em>CARD</em></b><span>Search. Identify. Treat.</span></span>
          <button class="iconbtn" data-go="tools" aria-label="Tools">${svg("gear")}</button>`
+      : tab==="calc"
+      ? `<button class="back" id="bk2">${svg("back")}Home</button>
+         <span class="hw two"><b>Dose Calculator</b><span>Weight-based dosing for toxicology</span></span>
+         <button class="iconbtn" aria-label="About">${svg("info")}</button>`
       : `<span class="tb-title">${head}</span>`;
-    v.innerHTML=(tab==="home"?`<div class="mark"><h1>TOX<em>CARD</em></h1><p>Toxin · Agent · Pitfall</p></div>
-        <div class="hsub">Search. Identify. Treat.</div>
-        <div class="search"><span>${svg("search")}</span>
+    v.innerHTML=(tab==="home"?`<div class="search"><span>${svg("search")}</span>
         <input id="hq" type="search" aria-label="Search toxins, antidotes and brand names" placeholder="Search toxins, antidotes, brands" value="${esc(q)}" autocomplete="off">
         ${q?'<button class="clr" id="cq" aria-label="Clear">×</button>':""}</div>`:"")
       +({home:viewHome,toxins:viewToxins,agents:viewAgents,tools:viewTools,saved:viewSaved}[tab])();
@@ -800,9 +821,7 @@ function wire(root){
 function wireInputs(){
   const hq=$("hq");
   if(hq){hq.oninput=e=>{q=e.target.value;const v=$("view");
-    const sc=v.scrollTop;v.innerHTML=`<div class="mark"><h1>TOX<em>CARD</em></h1><p>Toxin · Agent · Pitfall</p></div>
-      <div class="hsub">Search. Identify. Treat.</div>
-      <div class="search"><span>${svg("search")}</span><input id="hq" type="search" aria-label="Search toxins, antidotes and brand names" placeholder="Search toxins, antidotes, brands" value="${esc(q)}" autocomplete="off">${q?'<button class="clr" id="cq" aria-label="Clear">×</button>':""}</div>`+viewHome();
+    const sc=v.scrollTop;v.innerHTML=`<div class="search"><span>${svg("search")}</span><input id="hq" type="search" aria-label="Search toxins, antidotes and brand names" placeholder="Search toxins, antidotes, brands" value="${esc(q)}" autocomplete="off">${q?'<button class="clr" id="cq" aria-label="Clear">×</button>':""}</div>`+viewHome();
     v.scrollTop=sc;const n=$("hq");n.focus();n.setSelectionRange(n.value.length,n.value.length);wire(v);wireInputs()};}
   const cq=$("cq"); if(cq)cq.onclick=()=>{q="";paint()};
   const aq=$("aq");
