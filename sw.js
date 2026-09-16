@@ -9,7 +9,7 @@
    Data: network-first with cache fallback, so an online user silently gets the newest
    reviewed dataset and an offline user is never blocked. */
 
-const CACHE = 'toxcard-2026.09.15';
+const CACHE = 'toxcard-2026.09.16';
 const SHELL = ['./', './index.html', './manifest.json', './icon.svg'];
 const DATA  = ['./data/toxins.json','./data/antidote-agents.json','./data/protocols.json',
                './data/toxidromes.json','./data/version.json'];
