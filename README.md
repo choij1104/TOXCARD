@@ -2,10 +2,10 @@
 
 **Toxin · Agent · Pitfall**
 
-Emergency toxicology decision support. 173 toxins, 77 antidote agents, 8 toxidromes.
+Emergency toxicology decision support. 186 toxins, 78 antidote agents, 8 toxidromes.
 Offline-first progressive web app. No server, no accounts, no patient data.
 
-**Live:** https://choij1104.github.io/toxcard/
+**Live:** https://choij1104.github.io/TOXCARD/
 
 The name is the structure. Every entry is one card: what the patient took, what you give, and
 the thing that kills them if you get it wrong.
@@ -33,13 +33,13 @@ and free of any patient data.
 ## Data model
 
 Normalized into three tables with bidirectional links, so an agent resolves to every toxin it
-treats — hemodialysis to 16, benzodiazepines to 12, sodium bicarbonate to 11.
+treats — hemodialysis to 16, benzodiazepines to 14, sodium bicarbonate to 11.
 
 ```
 index.html                view; carries an embedded baseline of all data
-data/toxins.json          173 toxins — name, category, antidote availability
-data/antidote-agents.json 77 agents — brands, class, the toxins each treats
-data/protocols.json       173 protocols — tier, dose, pitfall, window, sources
+data/toxins.json          186 toxins — name, category, antidote availability
+data/antidote-agents.json 78 agents — brands, class, the toxins each treats
+data/protocols.json       186 protocols — tier, dose, pitfall, window, sources
 data/toxidromes.json      8 patterns for the undifferentiated patient
 data/version.json         version, review dates, changelog
 sw.js                     service worker — offline shell and data
@@ -51,6 +51,16 @@ QA-log.md                 verification record
 first launch, from any origin, even off the filesystem. When online it checks `version.json`
 and pulls newer data in the background. A failed fetch changes nothing. The app never waits on
 the network to render. There is no API and no backend.
+
+The service worker serves the shell stale-while-revalidate: the cached copy answers at once,
+and a background fetch refreshes it for the next launch, so a release reaches clients that
+already have the app installed. Data is network-first with cache fallback. Web fonts are
+cached on first sight so the typeface survives offline; if they never load, the system stack
+is used.
+
+**Platforms.** The same build runs as an installable PWA, as a Windows desktop app (Electron
+wrapper, see the release notes), and as an Android package (Capacitor, for Play Store
+distribution). Privacy policy: `privacy.html` — the app collects nothing.
 
 ## Features
 
@@ -69,6 +79,15 @@ clinicians to the wrong antidote.
 **Bidirectional browsing.** Open an agent to see every toxin it treats; open a toxin to see
 every agent involved.
 
+**Scoped search.** One search box over toxins, agents, brand names and tools, with scope chips
+to narrow it. Synonyms and trade names are indexed.
+
+**Chemical, fire and environmental casualties.** Vesicants (sulfur mustard, lewisite, phosgene
+oxime), pulmonary agents (chlorine, phosgene), smoke inhalation as a single combined card,
+Hymenoptera sting anaphylaxis, tick paralysis, and the industrial agents most often seen in an
+emergency department — phosphides, methylene chloride, toluene, nickel carbonyl, cyanide salts,
+carbon disulfide.
+
 Saved entries, recently viewed, weight, and theme persist in browser storage and degrade
 silently where storage is unavailable.
 
@@ -80,9 +99,14 @@ silently where storage is unavailable.
 | B | Approved or guideline-endorsed standard of care, moderate evidence |
 | C | Off-label; case series and expert consensus |
 | D | Investigational, contested, or not obtainable in the US |
-| — | No specific antidote exists; supportive care is the treatment |
+| N | No specific antidote exists; supportive care is the treatment (renders as "—") |
 
-40 of the 173 entries have no antidote. They are included because the judgement still matters:
+The badge beside the tier never contradicts it. A tier D entry reads **Investigational or
+not obtainable**. A tier N entry with adjunct agents reads **No specific antidote ·
+adjuncts only**, and its agent list is headed *Adjunct agents*, because bicarbonate for a
+cocaine-related wide complex is not an antidote and the card should not imply it is.
+
+72 of the 186 entries have no specific antidote (32 of those carry adjunct agents), and 10 more name an antidote that is investigational or not obtainable in the United States. They are included because the judgement still matters:
 a button battery has no antidote and needs endoscopy within two hours, and Cortinarius has no
 antidote and declares renal failure two to twenty days later.
 
