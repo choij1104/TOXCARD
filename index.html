@@ -28,7 +28,7 @@
   --sans:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+@media (prefers-color-scheme:dark){:root[data-theme="system-dark"]{
   --ground:#05090D; --surface:#101922; --surface2:#17222C;
   --line:#2C3B47; --hair:#202C36;
   --ink:#EDF3F7; --mut:#9FB3BF; --dim:#72868F;
@@ -51,6 +51,7 @@
   --shadow:0 2px 6px rgba(0,0,0,.5);
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html,body{height:100%}
 body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
   font-size:15.5px;line-height:1.5;font-weight:450;-webkit-font-smoothing:antialiased;
@@ -837,8 +838,7 @@ function wireInputs(){
   document.querySelectorAll("[data-unit]").forEach(b=>b.onclick=()=>{UNIT=b.dataset.unit;store.set("unit",UNIT);paint()});
   const clr=$("clr"); if(clr)clr.onclick=()=>{WT=null;HT=null;store.set("wt",null);store.set("ht",null);paint()};
   const thm=$("thm"); if(thm)thm.onclick=()=>{
-    const cur=document.documentElement.getAttribute("data-theme")
-      ||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");
+    const cur=document.documentElement.getAttribute("data-theme")||"light";
     const nxt=cur==="dark"?"light":"dark";
     document.documentElement.setAttribute("data-theme",nxt);store.set("theme",nxt)};
   const prt=$("prt"); if(prt)prt.onclick=()=>window.print();
