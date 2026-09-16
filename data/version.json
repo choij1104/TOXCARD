@@ -1,5 +1,5 @@
 {
- "version": "2026.09.16.c",
+ "version": "2026.09.16.d",
  "model": "normalized",
  "toxins": 186,
  "antidoteAgents": 78,
@@ -11,6 +11,7 @@
  "nextReviewDue": "2027-09-16",
  "supplyWatchDue": "2026-11-23",
  "changelog": [
+  "Dose calculator: switching the kg/lb toggle now redisplays the weight already entered, converted into the new unit, instead of leaving the same number on screen under the other unit’s label. Re-confirming that unchanged number previously got treated as a fresh lb entry and divided by 2.2046 again, understating patient weight — and every mg/kg, µg/kg, mL/kg and units/kg dose on the page — by about 55%. No toxin, agent, indication or protocol content changed.",
   "UI: settings/tools icon in the header redrawn as a cog (was mistaken for a sun); no clinical content changed",
   "Industrial toxicology expansion: aluminum/zinc phosphide (leading pesticide suicide worldwide) rewritten with the ECMO decision and the staff-exposure risk; methylene chloride, toluene with the beta-blocker-first rule, nickel carbonyl, industrial cyanide salts distinct from smoke-inhalation cyanide, and carbon disulfide added",
   "6 new entries, 180 → 186. Each was checked against a primary source before it was written — ATSDR, FDA labels via DailyMed, OSHA/NIOSH pages, and peer-reviewed literature with real PMIDs",
