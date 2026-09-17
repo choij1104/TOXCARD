@@ -498,7 +498,8 @@
   "treats": [
    "061-sulfonylurea-induced-hypoglycemia-glipizide-glyburide-glimep",
    "062-insulin-overdose",
-   "ethanol-based-hand-sanitizer-ingestion"
+   "ethanol-based-hand-sanitizer-ingestion",
+   "glp-1-receptor-agonists-semaglutide-tirzepatide-liraglutide-dosing-error"
   ]
  },
  {
@@ -983,6 +984,17 @@
   "class": "Antidote",
   "treats": [
    "hymenoptera-sting-anaphylaxis"
+  ]
+ },
+ {
+  "id": "ondansetron",
+  "name": "Ondansetron",
+  "brands": [
+   "Zofran"
+  ],
+  "class": "Antiemetic (adjunct)",
+  "treats": [
+   "glp-1-receptor-agonists-semaglutide-tirzepatide-liraglutide-dosing-error"
   ]
  }
 ]

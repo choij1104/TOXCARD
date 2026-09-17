@@ -1300,5 +1300,29 @@
   "category": "Industrial & occupational",
   "aka": [],
   "hasAntidote": false
+ },
+ {
+  "id": "glp-1-receptor-agonists-semaglutide-tirzepatide-liraglutide-dosing-error",
+  "name": "GLP-1 agonists (semaglutide, tirzepatide, liraglutide) — dosing error and overdose",
+  "category": "Endocrine & metabolic",
+  "aka": [
+   "Ozempic",
+   "Wegovy",
+   "Rybelsus",
+   "Mounjaro",
+   "Zepbound",
+   "Victoza",
+   "Saxenda",
+   "Trulicity",
+   "Byetta",
+   "Bydureon",
+   "compounded semaglutide",
+   "GLP-1",
+   "GIP/GLP-1",
+   "incretin",
+   "dulaglutide",
+   "exenatide"
+  ],
+  "hasAntidote": false
  }
 ]

@@ -4101,5 +4101,66 @@
   ],
   "stockingTier": "",
   "lastReviewed": "2026-09-16"
+ },
+ {
+  "id": "p-glp-1-receptor-agonists-semaglutide-tirzepatide-liraglutide-dosing-error",
+  "toxinId": "glp-1-receptor-agonists-semaglutide-tirzepatide-liraglutide-dosing-error",
+  "antidoteIds": [
+   "ondansetron",
+   "dextrose"
+  ],
+  "tier": "N",
+  "agentLine": "No antidote. Antiemetic, fluids, and a glucose check — then decide how long to watch, because the drug is still on board for weeks",
+  "dose": "Ondansetron 4–8 mg IV/PO, repeat as needed; add a second-line agent (prochlorperazine, droperidol with QTc check) if refractory\nIsotonic crystalloid to replace losses; correct potassium and check creatinine — vomiting for days causes AKI\nPoint-of-care glucose on arrival and with any symptom; hypoglycemia (glucose <70 mg/dL) → dextrose 25 g IV (D50 50 mL or D10 250 mL), then feed\nLipase if abdominal pain persists — pancreatitis is a labelled risk and is reported after dosing errors\nNo decontamination (subcutaneous route), no dialysis (large, protein-bound peptide), no role for glucagon or octreotide\nObservation: symptomatic patients 8–24 h in most series; discharge when tolerating fluids. Half-life ~1 week (semaglutide) and ~5 days (tirzepatide) — symptoms can recur or persist for days, so arrange follow-up rather than a second visit",
+  "pitfall": "The dangerous error is not the drug, it is the syringe. Compounded semaglutide comes in vials of varying concentration and is drawn up in U-100 insulin syringes: a patient told to take 5 units draws 50, a prescriber writes 25 units meaning 5, and FDA has logged 5- to 20-fold overdoses with hospitalisation, pancreatitis and gallstones. Ask exactly how the dose was drawn up before you decide it was a trivial exposure. And do not assume hypoglycemia cannot happen: poison-center series report it in 3–9% of single-agent cases, and a 10-fold first-dose error has needed a dextrose infusion. Check the glucose. If it is low, look for a sulfonylurea or insulin at home before attributing it to the GLP-1 agent alone.",
+  "window": "Nausea and vomiting begin within hours and last 8–24 h in most, days in large errors. Semaglutide remains in circulation ~5 weeks after a dose",
+  "sources": [
+   {
+    "label": "FDA alert — dosing errors associated with compounded injectable semaglutide products, 26 Jul 2024 (5- to 20-fold overdoses; U-100 syringe unit confusion)",
+    "type": "FDA"
+   },
+   {
+    "label": "Ozempic (semaglutide) prescribing information, rev. 05/2026 — §10 Overdosage; half-life ~1 week; §5.5 hypoglycemia with insulin or secretagogues",
+    "type": "FDA label"
+   },
+   {
+    "label": "Mounjaro (tirzepatide) prescribing information, rev. 08/2026 — §10 Overdosage; half-life ~5 days; §5.3 hypoglycemia with insulin or secretagogues",
+    "type": "FDA label"
+   },
+   {
+    "label": "Gartner HT, et al. Clinical outcomes of GLP-1 RA and GLP-1/GIP RA exposures presenting to the emergency department: 3 poison centers, 2005–2023. Ann Pharmacother 2025 (PMID 40269635) — nausea 92%, vomiting 76%, hypoglycemia 9%, effects 8–24 h, IV fluids 56%, antiemetics 51%",
+    "type": "Literature"
+   },
+   {
+    "label": "Muschler K, et al. Characterization of GLP-1 agonist exposures reported to a single US poison center. Clin Toxicol 2025 (PMID 39803696) — 237 cases, 69% therapeutic error, hypoglycemia 3.4%",
+    "type": "Literature"
+   },
+   {
+    "label": "Marshall S, et al. GLP-1 receptor agonist exposures are increasingly common and generally associated with mild symptoms. J Med Toxicol 2024 (PMID 38861153) — 91% therapeutic errors, 21% first-use pen errors",
+    "type": "Literature"
+   },
+   {
+    "label": "Gaw CE, et al. GLP-1 receptor agonist cases reported to US poison centers, 2017–2022. J Med Toxicol 2024 (PMID 38421490) — 5,713 cases, serious outcome 6.2%, one death",
+    "type": "Literature"
+   },
+   {
+    "label": "Senthilkumar A, et al. Pediatric and adult GLP-1 exposures reported to US poison centers, 2017–2024. J Med Toxicol 2026 (PMID 41784916) — 13,924 cases, 42 major effects, two deaths; children more often admitted",
+    "type": "Literature"
+   },
+   {
+    "label": "Wiener BG, et al. Semaglutide overdose administration errors on initiation: case series. Clin Toxicol 2024 (PMID 38470137) — 2 mg for 0.1 mg; GI symptoms, no hypoglycemia",
+    "type": "Literature"
+   },
+   {
+    "label": "Kraft BD, Matuszak S. Angioedema after accidental semaglutide dosing error. J Clin Med 2026 (PMID 42194666) — 10-fold compounded first dose, intubated, hypoglycemia needing dextrose infusion",
+    "type": "Literature"
+   },
+   {
+    "label": "Nafisah SB, et al. Liraglutide overdose: case report and updated review. Turk J Emerg Med 2020 (PMID 32355902) — 18 mg SC, relative hypoglycemia, pancreatitis-like presentation",
+    "type": "Literature"
+   }
+  ],
+  "stockingTier": "",
+  "lastReviewed": "2026-09-17"
  }
 ]
