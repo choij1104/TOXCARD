@@ -2,7 +2,7 @@
 
 **Toxin · Agent · Pitfall**
 
-Emergency toxicology decision support. 186 toxins, 78 antidote agents, 8 toxidromes.
+Emergency toxicology decision support. 187 toxins, 79 antidote agents, 8 toxidromes.
 Offline-first progressive web app. No server, no accounts, no patient data.
 
 **Live:** https://choij1104.github.io/TOXCARD/
@@ -37,9 +37,9 @@ treats — hemodialysis to 16, benzodiazepines to 14, sodium bicarbonate to 11.
 
 ```
 index.html                view; carries an embedded baseline of all data
-data/toxins.json          186 toxins — name, category, antidote availability
-data/antidote-agents.json 78 agents — brands, class, the toxins each treats
-data/protocols.json       186 protocols — tier, dose, pitfall, window, sources
+data/toxins.json          187 toxins — name, category, antidote availability
+data/antidote-agents.json 79 agents — brands, class, the toxins each treats
+data/protocols.json       187 protocols — tier, dose, pitfall, window, sources
 data/toxidromes.json      8 patterns for the undifferentiated patient
 data/version.json         version, review dates, changelog
 sw.js                     service worker — offline shell and data
@@ -106,7 +106,7 @@ not obtainable**. A tier N entry with adjunct agents reads **No specific antidot
 adjuncts only**, and its agent list is headed *Adjunct agents*, because bicarbonate for a
 cocaine-related wide complex is not an antidote and the card should not imply it is.
 
-72 of the 186 entries have no specific antidote (32 of those carry adjunct agents), and 10 more name an antidote that is investigational or not obtainable in the United States. They are included because the judgement still matters:
+73 of the 187 entries have no specific antidote (33 of those carry adjunct agents), and 10 more name an antidote that is investigational or not obtainable in the United States. They are included because the judgement still matters:
 a button battery has no antidote and needs endoscopy within two hours, and Cortinarius has no
 antidote and declares renal failure two to twenty days later.
 

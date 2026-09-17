@@ -492,3 +492,35 @@ Live verification after each push: `git fetch` against the remote and an MD5 com
   Console listing text, data-safety answers, icon, feature graphic and privacy policy are ready.
 - Dart stocking tier — still deliberately empty.
 - Departmental toxicology review.
+
+# Verification round 4 — 17 September 2026
+
+**Reviewer:** Jae Hyek Choi, MSc, PhD, DVSc
+**Scope:** AS-009, GLP-1 receptor agonist dosing error and overdose — requested by the CEO, approved 17 Sep 2026.
+**Result:** 1 entry and 1 adjunct agent added (186 → 187 toxins; 78 → 79 agents). Published as 2026.09.17 on the .h interface, which carried the other session's calculator unit fix, in-frame tab bar and Time-critical group; those were adopted as the new UI base and no clinical text in existing entries changed.
+
+## Source verification
+
+| # | Claim checked | Source | Result |
+|---|---|---|---|
+| 65 | No antidote; supportive care; prolonged observation because of a ~1-week half-life | Ozempic PI rev. 05/2026 §10, §12.3 | **Confirmed** — "A prolonged period of observation and treatment … taking into account the long half-life … of approximately 1 week"; present in circulation ~5 weeks |
+| 66 | Tirzepatide half-life ~5 days; same supportive rule | Mounjaro PI rev. 08/2026 §10, §12.3 | **Confirmed** |
+| 67 | Hypoglycemia risk rises with insulin or a secretagogue | Ozempic PI §5.5; Mounjaro PI §5.3 | **Confirmed** — wording identical in both labels |
+| 68 | Compounded semaglutide produces 5- to 20-fold errors through U-100 syringe unit confusion, with hospitalisation, pancreatitis and gallstones | FDA alert, 26 Jul 2024 | **Confirmed** — patient 5 units → 50 units; prescriber 25 units for 5; "five to 20 times more than the intended dose" |
+| 69 | Nausea 92%, vomiting 76%, hypoglycemia 9%, effects 8–24 h, IV fluids 56%, antiemetics 51% | Gartner HT, et al. Ann Pharmacother 2025 (PMID 40269635) — 152 ED-managed patients, co-ingested hypoglycemics excluded | **Confirmed** — the 9% is the high end of the 3–9% range quoted on the card |
+| 70 | Hypoglycemia 3.4%, mean nadir 49.6 mg/dL; 69% therapeutic errors | Muschler K, et al. Clin Toxicol 2025 (PMID 39803696) — 237 cases | **Confirmed** — the low end of the range |
+| 71 | 91% therapeutic errors; 21% first-use pen errors; hypoglycemia in 2 single-agent cases | Marshall S, et al. J Med Toxicol 2024 (PMID 38861153) | **Confirmed** |
+| 72 | National scale: 5,713 cases 2017–2022, serious outcome 6.2%, one death; 13,924 cases 2017–2024, 42 major, two deaths, children admitted more often | Gaw CE, et al. J Med Toxicol 2024 (PMID 38421490); Senthilkumar A, et al. J Med Toxicol 2026 (PMID 41784916) | **Confirmed** |
+| 73 | 10-fold first-dose errors on initiation (2 mg for 0.1 mg) cause GI symptoms without hypoglycemia | Wiener BG, et al. Clin Toxicol 2024 (PMID 38470137) | **Confirmed** — three cases |
+| 74 | A 10-fold compounded first dose has produced angioedema needing intubation and hypoglycemia needing a dextrose infusion | Kraft BD, Matuszak S. J Clin Med 2026 (PMID 42194666) | **Confirmed** — single case; cited for the dextrose point, not as a class effect |
+| 75 | Liraglutide 18 mg SC: relative hypoglycemia and a pancreatitis-like presentation | Nafisah SB, et al. Turk J Emerg Med 2020 (PMID 32355902) | **Confirmed** |
+
+Not claimed, deliberately: no fixed observation period is stated as a rule (the series give 8–24 h for most; the labels say "prolonged"); no efficacy claim is made for ondansetron beyond its use in 51% of the ED series; dulaglutide and exenatide are named on the card and in synonyms but their labels were not separately read for this round.
+
+## Automated results
+
+`tc_check.py` — 0 ERROR, 0 WARN in the dataset groups across 187 toxins, 79 agents, 187 protocols; 43 INFO. `tc_smoke.py` — 0 ERROR, 0 WARN; 30 cards; pitfall below the fold on 0. `dosecheck.py` — 0 of 187 drifted. The card was rendered at 390×844 and read through; the search term "Ozempic" resolves to it via the synonym field.
+
+Interface base: rebuilt `inner.html` from the live 2026.09.16.h `index.html` and confirmed byte-identical outside the five data lines before embedding the new dataset, so nothing the other session shipped was lost.
+
+Commits: c851dd5 (index.html, sw.js) → d46b88d (data/).
