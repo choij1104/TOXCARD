@@ -1,5 +1,5 @@
 {
- "version": "2026.09.16.f",
+ "version": "2026.09.16.g",
  "model": "normalized",
  "toxins": 186,
  "antidoteAgents": 78,
@@ -11,6 +11,7 @@
  "nextReviewDue": "2027-09-16",
  "supplyWatchDue": "2026-11-23",
  "changelog": [
+  "UI: the bottom navigation bar now sits inside the app frame instead of being pinned to the window edge, so its labels are never cut off in a short window or desktop build. No clinical content changed",
   "Home screen: the single hard-coded Cyanide shortcut is now a curated Time-critical group of four. Cyanide alone on the home screen had no stated reason - other entries where minutes decide the outcome, button battery among them, were not there. The list is deliberately NOT derived from PROTOCOLS.window: that field is free text carrying two different kinds of statement, a deadline to act (\"NAC within 8 h\") and plain natural history (\"seizures within 5-90 min of ingestion\" for camphor, \"neurotoxicity delayed up to 12 h\" for coral snake). Ranking on a number scraped out of it would have put camphor above acetaminophen and presented a description of when symptoms appear as though it were a treatment window. Cyanide carries no window string at all and would have been dropped. The list is therefore explicit, in one place near the top of the file, with the rule for being on it written beside it",
   "Dose calculator: switching the kg/lb toggle now redisplays the weight already entered, converted into the new unit, instead of leaving the same number on screen under the other unit’s label. Re-confirming that unchanged number previously got treated as a fresh lb entry and divided by 2.2046 again, understating patient weight — and every mg/kg, µg/kg, mL/kg and units/kg dose on the page — by about 55%. No toxin, agent, indication or protocol content changed.",
   "UI: settings/tools icon in the header redrawn as a cog (was mistaken for a sun); no clinical content changed",
