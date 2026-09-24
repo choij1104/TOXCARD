@@ -1,0 +1,35 @@
+# Manual only. Builds the App Store reference build and uploads it to TestFlight.
+# Requires an Apple Developer Program membership (HAKOYA LLC) and these repository secrets:
+#   APPSTORE_API_KEY_ID, APPSTORE_API_ISSUER_ID, APPSTORE_API_PRIVATE_KEY (App Store Connect API key)
+#   IOS_DIST_CERT_P12_BASE64, IOS_DIST_CERT_PASSWORD, IOS_PROFILE_BASE64 (distribution signing)
+name: iOS build (App Store reference)
+on:
+  workflow_dispatch:
+jobs:
+  ios:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build reference www
+        working-directory: ios
+        run: |
+          npm install
+          npm run build:www
+          # The App Store icon must have no alpha channel; icons/icon-1024.png is rendered from icon.svg
+          # with an opaque background, and this strips the channel itself before it reaches Xcode.
+          pip3 install --quiet pillow
+          python3 -c "from PIL import Image; Image.open('www/icons/icon-1024.png').convert('RGB').save('www/icons/icon-1024.png')"
+          npx cap add ios || true
+          npx cap sync ios
+      - name: Stop if signing secrets are missing
+        env:
+          KEY_ID: ${{ secrets.APPSTORE_API_KEY_ID }}
+        run: |
+          if [ -z "$KEY_ID" ]; then
+            echo "App Store Connect secrets are not set. The web assets and Xcode project were built; signing and upload were skipped."
+            exit 0
+          fi
+      # Signing, archive and TestFlight upload steps are added once the Apple Developer account exists.
