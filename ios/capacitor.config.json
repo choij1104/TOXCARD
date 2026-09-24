@@ -1,0 +1,9 @@
+{
+  "appId": "com.hakoya.toxcard",
+  "appName": "TOXCARD",
+  "webDir": "www",
+  "ios": {
+    "contentInset": "always",
+    "backgroundColor": "#0A0E12"
+  }
+}
