@@ -1,15 +1,36 @@
 {
   "name": "TOXCARD — Antidote Reference",
   "short_name": "TOXCARD",
-  "description": "Emergency toxicology reference. Toxin, agent, pitfall. 173 toxins, 77 antidote agents, offline.",
+  "description": "Emergency toxicology reference. Toxin, agent, pitfall. 187 toxins, 79 antidote agents, offline.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#0A0E12",
   "theme_color": "#0A0E12",
-  "categories": ["medical", "reference", "education"],
+  "categories": [
+    "medical",
+    "reference",
+    "education"
+  ],
   "icons": [
-    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
   ]
 }

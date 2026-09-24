@@ -1,19 +1,21 @@
 {
- "version": "2026.09.16.h",
+ "version": "2026.09.17",
  "model": "normalized",
- "toxins": 186,
- "antidoteAgents": 78,
- "protocols": 186,
+ "toxins": 187,
+ "antidoteAgents": 79,
+ "protocols": 187,
  "toxidromes": 8,
  "categories": 24,
- "lastReviewed": "2026-09-16",
+ "lastReviewed": "2026-09-17",
  "reviewer": "Jae Hyek Choi, MSc, PhD, DVSc",
  "nextReviewDue": "2027-09-16",
  "supplyWatchDue": "2026-11-23",
  "changelog": [
+  "GLP-1 receptor agonist dosing error and overdose added (AS-009, approved 17 Sep 2026). No antidote; the card is about the syringe — compounded vials drawn up in U-100 insulin syringes produce 5- to 20-fold errors — and about checking the glucose rather than assuming a glucose-dependent mechanism makes hypoglycemia impossible. Ondansetron added as an adjunct agent",
   "Home screen: carbon monoxide restored to the Time-critical group (five entries), which a web-upload edit had dropped. No clinical content changed",
   "UI: the bottom navigation bar now sits inside the app frame instead of being pinned to the window edge, so its labels are never cut off in a short window or desktop build. No clinical content changed",
   "Home screen: the single hard-coded Cyanide shortcut is now a curated Time-critical group of four. Cyanide alone on the home screen had no stated reason - other entries where minutes decide the outcome, button battery among them, were not there. The list is deliberately NOT derived from PROTOCOLS.window: that field is free text carrying two different kinds of statement, a deadline to act (\"NAC within 8 h\") and plain natural history (\"seizures within 5-90 min of ingestion\" for camphor, \"neurotoxicity delayed up to 12 h\" for coral snake). Ranking on a number scraped out of it would have put camphor above acetaminophen and presented a description of when symptoms appear as though it were a treatment window. Cyanide carries no window string at all and would have been dropped. The list is therefore explicit, in one place near the top of the file, with the rule for being on it written beside it",
+  "Dose calculator: the kg/lb toggle is gone and both units are now on screen together. The previous build fixed the field display but left the commit order-dependent — typing the number and then pressing the unit button, which is the natural order, committed the value under the OLD unit and discarded the press. Entering 80 while lb was selected and then pressing kg resolved to 36.3 kg, a 55% underdose; entering 180 while kg was selected and then pressing lb resolved to 180 kg, a 120% overdose. Weight now has paired lb and kg fields and height paired ft/in and cm, each editable and live-linked, so there is no selected unit and no ordering to get wrong. Height had no imperial entry at all and the 30-230 band accepted any adult height in inches, so 5 ft 10 in typed as 70 gave a BSA of 0.84 m². The canonical kg/cm is rounded to one decimal where it is set so the printed figure is the one the arithmetic used, the unit as typed is echoed back verbatim, and every computed panel states both units beside the dose. sw.js CACHE was still on 2026.09.16.c, so installed clients would not have received the previous fix at all",
   "Dose calculator: switching the kg/lb toggle now redisplays the weight already entered, converted into the new unit, instead of leaving the same number on screen under the other unit’s label. Re-confirming that unchanged number previously got treated as a fresh lb entry and divided by 2.2046 again, understating patient weight — and every mg/kg, µg/kg, mL/kg and units/kg dose on the page — by about 55%. No toxin, agent, indication or protocol content changed.",
   "UI: settings/tools icon in the header redrawn as a cog (was mistaken for a sun); no clinical content changed",
   "Industrial toxicology expansion: aluminum/zinc phosphide (leading pesticide suicide worldwide) rewritten with the ECMO decision and the staff-exposure risk; methylene chloride, toluene with the beta-blocker-first rule, nickel carbonyl, industrial cyanide salts distinct from smoke-inhalation cyanide, and carbon disulfide added",
@@ -24,7 +26,7 @@
  ],
  "expansionPlan": {
   "target": 250,
-  "current": 186,
+  "current": 187,
   "remaining": "Tranche 2 — occupational solvents and metals, antimicrobials, remaining anticonvulsants, ophthalmic and dermatologic exposures, additional plants, veterinary and agricultural products"
  }
 }

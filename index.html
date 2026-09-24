@@ -9,7 +9,7 @@
 <meta name="description" content="Emergency toxicology antidote reference. Toxin, agent, pitfall. Offline.">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon.svg">
-<link rel="apple-touch-icon" href="icon.svg">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon-180.png">
 <title>TOXCARD</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -480,7 +480,13 @@ function computeDoses(text){
   }
   return rows.length?rows:null;
 }
+/* Build flag. The App Store build injects a toxcard-build meta tag with content "reference".
+   In that build nothing is computed: every dose is shown exactly as its source states it, and
+   the weight-based calculator, the weight fields and the computed panels are absent. The web
+   build is unchanged. */
+const REFERENCE_BUILD=(document.querySelector('meta[name="toxcard-build"]')||{}).content==="reference";
 function calcHTML(dose){
+  if(REFERENCE_BUILD) return "";
   const rows=computeDoses(dose); if(!rows) return "";
   return `<div class="calc"><div class="hd">Computed at ${wtLine()}${HT?" · "+tidy(bsa())+" m²":""}</div><ul>`
    +rows.map(r=>r.out===null?`<li>${esc(r.expr)} — <span class="cap">${esc(r.note)}</span></li>`
@@ -541,7 +547,8 @@ const URGENT=[
 const TABS=[["home","Home","home"],["toxins","Toxins","biohazard"],["agents","Antidotes","syringe"],
             ["tools","Tools","calc"],["saved","Saved","star"]];
 
-function go(t){if(t==="recent"){tab="saved";stack=[];q="";showRecent=true;paint();return}
+function go(t){if(REFERENCE_BUILD&&t==="calc")t="home";
+  if(t==="recent"){tab="saved";stack=[];q="";showRecent=true;paint();return}
   tab=t;stack=[];q="";showRecent=false;paint()}
 let showRecent=false;
 function push(kind,id){stack.push({kind,id});if(kind==="toxin")remember(id);paint()}
@@ -624,9 +631,9 @@ function viewHome(){
   <div class="grid">
     ${tile("toxins","biohazard","var(--sigSoft)","var(--sig)","Toxin Browser",`${TOXINS.length} entries<br>${new Set(TOXINS.map(t=>t.category)).size} categories`)}
     ${tile("agents","syringe","var(--tealSoft)","var(--teal)","Antidote Browser",`${AGENTS.length} agents<br>and what each treats`)}
-    ${tile("calc","calc","var(--brandSoft)","var(--brand)","Dose Calculator","Weight-based<br>resolution")}
+    ${REFERENCE_BUILD?"":tile("calc","calc","var(--brandSoft)","var(--brand)","Dose Calculator","Weight-based<br>resolution")}
     ${tile("toxidromes","stetho","var(--amberSoft)","var(--amber)","Toxidrome Triage","No history?<br>Start here.")}
-    ${tile("tools","doc","var(--brandSoft)","var(--brand)","Clinical Tools","Weight, height,<br>display")}
+    ${tile("tools","doc","var(--brandSoft)","var(--brand)","Clinical Tools",REFERENCE_BUILD?"Display,<br>toxidromes":"Weight, height,<br>display")}
     ${tile("saved","star","var(--amberSoft)","var(--amber)","Saved",`${favs.length} quick-access<br>entr${favs.length===1?"y":"ies"}`)}
   </div>
   ${rec.length?`<div class="lbl">Recently viewed${recent.filter(id=>T[id]).length>4?`<button class="seeall" data-go="recent">See all</button>`:""}</div>${rec.map(id=>toxRow(T[id])).join("")}`:""}
@@ -664,12 +671,13 @@ function viewSaved(){
 }
 function viewTools(){
   return `<div class="card">
-    <h4>Patient</h4>
+    ${REFERENCE_BUILD?`<h4>Doses</h4>
+    <div class="note"><span>Doses are shown exactly as their sources state them. This build does not compute weight-based doses.</span></div>`:`<h4>Patient</h4>
     <div class="field"><label for="wtlb">Weight and height — enter either unit, the other follows</label>
       ${wtInputs()}</div>
     ${WT?`<div class="result"><h5>${wtLine()}${HT?` · ${tidy(bsa())} m²`:""}</h5>
       <div class="sub">Every mg/kg, µg/kg, mL/kg and units/kg expression now resolves on each entry.</div></div>`
-      :`<div class="note"><span>Enter a weight and every weight-based dose in the app resolves as you read it.</span></div>`}
+      :`<div class="note"><span>Enter a weight and every weight-based dose in the app resolves as you read it.</span></div>`}`}
     <div class="inrow" style="margin-top:12px"><button class="chip" id="clr">Clear</button>
       <button class="chip" id="thm">Switch theme</button>
       <button class="chip" id="prt">Print</button></div>
