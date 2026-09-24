@@ -123,4 +123,4 @@ Both dates are printed in the app, and the supply date is surfaced on the home s
 ---
 
 TOXCARD is compiled by **Jae Hyek Choi, MSc, PhD, DVSc**
-© 2026 Jae Hyek Choi. All rights reserved.
+© 2026 Jae Hyek Choi, MSc, PhD, DVSc, and Patrick C. Ng, MD. All rights reserved.
