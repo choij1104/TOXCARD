@@ -836,7 +836,7 @@ function paint(){
         if(b.dataset.act==="print") window.print();
         if(b.dataset.act==="copy"){
           const txt=tx.name+"\n\n"+pr.agentLine+"\n\n"+pr.dose+"\n\nPitfall: "+pr.pitfall;
-          try{navigator.clipboard.writeText(txt)}catch(e){}
+          try{const cp=navigator.clipboard.writeText(txt);if(cp&&cp.catch)cp.catch(()=>{})}catch(e){}
         }
         if(b.dataset.act==="agents"){const el=$("sec-pf");
           if(el)$("view").scrollTo({top:el.offsetTop-64,behavior:"smooth"})}
