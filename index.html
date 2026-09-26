@@ -435,8 +435,8 @@ let WT=r1(store.get("wt",null)), HT=r1(store.get("ht",null));
 let WTRAW=store.get("wtraw",null), HTRAW=store.get("htraw",null);
 
 /* ---------- dose resolution (unchanged engine) ---------- */
-const UNIT_RE=/(\d+(?:[.,]\d+)?)\s*(?:[–—-]\s*(\d+(?:[.,]\d+)?)\s*)?(mg|µg|mcg|g|mL|ml|units?|U)\s*\/\s*(kg|m²|m2)(\s*\/\s*(?:h|hr|hour|min|minute|day))?/gi;
-const CAP_RE=/\(?\b(?:max(?:imum)?\.?|up to|not to exceed)\s*(\d+(?:[.,]\d+)?)\s*(mg|µg|mcg|g|mL|ml|units?|U)\b/i;
+const UNIT_RE=/(\d+(?:[.,]\d+)?)\s*(?:[–—-]\s*(\d+(?:[.,]\d+)?)\s*)?(mg|µg|mcg|g|mL|ml|mEq|units?|U)\s*\/\s*(kg|m²|m2)(\s*\/\s*(?:h|hr|hour|min|minute|day))?/gi;
+const CAP_RE=/\(?\b(?:max(?:imum)?\.?|up to|not to exceed)\s*(\d+(?:[.,]\d+)?)\s*(mg|µg|mcg|g|mL|ml|mEq|units?|U)\b/i;
 const numv=s=>parseFloat(String(s).replace(",",""));
 const toB=(v,u)=>{const k=u.toLowerCase();return k==="g"?v*1000:(k==="µg"||k==="mcg")?v/1000:v};
 const frB=(v,u)=>{const k=u.toLowerCase();return k==="g"?v/1000:(k==="µg"||k==="mcg")?v*1000:v};
@@ -676,7 +676,7 @@ function viewTools(){
     <div class="field"><label for="wtlb">Weight and height — enter either unit, the other follows</label>
       ${wtInputs()}</div>
     ${WT?`<div class="result"><h5>${wtLine()}${HT?` · ${tidy(bsa())} m²`:""}</h5>
-      <div class="sub">Every mg/kg, µg/kg, mL/kg and units/kg expression now resolves on each entry.</div></div>`
+      <div class="sub">Every mg/kg, µg/kg, mEq/kg, mL/kg and units/kg expression now resolves on each entry.</div></div>`
       :`<div class="note"><span>Enter a weight and every weight-based dose in the app resolves as you read it.</span></div>`}`}
     <div class="inrow" style="margin-top:12px"><button class="chip" id="clr">Clear</button>
       <button class="chip" id="thm">Switch theme</button>
@@ -724,23 +724,23 @@ function viewCalc(){
     ${["Antidotes","By toxin","Custom"].map(m=>`<button data-mode="${m}" aria-pressed="${m===calcMode}" style="flex:1;justify-content:center">${m}</button>`).join("")}
   </div>
   <div class="card">
-    <h4>2 · Patient weight</h4>
+    <h4>1 · Patient weight</h4>
     ${wtInputs()}
   </div>
-  ${calcMode==="Custom"?`<div class="card"><h4>1 · Your own expression</h4>
+  ${calcMode==="Custom"?`<div class="card"><h4>2 · Your own expression</h4>
     <input class="inp" id="cx" style="width:100%" placeholder="e.g. 1.5 mL/kg, max 500 mL" value="${esc(customExpr)}">
     <div style="margin-top:12px">${customExpr&&WT?(computeDoses(customExpr)?`<div class="rescard"><div class="rh"><b>At ${wtLine()}</b><span>${esc(customExpr)}</span></div><table>`
       +computeDoses(customExpr).map((r,i)=>`<tr><td class="k">Result</td><td class="n">${esc(r.out??"—")}</td><td class="s">(${esc(r.expr)}${r.capped?", capped at "+esc(r.capTxt):""})</td></tr>`).join("")
-      +`</table></div>`:`<div class="note"><span>No weight-based expression found. Write it as <b>mg/kg</b>, <b>µg/kg</b>, <b>mL/kg</b>, <b>units/kg</b> or <b>mg/m²</b>, and state any ceiling in the same clause.</span></div>`)
+      +`</table></div>`:`<div class="note"><span>No weight-based expression found. Write it as <b>mg/kg</b>, <b>µg/kg</b>, <b>mEq/kg</b>, <b>mL/kg</b>, <b>units/kg</b> or <b>mg/m²</b>, and state any ceiling in the same clause.</span></div>`)
       :`<div class="note"><span>Type an expression and set a weight. Ceilings written as <b>max</b>, <b>up to</b> or <b>not to exceed</b> in the same clause are applied.</span></div>`}</div></div>`
-  :calcMode==="By toxin"?`<div class="card"><h4>1 · Select entry</h4>
+  :calcMode==="By toxin"?`<div class="card"><h4>2 · Select entry</h4>
     <div class="search" style="margin:0 0 10px"><span>${svg("search")}</span>
       <input id="aq" type="search" aria-label="Search entries" placeholder="Search toxins" value="${esc(agentQ)}" autocomplete="off"></div>
     ${(agentQ?search(agentQ):TOXINS.slice(0,8)).slice(0,40).map(t=>`<button class="row" data-calctoxdirect="${t.id}" style="margin-bottom:6px;box-shadow:none;${calcTox===t.id?"border-color:var(--brand)":""}">
       <span class="tier" style="background:${tierCol[(P[t.id]||{}).tier]||"var(--tN)"}">${(P[t.id]||{}).tier==="N"?"–":(P[t.id]||{}).tier}</span>
       <span class="txt"><b>${esc(t.name)}</b><span>${esc((P[t.id]||{}).agentLine||"")}</span></span>
       <span class="car">${svg("car")}</span></button>`).join("")||`<div class="empty">No entry matches that.</div>`}</div>`
-  :`<div class="card"><h4>1 · Select agent</h4>
+  :`<div class="card"><h4>2 · Select agent</h4>
     <div class="search" style="margin:0 0 10px"><span>${svg("search")}</span>
       <input id="aq" type="search" aria-label="Search antidotes" placeholder="Search antidotes" value="${esc(agentQ)}" autocomplete="off"></div>
     ${agents.filter(x=>!agentQ||(x.name+" "+x.brands.join(" ")).toLowerCase().includes(agentQ.toLowerCase()))
