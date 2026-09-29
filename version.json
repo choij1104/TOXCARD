@@ -11,6 +11,7 @@
  "nextReviewDue": "2027-09-16",
  "supplyWatchDue": "2026-11-23",
  "changelog": [
+  "UI: home search field — native iOS/WebKit search styling removed so the field renders the same on every device, the duplicate clear (×) button is gone, and the clear button is aligned inside the field. sw.js CACHE bumped so installed clients get the fix. No clinical content changed",
   "GLP-1 receptor agonist dosing error and overdose added (AS-009, approved 17 Sep 2026). No antidote; the card is about the syringe — compounded vials drawn up in U-100 insulin syringes produce 5- to 20-fold errors — and about checking the glucose rather than assuming a glucose-dependent mechanism makes hypoglycemia impossible. Ondansetron added as an adjunct agent",
   "Home screen: carbon monoxide restored to the Time-critical group (five entries), which a web-upload edit had dropped. No clinical content changed",
   "UI: the bottom navigation bar now sits inside the app frame instead of being pinned to the window edge, so its labels are never cut off in a short window or desktop build. No clinical content changed",

@@ -115,9 +115,11 @@ main{flex:1 1 auto;overflow-y:auto;overscroll-behavior:contain;
 .search svg{width:17px;height:17px;flex:0 0 auto;fill:none;stroke:var(--dim);stroke-width:1.9;
   stroke-linecap:round}
 .search input{flex:1;min-width:0;border:0;background:none;outline:none;font-size:16px;
-  font-weight:500;height:100%}
+  font-weight:500;height:100%;color:var(--ink);-webkit-appearance:none;appearance:none;border-radius:0}
+.search input::-webkit-search-cancel-button,.search input::-webkit-search-decoration{-webkit-appearance:none;display:none}
 .search input::placeholder{color:var(--dim)}
-.search .clr{color:var(--dim);font-size:19px;padding:0 2px;line-height:1;min-width:44px;min-height:44px}
+.search .clr{color:var(--dim);font-size:19px;padding:0 2px;line-height:1;min-width:44px;min-height:44px;
+  flex:0 0 auto;display:flex;align-items:center;justify-content:center;margin-right:-10px}
 
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .tile{background:var(--surface);border:1.5px solid var(--line);border-radius:13px;
