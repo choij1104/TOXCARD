@@ -122,5 +122,5 @@ Both dates are printed in the app, and the supply date is surfaced on the home s
 
 ---
 
-TOXCARD is compiled by **HAKOYA LLC dba Auravyx Systems**
-© 2026 HAKOYA LLC dba Auravyx Systems. All rights reserved.
+TOXCARD is compiled by **HAKOYA LLC**
+© 2026 HAKOYA LLC. All rights reserved.
