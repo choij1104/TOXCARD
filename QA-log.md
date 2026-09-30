@@ -1,7 +1,7 @@
 # Antidote Reference — Verification & Debug Log
 
 **File:** index.html (115 entries, 18 categories)
-**Author:** Jae Hyek Choi, MSc, PhD, DVSc
+**Author:** HAKOYA LLC dba Auravyx Systems
 **Date closed:** 2 August 2026
 **Total checks:** 75 (26 source verifications, 49 automated code and consistency tests)
 **Corrections applied:** 11
@@ -341,7 +341,7 @@ policy compliance. Full JavaScript syntax check on the 213 KB build.
 
 # Verification round 2 — 23 August 2026
 
-**Reviewer:** Jae Hyek Choi, MSc, PhD, DVSc
+**Reviewer:** HAKOYA LLC dba Auravyx Systems
 **Scope:** every tier A and B claim read against its authority; all perishable
 regulatory and supply claims re-checked; the full dataset re-run through the
 integrity and browser gates.
@@ -389,7 +389,7 @@ deliberately corrupt one, which was rejected with the embedded baseline left sta
 
 # Verification round 3 — 15–16 September 2026
 
-**Reviewer:** Jae Hyek Choi, MSc, PhD, DVSc
+**Reviewer:** HAKOYA LLC dba Auravyx Systems
 **Scope:** coverage gaps in chemical warfare agents, smoke inhalation, envenomation and
 industrial toxicology; the application rebuilt to a new interface with feature parity
 proven; the service-worker release path and a field-reported phone defect.
@@ -495,7 +495,7 @@ Live verification after each push: `git fetch` against the remote and an MD5 com
 
 # Verification round 4 — 17 September 2026
 
-**Reviewer:** Jae Hyek Choi, MSc, PhD, DVSc
+**Reviewer:** HAKOYA LLC dba Auravyx Systems
 **Scope:** AS-009, GLP-1 receptor agonist dosing error and overdose — requested by the CEO, approved 17 Sep 2026.
 **Result:** 1 entry and 1 adjunct agent added (186 → 187 toxins; 78 → 79 agents). Published as 2026.09.17 on the .h interface, which carried the other session's calculator unit fix, in-frame tab bar and Time-critical group; those were adopted as the new UI base and no clinical text in existing entries changed.
 
