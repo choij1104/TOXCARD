@@ -108,7 +108,7 @@
     "type": "FDA label"
    },
    {
-    "label": "AHA 2023 focused update: cardiac arrest in toxicity",
+    "label": "AHA 2025 Guidelines Part 10, special circumstances of resuscitation: poisoning. Circulation 2025;152(16 suppl 2):S578-S672 (PMID 41122889)",
     "type": "Guideline"
    }
   ],
@@ -172,7 +172,7 @@
     "type": "FDA label"
    },
    {
-    "label": "AHA 2023 focused update: cardiac arrest in toxicity",
+    "label": "AHA 2025 Guidelines Part 10, special circumstances of resuscitation: poisoning. Circulation 2025;152(16 suppl 2):S578-S672 (PMID 41122889)",
     "type": "Guideline"
    }
   ],
@@ -521,7 +521,7 @@
   "window": "",
   "sources": [
    {
-    "label": "AHA 2023 focused update: cardiac arrest in toxicity",
+    "label": "AHA 2025 Guidelines Part 10, special circumstances of resuscitation: poisoning. Circulation 2025;152(16 suppl 2):S578-S672 (PMID 41122889)",
     "type": "Guideline"
    }
   ],
@@ -541,7 +541,7 @@
   "window": "",
   "sources": [
    {
-    "label": "AHA 2023 focused update: cardiac arrest in toxicity",
+    "label": "AHA 2025 Guidelines Part 10, special circumstances of resuscitation: poisoning. Circulation 2025;152(16 suppl 2):S578-S672 (PMID 41122889)",
     "type": "Guideline"
    }
   ],
@@ -561,7 +561,7 @@
   "window": "",
   "sources": [
    {
-    "label": "AHA 2023 focused update: cardiac arrest in toxicity",
+    "label": "AHA 2025 Guidelines Part 10, special circumstances of resuscitation: poisoning. Circulation 2025;152(16 suppl 2):S578-S672 (PMID 41122889)",
     "type": "Guideline"
    }
   ],
@@ -582,7 +582,7 @@
   "window": "",
   "sources": [
    {
-    "label": "AHA 2023 focused update: cardiac arrest in toxicity",
+    "label": "AHA 2025 Guidelines Part 10, special circumstances of resuscitation: poisoning. Circulation 2025;152(16 suppl 2):S578-S672 (PMID 41122889)",
     "type": "Guideline"
    },
    {
@@ -606,7 +606,7 @@
   "window": "",
   "sources": [
    {
-    "label": "AHA 2023 focused update: cardiac arrest in toxicity",
+    "label": "AHA 2025 Guidelines Part 10, special circumstances of resuscitation: poisoning. Circulation 2025;152(16 suppl 2):S578-S672 (PMID 41122889)",
     "type": "Guideline"
    },
    {
@@ -632,7 +632,7 @@
   "window": "",
   "sources": [
    {
-    "label": "AHA 2023 focused update: cardiac arrest in toxicity",
+    "label": "AHA 2025 Guidelines Part 10, special circumstances of resuscitation: poisoning. Circulation 2025;152(16 suppl 2):S578-S672 (PMID 41122889)",
     "type": "Guideline"
    }
   ],
@@ -858,7 +858,7 @@
     "type": "FDA label"
    },
    {
-    "label": "AHA 2023 focused update: cardiac arrest in toxicity",
+    "label": "AHA 2025 Guidelines Part 10, special circumstances of resuscitation: poisoning. Circulation 2025;152(16 suppl 2):S578-S672 (PMID 41122889)",
     "type": "Guideline"
    }
   ],
@@ -1861,17 +1861,21 @@
   ],
   "tier": "A",
   "agentLine": "BabyBIG (human botulism immune globulin IV)",
-  "dose": "50 mg/kg (1 mL/kg) IV as a single infusion, through a dedicated line\nStart at 0.5 mL/kg/h; if tolerated at 15 min, increase to 1 mL/kg/h — do not exceed\nAvailable only from the California Infant Botulism Treatment and Prevention Program: 510-231-7600",
+  "dose": "Dose is lot-specific — confirm the lot and its dose with the Program when the vials are released\nLot 7: 20 mg/kg (0.4 mL/kg) IV as a single infusion, through a dedicated line — FDA notice; a 60% reduction from the label dose because the lot carries a higher antibody concentration\nEarlier lots (label, rev 9/2025): 50 mg/kg (1 mL/kg)\nStart at 0.5 mL/kg/h; if tolerated at 15 min, increase to 1 mL/kg/h — do not exceed\nAvailable only from the California Infant Botulism Treatment and Prevention Program: 510-231-7600",
   "pitfall": "Do not give equine BAT to an infant if BabyBIG is obtainable — the human product avoids serum sickness and shortens hospital stay by weeks. Aminoglycosides potentiate the neuromuscular blockade and should be avoided for any concurrent infection.",
   "window": "",
   "sources": [
    {
     "label": "BabyBIG prescribing information",
     "type": "FDA label"
+   },
+   {
+    "label": "FDA, Important Change in BabyBIG Lot 7 Dosage Information (fda.gov/media/194815)",
+    "type": "FDA label"
    }
   ],
   "stockingTier": "",
-  "lastReviewed": "2026-08-02"
+  "lastReviewed": "2026-10-02"
  },
  {
   "id": "p-087-tetanus",
@@ -2461,7 +2465,7 @@
   "window": "",
   "sources": [
    {
-    "label": "AHA 2023 focused update: cardiac arrest in toxicity",
+    "label": "AHA 2025 Guidelines Part 10, special circumstances of resuscitation: poisoning. Circulation 2025;152(16 suppl 2):S578-S672 (PMID 41122889)",
     "type": "Guideline"
    },
    {
@@ -3792,7 +3796,7 @@
     "type": "FDA label"
    },
    {
-    "label": "AHA 2023 Focused Update on cardiac arrest and life-threatening toxicity due to poisoning. Circulation 2023;148:e149-e184 (PMID 37721023)",
+    "label": "AHA 2025 Guidelines Part 10, special circumstances of resuscitation: poisoning. Circulation 2025;152(16 suppl 2):S578-S672 (PMID 41122889)",
     "type": "Guideline"
    },
    {

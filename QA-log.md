@@ -524,3 +524,157 @@ Not claimed, deliberately: no fixed observation period is stated as a rule (the 
 Interface base: rebuilt `inner.html` from the live 2026.09.16.h `index.html` and confirmed byte-identical outside the five data lines before embedding the new dataset, so nothing the other session shipped was lost.
 
 Commits: c851dd5 (index.html, sw.js) → d46b88d (data/).
+
+# Verification round 5 — 26 September 2026
+
+Release 2026.09.26.b (AS-014). No clinical entry was added or changed. The round exists
+because eight commits reached `main` between 24 and 26 September — a dose-parser change,
+touch-target CSS, a clipboard fix, the iOS reference-build flag and packaging — without a
+version bump: `sw.js` CACHE moved to `toxcard-2026.09.26` and then `toxcard-2026.09.26.a`
+while `VERSION.version` stayed on 2026.09.17. This release keys the two together again,
+writes the changelog those commits did not, and brings the working folder level with the
+repository.
+
+## Dose-parser check (AS-015)
+
+`UNIT_RE` now accepts `mEq` as a weight-based unit. The parser was replicated line for line
+in Python and run over every string field of all 187 protocols, then the live engine was
+exercised in a headless browser at 70 kg.
+
+| Protocol | Expression | Clause | Computed 20 kg | Computed 70 kg | Ceiling |
+|---|---|---|---|---|---|
+| p-028 tricyclic antidepressants and sodium-channel blockade | 1–2 mEq/kg | "1–2 mEq/kg IV bolus, repeat until QRS narrows" | 20–40 mEq | 70–140 mEq | none stated in the clause; none applied |
+| p-029 bupropion, diphenhydramine, cocaine, flecainide | 1–2 mEq/kg | "NaHCO₃ 1–2 mEq/kg boluses" | 20–40 mEq | 70–140 mEq | none stated; none applied |
+
+These are the only two `mEq/kg` expressions in the dataset. Five other protocol fields
+mention mEq as fixed amounts (for example "150 mEq in 1 L" for the infusion) and are not
+matched by the parser, as intended. The rendered panel on the tricyclic card at 70 kg
+reads "1–2 mEq/kg → 70–140 mEq", identical to the arithmetic. Before this change the same
+two clauses produced no computed row, so the change adds output; it alters no existing
+figure. The clinical acceptability of the figures is the reviewer's determination and is
+recorded in `reports/release-2026.09.26.md`.
+
+## Automated results
+
+`tc_check.py` (plugin copy, 23 Aug build) on the released `index.html` — 0 ERROR, 0 WARN in
+the dataset groups across 187 toxins, 79 agents, 187 protocols, 8 toxidromes; 43 INFO (33
+tier-N adjunct notes, 3 tier-D-unlinked notes, 7 tier-D-with-agent badge notes that this
+checker build still labels ERROR — the badge rule of round 3 makes them INFO). The three
+"offline asset" notes are the Google Fonts links, cached by the service worker on first
+sight with the system stack as fallback.
+
+Headless browser, 360×640: zero page errors; the only console errors are the blocked font
+host in the sandbox and the deliberate offline reload. `VERSION.version` reads 2026.09.26.b;
+counts 187 / 79 / 187 / 8; two update alerts on the home screen; no horizontal overflow on
+home, toxins, agents, tools or saved, nor on the tricyclic card; localStorage cleared and
+the app loads; service worker controls the page and the app reloads offline with the same
+version.
+
+Touch targets: the round-3 header controls remain under 44 px — `.back` 70×35 and the two
+header `.iconbtn` at 36×36. Everything ac8c005 raised now measures 44 px. The header
+controls are logged, not changed, in this release (AS-017).
+
+## Merge note
+
+The folder copy of `index.html` (300,730 bytes, 2026.09.17) was backed up as
+`backups/index_2026-09-26_v2026.09.17.html` and replaced by the `main` 2a7ce8e file with the
+version bump applied. `data/*.json` were byte-identical between folder and repository
+before the round (MD5 48ea6992 on `data/version.json`); only `version.json` changed, and only
+in `version` and `changelog`. The stale root `version.json` (2026.09.16.h) in the folder was
+replaced by the repository copy, which mirrors `data/version.json`.
+
+# Verification round 6 — 2 October 2026
+
+Release 2026.10.02.b (AS-016 revised, AS-017, AS-018, AS-019). Issued first as 2026.10.02.a
+without the BabyBIG edit; the CEO approved AS-018 the same evening before anything was pushed,
+so the release was re-cut as .b with the edit below and .a was never published. One dose
+block changed (p-086); tier, agent, pitfall and window text unchanged; 187 toxins, 79 agents, 187 protocols, 8 toxidromes, unchanged. The round
+exists because the 26 September release (prepared in the folder as 2026.09.26.b, never
+pushed) was overtaken by four commits on `main` — the search-field CSS (c41a6ce, 29 Sep),
+the HAKOYA LLC attribution (ea70366, 0b16a33, 30 Sep) and the iPhone header fix (9cfcf3e,
+30 Sep) — none of which bumped `VERSION.version` or, for the 30 Sep three, `sw.js` CACHE.
+This release rebases the 26 September version bump onto 9cfcf3e, takes `main`'s CSS and
+attribution, keeps the folder's changelog, and keys `VERSION.version` and CACHE together
+again as 2026.10.02.a.
+
+## Source relabel (AS-019)
+
+Eleven protocols carried a `Guideline` source reading "AHA 2023 focused update: cardiac
+arrest in toxicity" (ten short-form; the smoke-inhalation card long-form with PMID 37721023).
+All eleven now read "AHA 2025 Guidelines Part 10, special circumstances of resuscitation:
+poisoning. Circulation 2025;152(16 suppl 2):S578-S672 (PMID 41122889)". The PMID was
+resolved against PubMed on 2 October 2026: Cao D, Arens AM, Chow SL, et al. Part 10: Adult
+and Pediatric Special Circumstances of Resuscitation: 2025 American Heart Association
+Guidelines for Cardiopulmonary Resuscitation and Emergency Cardiovascular Care. Circulation.
+2025;152(16 suppl 2):S578-S672. doi:10.1161/CIR.0000000000001380. Its scope statement names
+benzodiazepines, β-blockers, calcium channel blockers, cocaine, cyanide, opioids, sodium
+channel blockers, sympathomimetics and ECMO for poisoned patients — the topics of all eleven
+cards. The label is the only field edited; each card's own `lastReviewed` date and every
+dose, pitfall and window string are untouched, and whether any 2025 recommendation changes
+a card's content is the reviewer's reading, not asserted here. The earlier count of
+"13 cards" in the 28 September watch scan was the number of label occurrences counted
+loosely; the dataset holds eleven.
+
+Cards: p-005 opioids, p-008 benzodiazepines, p-024 beta-blocker, p-025 beta-blocker or CCB
+cardiogenic shock, p-026 calcium-channel blocker, p-027 refractory poison-induced cardiogenic
+shock, p-028 tricyclic / sodium-channel blockade, p-029 bupropion / diphenhydramine / cocaine /
+flecainide wide-complex tachycardia, p-039 cyanide, p-115 poison-induced cardiac arrest or
+refractory shock, p-smoke-inhalation-closed-space-fire.
+
+## Header touch targets (AS-017)
+
+`.iconbtn` 36×36 → 44×44; `.back` gains `min-height:44px; min-width:44px` with its vertical
+padding moved into the height; `.tb-in` vertical padding 11 → 7 px so the bar keeps its
+56 px minimum. Measured in the headless browser at 360×640 on 43 cards: Back 69×44, Save
+44×44, More 44×44; bar height 56 px on toxins, agents, tools, saved and every card, 58 px on
+home (the wordmark block). No control in the header, the view or the tab bar measures under
+44 px on any tab. These were the last controls under 44 px (round 5).
+
+## Integrity
+
+`tc_check.py` v0.1.0: ERROR 10 / WARN 0 / INFO 36 — identical to the 28–30 September runs.
+The ten are the documented by-design set: seven tier-D-with-agent badge notes (018, 019, 020,
+042, 049, 090, nickel carbonyl) and the three Google Fonts references (system stack fallback,
+cached by the service worker on first sight). No structure, link, unit or date finding.
+`data/` regenerated with `tc_data.py extract` is byte-identical to the committed `data/`
+(toxins, antidote-agents, protocols, toxidromes, version). `VERSION` in `index.html` = root
+`version.json` = `data/version.json` (23 changelog lines).
+
+`tc_smoke.py` v0.1.0 could not be used: it looks for `.view.on`, which the app has not used
+since the single `#view` container, and reports the same 32 tab/card errors on the untouched
+`main` file. A replacement sweep against the current structure ran instead (TABS walked via
+`go()`, cards via `push()`): zero page errors; the only console errors are the two blocked
+Google Fonts requests; no horizontal overflow on home, toxins, agents, tools or saved nor on
+any of 43 sampled cards (40 random, plus apixaban/rivaroxaban, cyanide and opioids); the
+relabelled source renders on the opioid card; the string "AHA 2023" no longer occurs in
+`PROTOCOLS`. Service worker: registration active, cache key `toxcard-2026.10.02.a`; with the
+network cut, the page reloads and `VERSION.version` reads 2026.10.02.a with the home view
+rendered. The smoke script needs its selectors updated before the next release (T1, logged).
+
+## BabyBIG, Lot 7 dose (AS-018 — T4, approved by the CEO 2 October 2026)
+
+`p-086-infant-botulism-1-y-toxin-types-a-and-b` `dose` rewritten as lot-specific. Authority:
+FDA notice "Important Change in BabyBIG® Lot 7 Dosage Information" (fda.gov/media/194815),
+read 2 October 2026 — Lot 7 dose 0.4 mL/kg (20 mg/kg), changed from 1.0 mL/kg (50 mg/kg),
+"a 60% reduction from the previous dosage", attributed to a higher antibody concentration.
+The current prescribing information on DailyMed (revised 9/2025) still states 1.0 mL/kg
+(50 mg/kg), 100 mg ± 20 mg per vial reconstituted with 2 mL SWFI to 50 mg/mL, 0.5 → 1.0 mL/kg/h,
+18 μm filter; it is kept on the card as the dose for earlier lots. A Lot 8 letter and a
+0.2-micron filter instruction, noted by the 28 September watch scan, could not be found in
+any FDA or CDPH document reachable from the session and are **not** on the card. Source
+added: the FDA notice, type FDA label. Card `lastReviewed` 2026-08-02 → 2026-10-02.
+`VERSION.lastReviewed` → 2026-10-02 and `nextReviewDue` → 2027-10-02, because a dose changed.
+
+Rendered at 5 kg in the headless browser: the card shows the lot-specific block in order and
+the computed panel reads 20 mg/kg → 100 mg, 0.4 mL/kg → 2 mL, 50 mg/kg → 250 mg, 1 mL/kg →
+5 mL, 0.5 mL/kg/h → 2.5 mL/h, 1 mL/kg/h → 5 mL/h — one line per expression in card order,
+with the standing note that the panel is arithmetic and does not choose between regimens.
+"60% reduction" is not parsed as a dose. No page error.
+
+## Changelog note
+
+The 26 September changelog line that opened "Footer credits … beside the reviewer" was
+shortened to its remaining sentences, because the footer no longer carries that credit after
+the 30 September attribution commits; the fact that it once did is in the repository history
+and in round 5 above. `lastReviewed` stays 2026-09-17, as in the 26 September release: no
+clinical content changed.
