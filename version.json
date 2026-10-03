@@ -1,5 +1,5 @@
 {
- "version": "2026.10.02.b",
+ "version": "2026.10.03.a",
  "model": "normalized",
  "toxins": 187,
  "antidoteAgents": 79,
@@ -11,6 +11,7 @@
  "nextReviewDue": "2027-10-02",
  "supplyWatchDue": "2026-11-23",
  "changelog": [
+  "UI: the header settings (cog) button now opens Clinical Tools — it was rendered in the top bar, which never received click handlers, so it did nothing. Buttons, links and inputs no longer trigger iOS double-tap zoom (touch-action: manipulation). Light theme secondary text darkened from #718B9B to #4F6878 so it meets WCAG AA contrast (was 3.6:1 on white). No clinical content changed",
   "Infant botulism: BabyBIG dosing is now stated by lot. Lot 7 is 20 mg/kg (0.4 mL/kg), a 60% reduction from the label dose, because the lot carries a higher antibody concentration (FDA notice, Important Change in BabyBIG Lot 7 Dosage Information); earlier lots keep the label's 50 mg/kg (1 mL/kg). The card now tells the clinician to confirm the lot and its dose with the California program when the vials are released. Infusion rate, pitfall and tier unchanged (AS-018, approved 2 Oct 2026)",
   "Sources: the eleven cards that cited the 2023 AHA focused update on cardiac arrest in poisoning now cite the 2025 AHA Guidelines, Part 10 (Circulation 2025;152(16 suppl 2):S578-S672, PMID 41122889), which supersedes it — opioids, benzodiazepines, beta-blocker, calcium-channel blocker, refractory poison-induced cardiogenic shock, tricyclic and sodium-channel blockade, wide-complex tachycardia, cyanide, smoke inhalation and poison-induced cardiac arrest. Source label only; no dose, tier or protocol text changed (AS-019, approved 2 Oct 2026)",
   "UI: the header controls — the Back button and the star, more, tools and about icon buttons — now measure at least 44 px; they were the last controls under that size. The bar keeps its height. No clinical content changed",
