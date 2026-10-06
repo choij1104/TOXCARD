@@ -83,8 +83,26 @@ jobs:
           BUILD_NUMBER: ${{ github.run_number }}
         run: |
           KEY_PATH="$RUNNER_TEMP/AuthKey_$KEY_ID.p8"
-          printf '%s\n' "$KEY" > "$KEY_PATH"
-          chmod 600 "$KEY_PATH"
+          # Rebuild a clean PEM from whatever was pasted into the secret: a key copied from a
+          # Windows editor can carry a BOM, CRLF line ends, or lose its line breaks altogether,
+          # and xcodebuild then rejects it as an invalid PEM document. The key is never printed.
+          umask 077
+          printf '%s' "$KEY" | python3 -c '
+          import sys, re, base64, textwrap
+          raw = sys.stdin.read().replace("﻿", "")
+          body = re.sub(r"-----(BEGIN|END)[A-Z ]*-----", "", raw)
+          body = re.sub(r"[^A-Za-z0-9+/=]", "", body)
+          try:
+              der = base64.b64decode(body, validate=True)
+          except Exception:
+              sys.exit("APPSTORE_API_PRIVATE_KEY is not base64 PEM content. Paste the whole .p8 file.")
+          if len(der) < 100:
+              sys.exit(f"APPSTORE_API_PRIVATE_KEY is too short ({len(der)} bytes) to be a .p8 key. Was the Key ID pasted instead?")
+          sys.stdout.write("-----BEGIN PRIVATE KEY-----\n" + "\n".join(textwrap.wrap(body, 64)) + "\n-----END PRIVATE KEY-----\n")
+          ' > "$KEY_PATH"
+          openssl pkey -in "$KEY_PATH" -noout 2>/dev/null \
+            || { echo "::error::APPSTORE_API_PRIVATE_KEY does not parse as a private key. Re-paste the full .p8 file contents."; exit 1; }
+          echo "API key: PEM OK; Key ID length ${#KEY_ID}; Issuer ID length ${#ISSUER}; Team ID length ${#TEAM}"
           xcodebuild archive \
             -workspace ios/ios/App/App.xcworkspace \
             -scheme App \
