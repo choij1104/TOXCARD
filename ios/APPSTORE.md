@@ -18,7 +18,20 @@ npm install
 npm run sync        # builds ios/www and syncs the Xcode project
 ```
 
+`ios/www` and `ios/ios` are generated on every build and are not committed.
+
+The reference bundle also:
+- bundles the IBM Plex fonts from `@fontsource` (SIL OFL 1.1) in place of the Google Fonts links,
+  so the app makes no network request;
+- replaces `privacy.html` with `ios/privacy-reference.html`, which describes this build.
+
+`scripts/native-setup.py` then prepares the generated Xcode project: TOXCARD icon (alpha removed),
+launch screen, `ITSAppUsesNonExemptEncryption = NO`, iPhone only, and `PrivacyInfo.xcprivacy`.
+
 In CI: Actions → "iOS build (App Store reference)" → Run workflow. Manual only.
+Signing is automatic through an App Store Connect API key (Admin role). Secrets:
+`APPSTORE_API_KEY_ID`, `APPSTORE_API_ISSUER_ID`, `APPSTORE_API_PRIVATE_KEY`, `APPLE_TEAM_ID`.
+The build number is the workflow run number; the App Store version is a workflow input.
 
 ## Publisher
 

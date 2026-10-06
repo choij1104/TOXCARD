@@ -1,35 +1,137 @@
-# Manual only. Builds the App Store reference build and uploads it to TestFlight.
-# Requires an Apple Developer Program membership (HAKOYA LLC) and these repository secrets:
-#   APPSTORE_API_KEY_ID, APPSTORE_API_ISSUER_ID, APPSTORE_API_PRIVATE_KEY (App Store Connect API key)
-#   IOS_DIST_CERT_P12_BASE64, IOS_DIST_CERT_PASSWORD, IOS_PROFILE_BASE64 (distribution signing)
+# Manual only. Builds the App Store reference build of TOXCARD and uploads it to App Store Connect
+# (TestFlight). Signing is automatic: Xcode creates and renews the distribution certificate and the
+# App Store profile itself, authenticated with an App Store Connect API key. No certificate file,
+# .p12 or provisioning profile is stored anywhere.
+#
+# Repository secrets (Settings > Secrets and variables > Actions), entered by the account holder:
+#   APPSTORE_API_KEY_ID       Key ID of an App Store Connect API key with the Admin role
+#   APPSTORE_API_ISSUER_ID    Issuer ID shown above the key list
+#   APPSTORE_API_PRIVATE_KEY  Full contents of the downloaded AuthKey_XXXX.p8, including the BEGIN/END lines
+#   APPLE_TEAM_ID             10-character Team ID of HAKOYA LLC (developer.apple.com > Membership)
+# Without them the workflow still builds and checks the bundle and the Xcode project, then stops.
 name: iOS build (App Store reference)
 on:
   workflow_dispatch:
+    inputs:
+      marketing_version:
+        description: "Version shown on the App Store (CFBundleShortVersionString)"
+        required: true
+        default: "1.0.0"
+concurrency:
+  group: ios-build
+  cancel-in-progress: false
 jobs:
   ios:
     runs-on: macos-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Build reference www
+          cache: npm
+          cache-dependency-path: ios/package-lock.json
+
+      # App Store uploads must be built with a current Xcode / iOS SDK.
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Build reference web bundle (no dose computation, no network)
         working-directory: ios
         run: |
-          npm install
+          npm ci
           npm run build:www
-          # The App Store icon must have no alpha channel; icons/icon-1024.png is rendered from icon.svg
-          # with an opaque background, and this strips the channel itself before it reaches Xcode.
-          pip3 install --quiet pillow
-          python3 -c "from PIL import Image; Image.open('www/icons/icon-1024.png').convert('RGB').save('www/icons/icon-1024.png')"
-          npx cap add ios || true
+
+      - name: Generate and prepare the Xcode project
+        working-directory: ios
+        run: |
+          pip3 install --quiet --break-system-packages pillow || pip3 install --quiet pillow
+          npx cap add ios
           npx cap sync ios
-      - name: Stop if signing secrets are missing
+          python3 scripts/native-setup.py
+
+      - name: Check signing secrets
+        id: secrets
         env:
           KEY_ID: ${{ secrets.APPSTORE_API_KEY_ID }}
+          ISSUER: ${{ secrets.APPSTORE_API_ISSUER_ID }}
+          KEY: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
+          TEAM: ${{ secrets.APPLE_TEAM_ID }}
         run: |
-          if [ -z "$KEY_ID" ]; then
-            echo "App Store Connect secrets are not set. The web assets and Xcode project were built; signing and upload were skipped."
-            exit 0
+          missing=""
+          [ -n "$KEY_ID" ] || missing="$missing APPSTORE_API_KEY_ID"
+          [ -n "$ISSUER" ] || missing="$missing APPSTORE_API_ISSUER_ID"
+          [ -n "$KEY" ]    || missing="$missing APPSTORE_API_PRIVATE_KEY"
+          [ -n "$TEAM" ]   || missing="$missing APPLE_TEAM_ID"
+          if [ -n "$missing" ]; then
+            echo "::warning::Missing secrets:$missing. Bundle and Xcode project were built; archive and upload skipped."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
           fi
-      # Signing, archive and TestFlight upload steps are added once the Apple Developer account exists.
+
+      - name: Archive (automatic signing)
+        if: steps.secrets.outputs.ready == 'true'
+        env:
+          KEY_ID: ${{ secrets.APPSTORE_API_KEY_ID }}
+          ISSUER: ${{ secrets.APPSTORE_API_ISSUER_ID }}
+          KEY: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
+          TEAM: ${{ secrets.APPLE_TEAM_ID }}
+          MARKETING_VERSION: ${{ inputs.marketing_version }}
+          BUILD_NUMBER: ${{ github.run_number }}
+        run: |
+          KEY_PATH="$RUNNER_TEMP/AuthKey_$KEY_ID.p8"
+          printf '%s\n' "$KEY" > "$KEY_PATH"
+          chmod 600 "$KEY_PATH"
+          xcodebuild archive \
+            -workspace ios/ios/App/App.xcworkspace \
+            -scheme App \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath "$RUNNER_TEMP/TOXCARD.xcarchive" \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath "$KEY_PATH" \
+            -authenticationKeyID "$KEY_ID" \
+            -authenticationKeyIssuerID "$ISSUER" \
+            DEVELOPMENT_TEAM="$TEAM" \
+            CODE_SIGN_STYLE=Automatic \
+            MARKETING_VERSION="$MARKETING_VERSION" \
+            CURRENT_PROJECT_VERSION="$BUILD_NUMBER" \
+            | tee "$RUNNER_TEMP/archive.log" | grep -E '^(\*\*|error:|warning: .*sign)' || true
+          test -d "$RUNNER_TEMP/TOXCARD.xcarchive" || { tail -80 "$RUNNER_TEMP/archive.log"; exit 1; }
+          /usr/libexec/PlistBuddy -c 'Print :ApplicationProperties' "$RUNNER_TEMP/TOXCARD.xcarchive/Info.plist"
+
+      - name: Upload to App Store Connect
+        if: steps.secrets.outputs.ready == 'true'
+        env:
+          KEY_ID: ${{ secrets.APPSTORE_API_KEY_ID }}
+          ISSUER: ${{ secrets.APPSTORE_API_ISSUER_ID }}
+          TEAM: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          cat > "$RUNNER_TEMP/ExportOptions.plist" <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+            <key>method</key><string>app-store-connect</string>
+            <key>destination</key><string>upload</string>
+            <key>teamID</key><string>$TEAM</string>
+            <key>signingStyle</key><string>automatic</string>
+            <key>uploadSymbols</key><true/>
+            <key>manageAppVersionAndBuildNumber</key><false/>
+          </dict></plist>
+          EOF
+          xcodebuild -exportArchive \
+            -archivePath "$RUNNER_TEMP/TOXCARD.xcarchive" \
+            -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
+            -exportPath "$RUNNER_TEMP/export" \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath "$RUNNER_TEMP/AuthKey_$KEY_ID.p8" \
+            -authenticationKeyID "$KEY_ID" \
+            -authenticationKeyIssuerID "$ISSUER"
+          echo "Uploaded build ${{ inputs.marketing_version }} (${{ github.run_number }}). It appears in App Store Connect > TestFlight after processing (usually 10-30 min)." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Remove API key
+        if: always()
+        run: rm -f "$RUNNER_TEMP"/AuthKey_*.p8
