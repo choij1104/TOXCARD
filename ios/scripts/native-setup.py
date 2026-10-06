@@ -15,6 +15,9 @@ place, and the script fails loudly if the template has changed shape.
                    iPad screenshots and an iPad layout review.
   5. Privacy       PrivacyInfo.xcprivacy added to the app target: no tracking, no data collected,
                    no required-reason APIs. Capacitor's frameworks carry their own manifests.
+  6. iOS 15.0      Minimum iOS raised from Capacitor's 14.0 in the app target and the Podfile
+                   (ITMS-90068: uploads must target iOS 15.0 or later from April 2027).
+                   Run this script before `npx cap sync ios` so pod install picks up the Podfile.
 """
 import os, plistlib, re, sys
 from PIL import Image
@@ -73,6 +76,17 @@ if n == 0 and "TARGETED_DEVICE_FAMILY = 1;" not in pbx:
     die("TARGETED_DEVICE_FAMILY not found in project.pbxproj")
 pbx = pbx.replace('TARGETED_DEVICE_FAMILY = "1,2";', "TARGETED_DEVICE_FAMILY = 1;")
 
+MIN_IOS = "15.0"
+pbx, n_ios = re.subn(r"IPHONEOS_DEPLOYMENT_TARGET = [0-9.]+;", f"IPHONEOS_DEPLOYMENT_TARGET = {MIN_IOS};", pbx)
+if n_ios == 0:
+    die("IPHONEOS_DEPLOYMENT_TARGET not found in project.pbxproj")
+podfile = os.path.join(IOS, "ios", "App", "Podfile")
+pod = open(podfile, encoding="utf-8").read()
+pod, n_pod = re.subn(r"platform :ios, '[0-9.]+'", f"platform :ios, '{MIN_IOS}'", pod)
+if n_pod != 1:
+    die("platform :ios line not found in Podfile")
+open(podfile, "w", encoding="utf-8").write(pod)
+
 manifest = {
     "NSPrivacyTracking": False,
     "NSPrivacyTrackingDomains": [],
@@ -109,5 +123,6 @@ open(PBX, "w", encoding="utf-8").write(pbx)
 pbx = open(PBX, encoding="utf-8").read()
 assert pbx.count(FILE_ID) == 3 and pbx.count(BUILD_ID) == 2, "PrivacyInfo not wired into the project"
 assert '"1,2"' not in pbx
+assert re.findall(r"IPHONEOS_DEPLOYMENT_TARGET = ([0-9.]+);", pbx) and set(re.findall(r"IPHONEOS_DEPLOYMENT_TARGET = ([0-9.]+);", pbx)) == {MIN_IOS}
 assert Image.open(os.path.join(icon_dir, names[0])).mode == "RGB"
-print(f"native-setup: icon, {count} splash images, Info.plist, iPhone-only, PrivacyInfo.xcprivacy done")
+print(f"native-setup: icon, {count} splash images, Info.plist, iPhone-only, PrivacyInfo.xcprivacy, iOS {MIN_IOS} done")

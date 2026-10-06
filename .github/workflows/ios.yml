@@ -49,8 +49,8 @@ jobs:
         run: |
           pip3 install --quiet --break-system-packages pillow || pip3 install --quiet pillow
           npx cap add ios
+          python3 scripts/native-setup.py   # before sync, so pod install reads the iOS 15 Podfile
           npx cap sync ios
-          python3 scripts/native-setup.py
 
       - name: Check signing secrets
         id: secrets
