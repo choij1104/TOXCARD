@@ -850,7 +850,7 @@
   "tier": "A",
   "agentLine": "Hydroxocobalamin (Cyanokit)",
   "dose": "5 g IV over 15 min; 10 g in cardiac arrest or persistent instability\nPediatric 70 mg/kg (max 5 g)\nAdjunct sodium thiosulfate 12.5 g IV through a separate line",
-  "pitfall": "This is the correction to the source graphic — hydroxocobalamin, not nitrite, is first line, particularly in fire victims where carbon monoxide co-exposure makes induced methemoglobinemia dangerous. Treat empirically on clinical suspicion; blood cyanide takes days. Lactate above 8 mmol/L in a fire victim is the practical trigger. The drug turns plasma, skin, and urine deep red and interferes with co-oximetry, chemistry panels, and some hemodialysis machines' blood-leak detectors.",
+  "pitfall": "Hydroxocobalamin, not nitrite, is first line, particularly in fire victims where carbon monoxide co-exposure makes induced methemoglobinemia dangerous. Treat empirically on clinical suspicion; blood cyanide takes days. Lactate above 8 mmol/L in a fire victim is the practical trigger. The drug turns plasma, skin, and urine deep red and interferes with co-oximetry, chemistry panels, and some hemodialysis machines' blood-leak detectors.",
   "window": "",
   "sources": [
    {
