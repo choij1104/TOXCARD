@@ -1,0 +1,13 @@
+{
+  "name": "toxcard-android",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Google Play (reference) build of TOXCARD, wrapped with Capacitor. Uses the same web bundle as the App Store build (ios/www).",
+  "dependencies": {
+    "@capacitor/android": "8.5.3",
+    "@capacitor/core": "8.5.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.5.3"
+  }
+}
