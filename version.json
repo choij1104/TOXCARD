@@ -1,5 +1,5 @@
 {
- "version": "2026.10.06.a",
+ "version": "2026.10.21.a",
  "model": "normalized",
  "toxins": 187,
  "antidoteAgents": 79,
@@ -11,6 +11,7 @@
  "nextReviewDue": "2027-10-02",
  "supplyWatchDue": "2026-11-23",
  "changelog": [
+  "Industrial cyanide salts (oral NaCN/KCN): paediatric sodium thiosulfate corrected from 400 mg/kg to 250 mg/kg (1 mL/kg of 25%), not to exceed 12.5 g (50 mL), as stated in the card's cited source, the Nithiodote prescribing information (section 2.2), and matching the smoke inhalation card. Adult dose, tier, pitfall and other agents unchanged (AS-022)",
   "Cyanide (smoke inhalation, HCN): an editorial note left at the start of the pitfall (\"This is the correction to the source graphic\") removed. The pitfall now opens with the clinical statement: hydroxocobalamin, not nitrite, is first line. No clinical content changed. data/version.json brought back in line with version.json, which it had fallen one entry behind",
   "UI: the header settings (cog) button now opens Clinical Tools — it was rendered in the top bar, which never received click handlers, so it did nothing. Buttons, links and inputs no longer trigger iOS double-tap zoom (touch-action: manipulation). Light theme secondary text darkened from #718B9B to #4F6878 so it meets WCAG AA contrast (was 3.6:1 on white). No clinical content changed",
   "Infant botulism: BabyBIG dosing is now stated by lot. Lot 7 is 20 mg/kg (0.4 mL/kg), a 60% reduction from the label dose, because the lot carries a higher antibody concentration (FDA notice, Important Change in BabyBIG Lot 7 Dosage Information); earlier lots keep the label's 50 mg/kg (1 mL/kg). The card now tells the clinician to confirm the lot and its dose with the California program when the vials are released. Infusion rate, pitfall and tier unchanged (AS-018, approved 2 Oct 2026)",

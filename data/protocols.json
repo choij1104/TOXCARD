@@ -4045,7 +4045,7 @@
   ],
   "tier": "A",
   "agentLine": "Hydroxocobalamin on suspicion. Vent the room and don SCBA — HCN off-gasses from vomitus and NG aspirate and can poison the code team",
-  "dose": "Hydroxocobalamin (Cyanokit) 5 g IV over 15 min → repeat 5 g if persistent instability, max 10 g total\nPaediatric 70 mg/kg IV, not to exceed 5 g per dose (EMA posology; US label states paediatric safety not established)\nSodium thiosulfate 12.5 g IV push adult (50 mL of 25%); paediatric 400 mg/kg IV, not to exceed 12.5 g — additive to hydroxocobalamin\nActivated charcoal 1 g/kg NG only if airway protected and within 1 h — cyanide is poorly adsorbed but the pill mass is small\nGastric lavage generally not attempted in the symptomatic patient — HCN off-gassing endangers staff; if attempted, N95 or SCBA and vent aspirate outside\nAvoid amyl and sodium nitrite in the pure oral ingestion — hydroxocobalamin is preferred and methaemoglobinaemia adds risk without CO co-exposure to balance",
+  "dose": "Hydroxocobalamin (Cyanokit) 5 g IV over 15 min → repeat 5 g if persistent instability, max 10 g total\nPaediatric 70 mg/kg IV, not to exceed 5 g per dose (EMA posology; US label states paediatric safety not established)\nSodium thiosulfate 12.5 g IV push adult (50 mL of 25%); paediatric 250 mg/kg (1 mL/kg of 25%) IV, not to exceed 12.5 g (50 mL) — additive to hydroxocobalamin\nActivated charcoal 1 g/kg NG only if airway protected and within 1 h — cyanide is poorly adsorbed but the pill mass is small\nGastric lavage generally not attempted in the symptomatic patient — HCN off-gassing endangers staff; if attempted, N95 or SCBA and vent aspirate outside\nAvoid amyl and sodium nitrite in the pure oral ingestion — hydroxocobalamin is preferred and methaemoglobinaemia adds risk without CO co-exposure to balance",
   "pitfall": "Vomitus and gastric aspirate from an oral cyanide patient in an unventilated resuscitation bay have poisoned code teams — this has killed responders. Vent the room, don SCBA, and do not bend over an unintubated airway. A single 5 g hydroxocobalamin dose is often inadequate for gram-scale KCN or NaCN — give the second 5 g early rather than waiting to see whether the first one worked, because by the time it is clear it did not, the patient has arrested.",
   "window": "Symptomatic within minutes. Give hydroxocobalamin on suspicion, before whole-blood cyanide returns and before the second cardiac arrest",
   "sources": [
@@ -4071,7 +4071,7 @@
    }
   ],
   "stockingTier": "",
-  "lastReviewed": "2026-09-16"
+  "lastReviewed": "2026-10-21"
  },
  {
   "id": "p-carbon-disulfide-cs2-rayon-cellophane",
