@@ -16,7 +16,7 @@ on:
       marketing_version:
         description: "Version shown on the App Store (CFBundleShortVersionString)"
         required: true
-        default: "1.0.0"
+        default: "1.1.0"
 concurrency:
   group: ios-build
   cancel-in-progress: false

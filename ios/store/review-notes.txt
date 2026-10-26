@@ -1,0 +1,24 @@
+TOXCARD 1.1 is a substantial update made in response to the Guideline 4.3 and 4.2.6 review of 1.0.0 on October 16, 2026.
+
+WHAT CHANGED IN 1.1 (native iOS features written for this app in Swift)
+1. iPhone Search (Core Spotlight). All 187 toxins and 79 antidote agents are indexed on the device with their synonyms and brand names. Tapping a Spotlight result opens that card in TOXCARD; "Search in App" from Spotlight opens TOXCARD's search with the same text. The card currently open is also offered to Siri Suggestions (NSUserActivity).
+2. Siri and Shortcuts (App Intents, App Shortcuts on iOS 17 and later). "Look up an antidote in TOXCARD", "Look up a toxin in TOXCARD", "Open toxidrome triage in TOXCARD", "Search TOXCARD". The antidote and toxin entities resolve by name, synonym or brand (for example "Cyanokit") and open the card on screen.
+3. Home Screen quick actions. Touch and hold the icon: Search, Toxidrome Triage, and up to two of the user's pinned cards (set dynamically).
+4. Share sheet and AirPrint for a single card, haptic feedback, window appearance that follows the in-app theme (status bar and keyboard match), left-edge swipe back.
+5. New iPhone interface and identity: four-tab bar (Cards, Antidotes, Triage, Pinned), large titles, inset grouped lists, an A–Z section index, a settings sheet, a new tier "card tab" design, system fonts, a new color system, and a new app icon. The clinical content and its sources are unchanged.
+
+HOW TO TEST
+- No account, sign-in or network is needed. The app works in airplane mode.
+- Launch, tap Continue. Tap the "Cyanide" card under Time-critical: agent, dose, pitfall and sources are on one screen. Tap the star to pin it, the share icon to share it, and the "..." button for Print card.
+- Spotlight: after the first launch, return to the Home Screen, swipe down and search "hydroxocobalamin" or "Cyanokit". The TOXCARD result opens the Hydroxocobalamin card.
+- Siri: say "Look up an antidote in TOXCARD", then "Naloxone". Or open the Shortcuts app > App Shortcuts > TOXCARD.
+- Quick actions: touch and hold the TOXCARD icon. After pinning a card it appears there too.
+- Settings (gear icon, top right): appearance, the Search index status and a rebuild button, and the dataset review dates.
+
+REFERENCE BUILD
+Doses are displayed exactly as their sources state them; this build performs no dose calculation (Guideline 1.4.2). It is intended for trained clinicians and states that it is not a substitute for a poison center.
+
+ORIGINALITY
+TOXCARD is a standalone app. It shares no code with any other app on this account beyond Capacitor and Apple's frameworks. It was not built from a template or with an app-generation service. Its dataset (toxins, antidote agents, protocols, toxidromes) was compiled and reviewed for this app, and its native code (Spotlight indexing, App Intents, quick actions) exists only in TOXCARD.
+
+Publisher: HAKOYA LLC. Contact: admin@hakoyallc.com

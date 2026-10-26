@@ -1,11 +1,14 @@
 {
   "name": "toxcard-ios",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "App Store (reference) build of TOXCARD, wrapped with Capacitor.",
   "scripts": {
     "build:www": "bash scripts/build-reference.sh",
-    "sync": "npm run build:www && npx cap sync ios"
+    "sync": "npm run build:www && npx cap sync ios",
+    "qa": "node qa/preflight.mjs",
+    "icon": "python3 scripts/make-icon.py",
+    "shots": "node qa/store-shots.mjs"
   },
   "dependencies": {
     "@capacitor/core": "^7.0.0",

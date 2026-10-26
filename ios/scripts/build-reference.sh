@@ -7,6 +7,13 @@
 #      link tags are replaced, so the app makes no network request at all.
 #   3. privacy.html is replaced with ios/privacy-reference.html, which describes this build
 #      (no dose calculator, no network) instead of the web build.
+#   4. The iOS presentation layer, ios/app/native.css and ios/app/native.js, is added after the
+#      app's own style and script, with Capacitor's core runtime (capacitor.js) before them.
+#      It brings the iOS navigation and design and the bridge to the Swift code in ios/native.
+#   5. The online dataset check and the service worker registration are removed: this build
+#      makes no network request at all, and the build fails if any fetch/XHR is left.
+# The clinical data (TOXINS, AGENTS, PROTOCOLS, TOXIDROMES, VERSION) is copied byte for byte and
+# checked against the repository's index.html.
 # Run `npm install` in ios/ first so the @fontsource packages are present.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
@@ -54,7 +61,36 @@ links=re.findall(r'^<link[^>]*fonts\.(?:googleapis|gstatic)\.com[^>]*>\n?', s, r
 assert len(links)==3, f"expected 3 Google Fonts link tags, found {len(links)}"
 for i,l in enumerate(links):
     s=s.replace(l, '<link rel="stylesheet" href="fonts/fonts.css">\n' if i==len(links)-1 else '', 1)
+# 3. iOS layer: styles after the app's stylesheet, scripts after the app's script
+assert s.count('</style>')==1 and s.count('</head>')==1, "style/head markers not found exactly once"
+s=s.replace('</head>','<link rel="stylesheet" href="native.css">\n</head>',1)
+# 4. No network in this build: drop the online dataset check and the service worker registration
+refresh=re.findall(r'\n/\* data refresh .*?\n\}\)\(\);\n', s, re.S)
+assert len(refresh)==1 and 'fetch(' in refresh[0], f"data refresh block not found exactly once ({len(refresh)})"
+s=s.replace(refresh[0], '\n/* data refresh: not in the App Store build (no network). */\n',1)
+sw=re.findall(r'<script>\nif\("serviceWorker" in navigator.*?</script>\n', s, re.S)
+assert len(sw)==1, "service worker registration not found exactly once"
+s=s.replace(sw[0], '<script src="capacitor.js"></script>\n<script src="native.js"></script>\n',1)
 open(p,'w',encoding='utf-8').write(s)
+PY
+cp "$IOS/app/native.css" "$IOS/app/native.js" "$OUT/"
+CAPJS="$IOS/node_modules/@capacitor/core/dist/capacitor.js"
+[ -f "$CAPJS" ] || { echo "@capacitor/core dist/capacitor.js missing: run npm install in ios/ first" >&2; exit 1; }
+cp "$CAPJS" "$OUT/capacitor.js"
+rm -f "$OUT/sw.js"
+
+# Clinical data must be byte-identical to the repository's index.html
+python3 - "$ROOT/index.html" "$OUT/index.html" <<'PY'
+import sys, re
+a=open(sys.argv[1],encoding='utf-8').read(); b=open(sys.argv[2],encoding='utf-8').read()
+for name in ("TOXINS","AGENTS","PROTOCOLS","TOXIDROMES","VERSION"):
+    ra=re.findall(rf'^const {name}=.*$', a, re.M); rb=re.findall(rf'^const {name}=.*$', b, re.M)
+    assert len(ra)==1 and ra==rb, f"{name} differs between the web index.html and the App Store bundle"
+# every render function of the web build is present unchanged
+for fn in ("viewToxin","doseTable","txdHTML","badgeFor","computeDoses","calcHTML"):
+    fa=re.search(rf'^function {fn}\(.*?^}}$', a, re.M|re.S); fb=re.search(rf'^function {fn}\(.*?^}}$', b, re.M|re.S)
+    assert fa and fb and fa.group(0)==fb.group(0), f"{fn} differs in the App Store bundle"
+print("clinical data and render functions identical to the web build")
 PY
 
 # --- Checks: fail the build rather than ship a wrong bundle ---
@@ -65,4 +101,10 @@ if grep -rnoE '(https?:)?//[a-z0-9.-]+\.(googleapis|gstatic)\.com' "$OUT" ; then
 if grep -nE '(src|href)="https?://' "$OUT/index.html" ; then
   echo "External resource reference in index.html" >&2; exit 1; fi
 grep -qi 'dose calculator' "$OUT/privacy.html" && { echo "Web privacy text in the reference bundle" >&2; exit 1; }
+for f in "$OUT/index.html" "$OUT/native.js"; do
+  if grep -nE '\bfetch\(|XMLHttpRequest|navigator\.sendBeacon|new WebSocket|serviceWorker\.register' "$f"; then
+    echo "Network call left in $(basename "$f")" >&2; exit 1; fi
+done
+grep -q '<script src="native.js"></script>' "$OUT/index.html"
+grep -q 'href="native.css"' "$OUT/index.html"
 echo "Reference build written to $OUT ($(ls "$OUT/fonts" | grep -c woff2) font files)"

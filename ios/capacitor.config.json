@@ -3,7 +3,9 @@
   "appName": "TOXCARD",
   "webDir": "www",
   "ios": {
-    "contentInset": "always",
-    "backgroundColor": "#0A0E12"
+    "contentInset": "never",
+    "scrollEnabled": false,
+    "allowsLinkPreview": false,
+    "backgroundColor": "#EFF0ED"
   }
 }

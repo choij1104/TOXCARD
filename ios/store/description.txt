@@ -1,0 +1,35 @@
+TOXCARD is a clinical toxicology reference for emergency physicians, toxicologists, pharmacists, nurses and paramedics. Every entry is one card: what the patient took, what you give, and the pitfall that harms the patient if you get it wrong.
+
+ONE CARD PER POISON
+• 187 toxins: drugs, envenomations, mushrooms and plants, household and industrial agents, chemical and fire casualties
+• Agent, dose and management, and the pitfall on the same screen. Nothing clinically important is hidden behind a tap
+• Evidence tier on every card, from FDA-approved specific antidote to supportive care only, with a badge that never overstates it
+• Time-critical window where acting inside a stated time changes the outcome
+• Named sources on every card, with review dates printed in the app
+
+EVERY ANTIDOTE, AND WHAT IT TREATS
+• 79 agents with brand names and class
+• Open an agent to see every toxin it is used for; open a toxin to see every agent involved
+
+TOXIDROME TRIAGE
+• Eight patterns for the patient with no history
+• Each names the finding that separates it from the one it is confused with: dry versus wet skin for anticholinergic against sympathomimetic, rapid clonus against lead-pipe rigidity for serotonin syndrome against neuroleptic malignant syndrome
+
+BUILT FOR IPHONE
+• iPhone Search: every toxin and antidote appears in Spotlight, and a result opens its card
+• Siri and Shortcuts: "Look up an antidote in TOXCARD", "Look up a toxin in TOXCARD", "Open toxidrome triage in TOXCARD"
+• Home Screen quick actions: Search, Toxidrome Triage and your latest pinned cards
+• A–Z section index, scoped search by toxin, antidote, brand or toxidrome, and a category browser
+• Share a card as text or print it with AirPrint
+• Pin the cards you need; recently viewed cards are kept on the device
+• Light and dark appearance, haptic feedback, swipe back
+
+OFFLINE AND PRIVATE
+• Every card is inside the app and works in airplane mode from the first launch
+• No account, no sign-in, no analytics, no advertising, no tracking. Nothing leaves your iPhone
+
+Doses are shown exactly as their sources state them. Confirm every dose against your own formulary before administration.
+
+TOXCARD is decision support for trained clinicians. It is not a protocol and not a substitute for a regional poison center. In the United States, call Poison Control at 1-800-222-1222.
+
+Published by HAKOYA LLC.
