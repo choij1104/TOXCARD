@@ -58,9 +58,17 @@ already have the app installed. Data is network-first with cache fallback. Web f
 cached on first sight so the typeface survives offline; if they never load, the system stack
 is used.
 
-**Platforms.** The same build runs as an installable PWA, as a Windows desktop app (Electron
-wrapper, see the release notes), and as an Android package (Capacitor, for Play Store
-distribution). Privacy policy: `privacy.html` — the app collects nothing.
+**Platforms.** The same clinical content ships in every build. Privacy policy: `privacy.html` —
+the app collects nothing.
+
+| Platform | Status (27 Oct 2026) | How to get it |
+|---|---|---|
+| Web app (PWA) | Live, data 2026.10.21.a | Open https://choij1104.github.io/TOXCARD/ in any browser. On iPhone: Safari → Share → Add to Home Screen; it then opens full-screen and works offline. |
+| Android | Live on Google Play | Search "TOXCARD" on Google Play (HAKOYA LLC). |
+| iPhone / iPad (App Store) | Version 1.1 in App Review | Not yet in the App Store. Use the web app above until it is approved. |
+
+The web app keeps the weight-based dose calculator. The store builds are reference builds:
+every dose is shown exactly as its source states it, with no calculation.
 
 ## Features
 
