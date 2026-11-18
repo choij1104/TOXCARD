@@ -1,0 +1,119 @@
+# TOXCARD 2.0 — native SwiftUI app (native-app/). No web view, no Capacitor.
+# On push to native-swiftui: compile for the simulator only (no signing, no upload).
+# Manual run with upload=true: archive, sign for distribution with the App Store Connect API key,
+# and upload to TestFlight. Same secrets and bundle ID (com.hakoya.toxcard) as ios.yml.
+name: iOS native build (TOXCARD 2.0)
+on:
+  push:
+    branches: [native-swiftui]
+    paths: ["native-app/**", ".github/workflows/ios-native.yml"]
+  workflow_dispatch:
+    inputs:
+      marketing_version:
+        description: "App Store version"
+        required: true
+        default: "2.0.0"
+      upload:
+        description: "Archive and upload to TestFlight"
+        type: boolean
+        default: false
+concurrency:
+  group: ios-native
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Generate Xcode project
+        working-directory: native-app
+        run: |
+          xcodebuild -version
+          brew install xcodegen >/dev/null
+          xcodegen generate
+
+      - name: Compile for simulator
+        working-directory: native-app
+        run: |
+          set -o pipefail
+          xcodebuild build \
+            -project TOXCARD.xcodeproj -scheme TOXCARD \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO \
+            | tee "$RUNNER_TEMP/build.log" | grep -E '^(\*\*|.*error:)' || true
+          grep -q '\*\* BUILD SUCCEEDED \*\*' "$RUNNER_TEMP/build.log" || { grep -E 'error:' "$RUNNER_TEMP/build.log" | head -60; exit 1; }
+
+      - name: Archive (unsigned)
+        if: github.event_name == 'workflow_dispatch' && inputs.upload
+        env:
+          KEY_ID: ${{ secrets.APPSTORE_API_KEY_ID }}
+          ISSUER: ${{ secrets.APPSTORE_API_ISSUER_ID }}
+          KEY: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
+          TEAM: ${{ secrets.APPLE_TEAM_ID }}
+          MARKETING_VERSION: ${{ inputs.marketing_version }}
+          BUILD_NUMBER: ${{ github.run_number }}
+        run: |
+          KEY_PATH="$RUNNER_TEMP/AuthKey_$KEY_ID.p8"
+          umask 077
+          printf '%s' "$KEY" | python3 -c '
+          import sys, re, base64, textwrap
+          raw = sys.stdin.read().replace("﻿", "")
+          body = re.sub(r"-----(BEGIN|END)[A-Z ]*-----", "", raw)
+          body = re.sub(r"[^A-Za-z0-9+/=]", "", body)
+          base64.b64decode(body, validate=True)
+          sys.stdout.write("-----BEGIN PRIVATE KEY-----\n" + "\n".join(textwrap.wrap(body, 64)) + "\n-----END PRIVATE KEY-----\n")
+          ' > "$KEY_PATH"
+          openssl pkey -in "$KEY_PATH" -noout 2>/dev/null || { echo "::error::API key does not parse"; exit 1; }
+          # Build numbers must exceed the Capacitor builds already uploaded for this bundle ID.
+          BUILD=$((100 + BUILD_NUMBER))
+          xcodebuild archive \
+            -project native-app/TOXCARD.xcodeproj -scheme TOXCARD \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -archivePath "$RUNNER_TEMP/TOXCARD.xcarchive" \
+            DEVELOPMENT_TEAM="$TEAM" \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+            MARKETING_VERSION="$MARKETING_VERSION" \
+            CURRENT_PROJECT_VERSION="$BUILD" \
+            | tee "$RUNNER_TEMP/archive.log" | grep -E '^(\*\*|error:)' || true
+          test -d "$RUNNER_TEMP/TOXCARD.xcarchive" || { tail -80 "$RUNNER_TEMP/archive.log"; exit 1; }
+          echo "BUILD=$BUILD" >> "$GITHUB_ENV"
+
+      - name: Sign and upload to App Store Connect
+        if: github.event_name == 'workflow_dispatch' && inputs.upload
+        env:
+          KEY_ID: ${{ secrets.APPSTORE_API_KEY_ID }}
+          ISSUER: ${{ secrets.APPSTORE_API_ISSUER_ID }}
+          TEAM: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          cat > "$RUNNER_TEMP/ExportOptions.plist" <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+            <key>method</key><string>app-store-connect</string>
+            <key>destination</key><string>upload</string>
+            <key>teamID</key><string>$TEAM</string>
+            <key>signingStyle</key><string>automatic</string>
+            <key>uploadSymbols</key><true/>
+            <key>manageAppVersionAndBuildNumber</key><false/>
+          </dict></plist>
+          EOF
+          xcodebuild -exportArchive \
+            -archivePath "$RUNNER_TEMP/TOXCARD.xcarchive" \
+            -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
+            -exportPath "$RUNNER_TEMP/export" \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath "$RUNNER_TEMP/AuthKey_$KEY_ID.p8" \
+            -authenticationKeyID "$KEY_ID" \
+            -authenticationKeyIssuerID "$ISSUER"
+          echo "Uploaded TOXCARD ${{ inputs.marketing_version }} ($BUILD) — native SwiftUI build. Appears in TestFlight after processing." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Remove API key
+        if: always()
+        run: rm -f "$RUNNER_TEMP"/AuthKey_*.p8
