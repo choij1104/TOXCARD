@@ -1,51 +1,41 @@
 import SwiftUI
 
-enum Palette {
-    static func tier(_ t: String) -> Color {
-        switch t {
-        case "A": return Color(red: 0.13, green: 0.55, blue: 0.42)
-        case "B": return Color(red: 0.16, green: 0.45, blue: 0.70)
-        case "C": return Color(red: 0.62, green: 0.45, blue: 0.10)
-        case "D": return Color(red: 0.70, green: 0.33, blue: 0.10)
-        default:  return Color.gray
-        }
-    }
-    static let pitfall = Color(red: 0.78, green: 0.17, blue: 0.20)
-}
-
 struct RootView: View {
     @EnvironmentObject var router: Router
 
     var body: some View {
         TabView(selection: $router.tab) {
-            NavigationStack(path: $router.toxinPath) {
-                ToxinListView()
-                    .navigationDestination(for: Route.self) { RouteView(route: $0) }
+            NavigationStack(path: $router.homePath) {
+                HomeView().navigationDestination(for: Route.self) { RouteView(route: $0) }
             }
-            .tabItem { Label("Toxins", systemImage: "flask") }
+            .tabItem { Label("Home", systemImage: "house") }
+            .tag(Tab.home)
+
+            NavigationStack(path: $router.toxinPath) {
+                ToxinListView().navigationDestination(for: Route.self) { RouteView(route: $0) }
+            }
+            .tabItem { Label("Toxins", systemImage: "allergens") }
             .tag(Tab.toxins)
 
             NavigationStack(path: $router.signsPath) {
-                SignsView()
-                    .navigationDestination(for: Route.self) { RouteView(route: $0) }
+                SignsView().navigationDestination(for: Route.self) { RouteView(route: $0) }
             }
             .tabItem { Label("Signs", systemImage: "eye") }
             .tag(Tab.signs)
 
             NavigationStack(path: $router.antidotePath) {
-                AgentListView()
-                    .navigationDestination(for: Route.self) { RouteView(route: $0) }
+                AgentListView().navigationDestination(for: Route.self) { RouteView(route: $0) }
             }
-            .tabItem { Label("Antidotes", systemImage: "cross.vial") }
+            .tabItem { Label("Antidotes", systemImage: "syringe") }
             .tag(Tab.antidotes)
 
             NavigationStack(path: $router.savedPath) {
-                SavedView()
-                    .navigationDestination(for: Route.self) { RouteView(route: $0) }
+                SavedView().navigationDestination(for: Route.self) { RouteView(route: $0) }
             }
             .tabItem { Label("Saved", systemImage: "bookmark") }
             .tag(Tab.saved)
         }
+        .tint(Palette.acc)
     }
 }
 
@@ -60,44 +50,43 @@ struct RouteView: View {
     }
 }
 
-/// The tier badge used in every list row: the letter on a coloured tab, "–" for supportive care.
-struct TierBadge: View {
-    let tier: String
-    var body: some View {
-        Text(tier == "N" ? "–" : tier)
-            .font(.system(.subheadline, design: .rounded).weight(.bold))
-            .foregroundStyle(.white)
-            .frame(width: 30, height: 30)
-            .background(Palette.tier(tier), in: RoundedRectangle(cornerRadius: 7, style: .continuous))
-            .accessibilityLabel(tier == "N" ? "Supportive care" : "Tier \(tier)")
-    }
-}
-
+/// A list row in the 1.1 style: index-card tab, name, agent line.
 struct ToxinRow: View {
     @EnvironmentObject var store: Store
     let toxin: Toxin
     var body: some View {
         let p = store.protocolFor(toxin.id)
         HStack(spacing: 12) {
-            TierBadge(tier: p?.tier ?? "N")
-            VStack(alignment: .leading, spacing: 2) {
-                Text(toxin.name).font(.body.weight(.semibold)).foregroundStyle(.primary)
+            TierTab(tier: p?.tier ?? "N")
+            VStack(alignment: .leading, spacing: 1) {
+                Text(toxin.name).font(.system(size: 16.5, weight: .medium)).foregroundStyle(Palette.ink)
                 Text(p?.agentLine ?? toxin.category)
-                    .font(.subheadline).foregroundStyle(.secondary).lineLimit(1)
+                    .font(.system(size: 13.5)).foregroundStyle(Palette.mut).lineLimit(1)
             }
         }
         .padding(.vertical, 2)
     }
 }
 
-struct PoisonCenterButton: View {
+/// The time-critical strip (1.1 design): cards with a red top edge.
+struct UrgentCard: View {
+    let title: String
+    let line: String
     var body: some View {
-        Link(destination: URL(string: "tel://18002221222")!) {
-            Label("Call Poison Control  1-800-222-1222", systemImage: "phone.fill")
-                .font(.subheadline.weight(.semibold))
-                .frame(maxWidth: .infinity, minHeight: 44)
+        VStack(alignment: .leading, spacing: 6) {
+            Label("Time-critical", systemImage: "clock")
+                .font(.system(size: 12, weight: .semibold)).textCase(.uppercase)
+                .foregroundStyle(Palette.sig)
+            Text(title).font(.system(size: 19, weight: .bold)).foregroundStyle(Palette.ink)
+                .lineLimit(2).multilineTextAlignment(.leading)
+            Text(line).font(.system(size: 14)).foregroundStyle(Palette.mut)
+                .lineLimit(2).multilineTextAlignment(.leading)
+            Spacer(minLength: 0)
         }
-        .buttonStyle(.borderedProminent)
-        .tint(Palette.pitfall)
+        .padding(.horizontal, 14).padding(.top, 13).padding(.bottom, 14)
+        .frame(width: 250, height: 128, alignment: .topLeading)
+        .background(Palette.surface)
+        .overlay(alignment: .top) { Rectangle().fill(Palette.sig).frame(height: 4) }
+        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
     }
 }

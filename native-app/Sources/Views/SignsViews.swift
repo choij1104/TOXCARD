@@ -18,7 +18,7 @@ struct SignsView: View {
                 List(store.toxidromes) { tx in
                     NavigationLink(value: Route.toxidrome(tx.id)) {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(tx.name).font(.headline)
+                            Text(tx.name).font(.system(size: 17, weight: .semibold)).foregroundStyle(Palette.ink)
                             if let tell = tx.tell {
                                 Text(tell).font(.subheadline).foregroundStyle(.secondary).lineLimit(2)
                             }
@@ -27,10 +27,12 @@ struct SignsView: View {
                     }
                 }
                 .listStyle(.insetGrouped)
+                .scrollContentBackground(.hidden)
             } else {
                 CompareGrid(toxidromes: store.toxidromes)
             }
         }
+        .background(Palette.ground)
         .navigationTitle("Find by Signs")
     }
 }
@@ -53,7 +55,7 @@ private struct CompareGrid: View {
                                 .frame(width: 170, alignment: .leading)
                                 .padding(8)
                         }
-                        .background(Color.accentColor.opacity(0.12))
+                        .background(Palette.amberSoft)
                     }
                 }
                 ForEach(rows, id: \.0) { row in
@@ -85,7 +87,8 @@ struct ToxidromeDetailView: View {
             List {
                 if let tell = tx.tell {
                     Section("The tell") {
-                        Label(tell, systemImage: "lightbulb").font(.body.weight(.medium))
+                        Text(tell).font(.system(size: 16, weight: .medium))
+                            .listRowBackground(Palette.amberSoft)
                     }
                 }
                 Section("Findings") {
@@ -117,6 +120,8 @@ struct ToxidromeDetailView: View {
                 Section { PoisonCenterButton().listRowInsets(EdgeInsets()).listRowBackground(Color.clear) }
             }
             .listStyle(.insetGrouped)
+            .scrollContentBackground(.hidden)
+            .background(Palette.ground)
             .navigationTitle(tx.name)
         }
     }

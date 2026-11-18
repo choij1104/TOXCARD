@@ -34,6 +34,8 @@ struct SavedView: View {
             }
         }
         .listStyle(.insetGrouped)
+        .scrollContentBackground(.hidden)
+        .background(Palette.ground)
         .navigationTitle("Saved")
         .overlay {
             if store.saved.isEmpty && store.recent.isEmpty {
@@ -56,7 +58,7 @@ struct AboutView: View {
                 Section {
                     Text("TOXCARD is a toxicology reference for trained clinicians: toxin, agent, dose as published, and the pitfall, on one screen.")
                     Text("It is not a substitute for clinical judgment or a regional poison center. In the United States call 1-800-222-1222.")
-                        .foregroundStyle(Palette.pitfall)
+                        .foregroundStyle(Palette.sig)
                     PoisonCenterButton().listRowInsets(EdgeInsets()).listRowBackground(Color.clear)
                 }
                 Section("Dataset") {
@@ -99,8 +101,9 @@ struct NoticeView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             Spacer()
-            Image(systemName: "cross.case.fill").font(.system(size: 52)).foregroundStyle(Palette.pitfall)
-            Text("TOXCARD").font(.largeTitle.bold())
+            (Text("TOX").foregroundStyle(Palette.ink) + Text("CARD").foregroundStyle(Palette.acc))
+                .font(.system(size: 36, weight: .heavy)).tracking(2)
+            ECGLine().stroke(Palette.sig, style: StrokeStyle(lineWidth: 1.6, lineJoin: .round)).frame(height: 24)
             Text("A bedside toxicology reference for trained clinicians.")
                 .font(.title3)
             VStack(alignment: .leading, spacing: 10) {
@@ -114,8 +117,10 @@ struct NoticeView: View {
                 Text("I understand").font(.headline).frame(maxWidth: .infinity, minHeight: 50)
             }
             .buttonStyle(.borderedProminent)
+            .tint(Palette.acc)
         }
         .padding(28)
+        .background(Palette.ground)
         .interactiveDismissDisabled()
     }
 }

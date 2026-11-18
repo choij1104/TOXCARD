@@ -2,7 +2,7 @@ import SwiftUI
 import CoreSpotlight
 import UIKit
 
-enum Tab: Hashable { case toxins, signs, antidotes, saved }
+enum Tab: Hashable { case home, toxins, signs, antidotes, saved }
 
 enum Route: Hashable {
     case toxin(String)
@@ -15,7 +15,8 @@ enum Route: Hashable {
 @MainActor
 final class Router: ObservableObject {
     static let shared = Router()
-    @Published var tab: Tab = .toxins
+    @Published var tab: Tab = .home
+    @Published var homePath: [Route] = []
     @Published var toxinPath: [Route] = []
     @Published var signsPath: [Route] = []
     @Published var antidotePath: [Route] = []
@@ -46,6 +47,7 @@ final class Router: ObservableObject {
             case "signs": tab = .signs; signsPath = []
             case "saved": tab = .saved; savedPath = []
             case "antidotes": tab = .antidotes; antidotePath = []
+            case "home": tab = .home; homePath = []
             default: tab = .toxins; toxinPath = []
             }
         default: break
