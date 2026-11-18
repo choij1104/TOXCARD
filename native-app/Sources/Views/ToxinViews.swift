@@ -131,7 +131,7 @@ struct ToxinCardView: View {
                 .padding(16)
             }
             .background(Palette.ground)
-            .navigationTitle(t.name)
+            .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {

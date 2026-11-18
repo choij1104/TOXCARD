@@ -101,7 +101,7 @@ struct AgentDetailView: View {
                 .padding(16)
             }
             .background(Palette.ground)
-            .navigationTitle(a.name)
+            .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
         } else {
             ContentUnavailableView("Agent not found", systemImage: "questionmark.folder")
