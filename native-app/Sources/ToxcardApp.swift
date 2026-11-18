@@ -109,6 +109,10 @@ struct ToxcardApp: App {
                     Spotlight.indexIfNeeded(store: store)
                     QuickActions.refresh(saved: store.saved)
                     EntryHandoff.consume(into: router)
+                    if let i = ProcessInfo.processInfo.arguments.firstIndex(of: "-route"),
+                       i + 1 < ProcessInfo.processInfo.arguments.count {
+                        router.handle(ProcessInfo.processInfo.arguments[i + 1])
+                    }
                 }
         }
     }

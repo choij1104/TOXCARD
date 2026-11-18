@@ -49,6 +49,41 @@ jobs:
             | tee "$RUNNER_TEMP/build.log" | grep -E '^(\*\*|.*error:)' || true
           grep -q '\*\* BUILD SUCCEEDED \*\*' "$RUNNER_TEMP/build.log" || { grep -E 'error:' "$RUNNER_TEMP/build.log" | head -60; exit 1; }
 
+      - name: Simulator screenshots
+        if: github.event_name == 'push'
+        working-directory: native-app
+        run: |
+          set -x
+          xcodebuild build -project TOXCARD.xcodeproj -scheme TOXCARD \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath "$RUNNER_TEMP/dd" \
+            CODE_SIGNING_ALLOWED=NO -quiet
+          APP=$(find "$RUNNER_TEMP/dd" -name TOXCARD.app -path '*iphonesimulator*' | head -1)
+          DEV=$(xcrun simctl list devices available | grep -E 'iPhone 1[6-9] Pro \(' | head -1 | grep -oE '[0-9A-F-]{36}')
+          [ -n "$DEV" ] || DEV=$(xcrun simctl list devices available | grep -E 'iPhone' | head -1 | grep -oE '[0-9A-F-]{36}')
+          xcrun simctl boot "$DEV" || true
+          xcrun simctl bootstatus "$DEV" -b
+          xcrun simctl install "$DEV" "$APP"
+          xcrun simctl spawn "$DEV" defaults write com.hakoya.toxcard acceptedNotice -bool YES
+          mkdir -p "$RUNNER_TEMP/shots"
+          shot() { xcrun simctl terminate "$DEV" com.hakoya.toxcard || true
+                   xcrun simctl launch "$DEV" com.hakoya.toxcard -route "$2"; sleep 6
+                   xcrun simctl io "$DEV" screenshot "$RUNNER_TEMP/shots/$1.png"; }
+          shot 1-home tab:home
+          shot 2-cyanide toxin:039-cyanide-smoke-inhalation-hcn-nitroprusside-acetonitrile-apri
+          shot 3-acetaminophen toxin:001-acetaminophen-paracetamol
+          shot 4-toxins tab:toxins
+          shot 5-signs tab:signs
+          shot 6-antidote agent:hydroxocobalamin
+          xcrun simctl ui "$DEV" appearance dark
+          shot 7-home-dark tab:home
+          shot 8-card-dark toxin:041-carbon-monoxide
+
+      - uses: actions/upload-artifact@v4
+        if: github.event_name == 'push'
+        with:
+          name: screenshots
+          path: ${{ runner.temp }}/shots
+
       - name: Archive (unsigned)
         if: github.event_name == 'workflow_dispatch' && inputs.upload
         env:
