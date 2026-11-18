@@ -17,6 +17,8 @@ on:
         description: "Archive and upload to TestFlight"
         type: boolean
         default: false
+permissions:
+  contents: write
 concurrency:
   group: ios-native
   cancel-in-progress: true
@@ -78,11 +80,13 @@ jobs:
           shot 7-home-dark tab:home
           shot 8-card-dark toxin:041-carbon-monoxide
 
-      - uses: actions/upload-artifact@v4
+      - name: Publish screenshots to branch ci-shots
         if: github.event_name == 'push'
-        with:
-          name: screenshots
-          path: ${{ runner.temp }}/shots
+        run: |
+          cd "$RUNNER_TEMP/shots"
+          git init -q && git checkout -q -b ci-shots
+          git add . && git -c user.name=ci -c user.email=ci@localhost commit -q -m "shots ${{ github.sha }}"
+          git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-shots
 
       - name: Archive (unsigned)
         if: github.event_name == 'workflow_dispatch' && inputs.upload
